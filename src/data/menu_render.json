@@ -1,0 +1,730 @@
+{
+  "data": {
+    "blocks": [
+      {
+        "id": "block-1",
+        "categories": [
+          {
+            "id": "cat-pollos-brasa",
+            "name": "Pollos a la Brasa",
+            "description": null,
+            "block_id": "block-1",
+            "products": [
+              {
+                "id": "prod-cuarto-casona",
+                "name": "Cuarto Casona",
+                "description": "1/4 de pollo + papas fritas + ensalada + crema",
+                "price": 17,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-medio-casona",
+                "name": "Medio Casona",
+                "description": "1/2 pollo + papas fritas + ensalada + crema",
+                "price": 31,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-clasico-casona",
+                "name": "Clásico Casona",
+                "description": "1 pollo + papas fritas + ensalada + crema",
+                "price": 55,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-clasico-bebida",
+                "name": "Clásico + Bebida",
+                "description": "1 pollo + papas fritas + ensalada + jarra de bebida o Inca Kola 1.5 lt.",
+                "price": 62,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "block-2",
+        "categories": [
+          {
+            "id": "cat-combinaciones",
+            "name": "Combinaciones",
+            "description": null,
+            "block_id": "block-2",
+            "products": [
+              {
+                "id": "prod-salchibrasa",
+                "name": "Salchibrasa",
+                "description": "1/4 de pollo + papas fritas + hot dog ahumado + ensalada",
+                "price": 19,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-a-lo-pobre",
+                "name": "A lo Pobre",
+                "description": "1/4 de pollo + papas + huevo frito + plátano frito + ensalada",
+                "price": 20,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-mostro",
+                "name": "Mostro",
+                "description": "1/4 de pollo + papas + porción de chaufa + ensalada",
+                "price": 19,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-mostrito",
+                "name": "Mostrito",
+                "description": "1/4 de pollo + papas + porción de chaufa + ensalada (a partir de 2)",
+                "price": 13,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "block-3",
+        "categories": [
+          {
+            "id": "cat-broster",
+            "name": "Broster",
+            "description": null,
+            "block_id": "block-3",
+            "products": [
+              {
+                "id": "prod-combo-individual",
+                "name": "Combo Individual",
+                "description": "1 presa + papas + ensalada y cremas",
+                "price": 12,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-combo-duo",
+                "name": "Combo Duo",
+                "description": "2 presas + papas + ensalada + chaufa y cremas",
+                "price": 20,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-salchi-broster",
+                "name": "Salchi-Broster",
+                "description": "1 presa de broster + papas + hot dog + ensalada y cremas",
+                "price": 16,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-broaster-mostro",
+                "name": "Broaster Mostro",
+                "description": "1/2 broster + papas + ensalada + chaufa y cremas",
+                "price": 19,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-broaster-mostrito",
+                "name": "Broaster Mostrito",
+                "description": "1 presa de broster + papas + ensalada + chaufa y cremas",
+                "price": 14,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "block-4",
+        "categories": [
+          {
+            "id": "cat-combos",
+            "name": "Combos Familiares",
+            "description": null,
+            "block_id": "block-4",
+            "products": [
+              {
+                "id": "prod-combo-5",
+                "name": "Combo para 5",
+                "description": "1 pollo y 1/4 + porción de papas fritas + ensalada + Inca Kola 1.5 lt.",
+                "price": 68,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-combo-6",
+                "name": "Combo para 6",
+                "description": "1 pollo y 1/2 + porción de papas + ensalada familiar + Inca Kola 1.5 lt.",
+                "price": 78,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-mostro-familiar",
+                "name": "Mostro Familiar",
+                "description": "1 pollo + arroz chaufa familiar + porción de papas + ensalada + Inca Kola 1.5 lt.",
+                "price": 78,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "block-5",
+        "categories": [
+          {
+            "id": "cat-chifa",
+            "name": "Chifa",
+            "description": null,
+            "block_id": "block-5",
+            "products": [
+              {
+                "id": "prod-arroz-chaufa",
+                "name": "Arroz Chaufa",
+                "description": null,
+                "price": 12,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-aeropuerto",
+                "name": "Aeropuerto",
+                "description": null,
+                "price": 13,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-chaufa-compartido",
+                "name": "Arroz Chaufa Compartido",
+                "description": null,
+                "price": 20,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              }
+            ]
+          }
+        ]
+      },
+       {
+        "id": "block-6",
+        "categories": [
+          {
+            "id": "cat-alitas-salchipapas",
+            "name": "Alitas y Salchipapas",
+            "description": null,
+            "block_id": "block-6",
+            "products": [
+              {
+                "id": "prod-alitas-broster",
+                "name": "Alitas Broster",
+                "description": "Todas acompañadas de papa nativa",
+                "price": null,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-alitas-bufalo",
+                "name": "Alitas Búfalo",
+                "description": "Todas acompañadas de papa nativa",
+                "price": null,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-alitas-maracuya",
+                "name": "Alitas Maracuyá",
+                "description": "Todas acompañadas de papa nativa",
+                "price": null,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-alitas-acevichada",
+                "name": "Alitas Acevichada",
+                "description": "Todas acompañadas de papa nativa",
+                "price": null,
+                "is_recommended": true,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-alitas-bbq",
+                "name": "Alitas BBQ",
+                "description": "Todas acompañadas de papa nativa",
+                "price": null,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-alitas-kola",
+                "name": "Alitas Kola Wing",
+                "description": "Todas acompañadas de papa nativa",
+                "price": null,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-alitas-x6",
+                "name": "Alitas x 6",
+                "description": "Un sabor",
+                "price": 18,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-alitas-x12",
+                "name": "Alitas x 12",
+                "description": "Dos sabores",
+                "price": 33,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-alitas-x18",
+                "name": "Alitas x 18",
+                "description": "Tres sabores",
+                "price": 48,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-salchipapas-clasica",
+                "name": "Salchipapas Clásica",
+                "description": "Porción de papas + Hot Dog ahumado + cremas",
+                "price": 11,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-salchipapas-especial",
+                "name": "Salchipapas Especial",
+                "description": "Porción de papas + Hot Dog ahumado + huevo frito + cremas",
+                "price": 13,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-salchipapas-pobre",
+                "name": "Salchipapas a lo Pobre",
+                "description": "Porción de papas + Hot Dog + plátano + huevo + cremas",
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-salchi-casona",
+                "name": "Salchi-Casona",
+                "description": "Porción de papas + Hot Dog ahumado + huevo frito + plátano frito + cremas",
+                "price": 17,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              }
+            ]
+          }
+        ]
+      },{
+        "id": "block-7",
+        "categories": [
+          {
+            "id": "cat-bebidas-cocteles",
+            "name": "Bebidas y Cocteles",
+            "description": null,
+            "block_id": "block-7",
+            "products": [
+              {
+                "id": "prod-margarita-fresa",
+                "name": "Margarita de Fresa",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-tequila-sunrise",
+                "name": "Tequila Sunrise",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-piscina",
+                "name": "Piscina",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-perfecto-amor",
+                "name": "Perfecto Amor",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-sangria-copa",
+                "name": "Sangría Copa",
+                "description": null,
+                "price": 12,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-sangria-jarra",
+                "name": "Sangría Jarra",
+                "description": null,
+                "price": 35,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-vino-santiago",
+                "name": "Vino Santiago Quebrillo",
+                "description": null,
+                "price": 35,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-daiquiri-durazno",
+                "name": "Daiquiri de Durazno",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-daiquiri-fresa",
+                "name": "Daiquiri de Fresa",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-mojito-ron",
+                "name": "Mojito Clásico (Ron)",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-libre",
+                "name": "Libre",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-pantera-rosa",
+                "name": "Pantera Rosa",
+                "description": null,
+                "price": 15,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+
+              {
+                "id": "prod-limonada-americana",
+                "name": "Limonada Americana",
+                "description": null,
+                "price": 12,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-chicha-morada",
+                "name": "Chicha Morada",
+                "description": null,
+                "price": 14,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-limonada-hawaiana",
+                "name": "Limonada Hawaiana",
+                "description": null,
+                "price": 14,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-limonada-clasica",
+                "name": "Limonada Clásica",
+                "description": null,
+                "price": 14,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-limonada-fresa",
+                "name": "Limonada de Fresa",
+                "description": null,
+                "price": 14,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-maracuya",
+                "name": "Maracuyá",
+                "description": null,
+                "price": 14,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-maracu-pina",
+                "name": "Maracu-Piña",
+                "description": null,
+                "price": 14,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+
+              {
+                "id": "prod-frozen",
+                "name": "Frozen",
+                "description": null,
+                "price": 16,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+
+              {
+                "id": "prod-inca-kola-personal",
+                "name": "Inca Kola Personal",
+                "description": null,
+                "price": 4,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-coca-cola-personal",
+                "name": "Coca Cola Personal",
+                "description": null,
+                "price": 4,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-inca-kola-litro",
+                "name": "Inca Kola 1 Lt.",
+                "description": null,
+                "price": 8,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-coca-cola-litro",
+                "name": "Coca Cola 1.5 Lt.",
+                "description": null,
+                "price": 8,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+
+              {
+                "id": "prod-anis",
+                "name": "Anís",
+                "description": null,
+                "price": 3,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-manzanilla",
+                "name": "Manzanilla",
+                "description": null,
+                "price": 3,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-te-hierba-luisa",
+                "name": "Hierba Luisa",
+                "description": null,
+                "price": 3,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-te-canela-clavo",
+                "name": "Té de Canela y Clavo",
+                "description": null,
+                "price": 3,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-cafe",
+                "name": "Café",
+                "description": null,
+                "price": 3,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-cerveza-corona",
+                "name": "Cerveza Corona",
+                "description": null,
+                "price": 8,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              },
+              {
+                "id": "prod-cerveza-heineken",
+                "name": "Cerveza Heineken",
+                "description": null,
+                "price": 8,
+                "is_recommended": null,
+                "is_hidden": false,
+                "image_url": null,
+                "cloudinary_id": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

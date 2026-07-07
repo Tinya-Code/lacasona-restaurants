@@ -1,0 +1,69 @@
+---
+// ─── NavLinks — Dumb Component ────────────────────────────────────────────────
+// Responsabilidad única: renderizar la lista de enlaces de navegación.
+// Recibe los links como props y no contiene lógica de negocio.
+
+export interface NavLink {
+  label: string;
+  href: string;
+  /** Si el link abre en nueva pestaña */
+  external?: boolean;
+}
+
+interface Props {
+  links: NavLink[];
+  /** Clase extra para el contenedor <nav> */
+  class?: string;
+  /** Orientación del menú */
+  orientation?: "horizontal" | "vertical";
+}
+
+const {
+  links,
+  class: extraClass = "",
+  orientation = "horizontal",
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const containerClass =
+  orientation === "horizontal"
+    ? "flex items-center gap-8"
+    : "flex flex-col gap-2 w-full";
+---
+
+<nav
+  aria-label="Navegación principal"
+  class:list={[containerClass, extraClass]}
+>
+  {
+    links.map(({ label, href, external }) => {
+      const isActive =
+        href === "/"
+          ? currentPath === "/"
+          : currentPath.startsWith(href);
+
+      return (
+        <a
+          href={href}
+          target={external ? "_blank" : undefined}
+          rel={external ? "noopener noreferrer" : undefined}
+          aria-current={isActive ? "page" : undefined}
+          class:list={[
+            "relative font-body text-sm font-medium tracking-wide transition-colors duration-300",
+            "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--color-accent)]",
+            "after:transition-[width] after:duration-300 hover:after:w-full",
+            isActive
+              ? "text-[var(--color-accent)] after:w-full"
+              : "text-white/80 hover:text-white",
+            orientation === "vertical"
+              ? "w-full px-4 py-3 rounded-lg hover:bg-white/10 after:hidden"
+              : "",
+          ]}
+        >
+          {label}
+        </a>
+      );
+    })
+  }
+</nav>

@@ -1,23 +1,152 @@
+---
+import "../css/global.css";
+
+// ─── Configuración SEO por defecto del sitio ────────────────────────────────
+const SITE_CONFIG = {
+	siteName: "La Casona Manchay",
+	siteUrl: "https://lacasonamanchay.com",
+	locale: "es_PE",
+	lang: "es",
+	twitterHandle: "@lacasonamanchay",
+	defaultTitle: "La Casona Manchay | Restaurante & Eventos",
+	defaultDescription:
+		"Descubre La Casona Manchay, un espacio único para celebraciones, eventos corporativos y gastronomía peruana auténtica en Lima.",
+	defaultOgImage: "/og-default.jpg",
+	themeColor: "#7c4a1e",
+};
+
+// ─── Tipos de Props ───────────────────────────────────────────────────────────
+interface Props {
+	/** Título de la página. Se concatena con el nombre del sitio. */
+	title?: string;
+	/** Descripción para motores de búsqueda (máx. 160 caracteres recomendado). */
+	description?: string;
+	/** URL canónica de la página (relativa o absoluta). */
+	canonicalUrl?: string;
+	/** Imagen para Open Graph / redes sociales (URL absoluta o relativa). */
+	ogImage?: string;
+	/** Tipo de contenido Open Graph. */
+	ogType?: "website" | "article" | "restaurant.restaurant";
+	/** Palabras clave para la página. */
+	keywords?: string;
+	/** Si la página NO debe ser indexada por motores de búsqueda. */
+	noIndex?: boolean;
+	/** Datos JSON-LD estructurados adicionales para la página. */
+	structuredData?: Record<string, unknown>;
+	/** Mostrar el header global (default: true). Pasar false en páginas especiales. */
+	showHeader?: boolean;
+}
+
+const {
+	title,
+	description = SITE_CONFIG.defaultDescription,
+	canonicalUrl,
+	ogImage = SITE_CONFIG.defaultOgImage,
+	ogType = "website",
+	keywords,
+	noIndex = false,
+	structuredData,
+	showHeader = true,
+} = Astro.props;
+
+// ─── Valores computados ───────────────────────────────────────────────────────
+const pageTitle = title
+	? `${title} | ${SITE_CONFIG.siteName}`
+	: SITE_CONFIG.defaultTitle;
+
+const canonical = canonicalUrl
+	? new URL(canonicalUrl, SITE_CONFIG.siteUrl).href
+	: new URL(Astro.url.pathname, SITE_CONFIG.siteUrl).href;
+
+const ogImageUrl = ogImage.startsWith("http")
+	? ogImage
+	: new URL(ogImage, SITE_CONFIG.siteUrl).href;
+
+// ─── JSON-LD: Schema base del restaurante ────────────────────────────────────
+const defaultStructuredData = {
+	"@context": "https://schema.org",
+	"@type": "Restaurant",
+	name: SITE_CONFIG.siteName,
+	url: SITE_CONFIG.siteUrl,
+	image: ogImageUrl,
+	description: SITE_CONFIG.defaultDescription,
+	address: {
+		"@type": "PostalAddress",
+		streetAddress: "Manchay",
+		addressLocality: "Lima",
+		addressCountry: "PE",
+	},
+	servesCuisine: "Peruana",
+	priceRange: "$$",
+};
+
+const finalStructuredData = structuredData ?? defaultStructuredData;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={SITE_CONFIG.lang}>
 	<head>
+		<!-- ── Codificación y viewport ─────────────────────────────────── -->
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- ── Generador ──────────────────────────────────────────────── -->
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+
+		<!-- ── Título y descripción ───────────────────────────────────── -->
+		<title>{pageTitle}</title>
+		<meta name="description" content={description} />
+		{keywords && <meta name="keywords" content={keywords} />}
+
+		<!-- ── Canonical ──────────────────────────────────────────────── -->
+		<link rel="canonical" href={canonical} />
+
+		<!-- ── Robots ─────────────────────────────────────────────────── -->
+		{
+			noIndex ? (
+				<meta name="robots" content="noindex, nofollow" />
+			) : (
+				<meta
+					name="robots"
+					content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+				/>
+			)
+		}
+
+		<!-- ── Open Graph ─────────────────────────────────────────────── -->
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:alt" content={pageTitle} />
+		<meta property="og:site_name" content={SITE_CONFIG.siteName} />
+		<meta property="og:locale" content={SITE_CONFIG.locale} />
+
+		<!-- ── Twitter Card ───────────────────────────────────────────── -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content={SITE_CONFIG.twitterHandle} />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
+
+		<!-- ── Tema y favicons ────────────────────────────────────────── -->
+		<meta name="theme-color" content={SITE_CONFIG.themeColor} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+
+		<!-- ── JSON-LD Structured Data ────────────────────────────────── -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(finalStructuredData, null, 2)}
+		/>
 	</head>
-	<body>
+	<body class="font-body">
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

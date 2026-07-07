@@ -1,0 +1,190 @@
+---
+import NavLogo from "../components/header/NavLogo.astro";
+import NavLinks from "../components/header/NavLinks.astro";
+import MobileMenuButton from "../components/header/MobileMenuButton.astro";
+import MobileMenu from "../components/header/MobileMenu.astro";
+import type { NavLink } from "../components/header/NavLinks.astro";
+
+// ─── Objeto de configuración del Header ──────────────────────────────────────
+const HEADER_CONFIG = {
+  /** Logo y marca */
+  logo: {
+    name: "La Casona",
+    tagline: "Manchay · Lima",
+    href: "/",
+  },
+
+  /** Links de navegación principal */
+  links: [
+    { label: "Inicio", href: "/" },
+    { label: "Menú", href: "/menu-la-casona-manchay" },
+    { label: "El Restaurante", href: "/info-restaurante" },
+  ] satisfies NavLink[],
+
+  /** Call To Action principal */
+  cta: {
+    label: "Reservar mesa",
+    href: "/contacto",
+    variant: "primary" as const,
+  },
+
+  /** Comportamiento de scroll */
+  scroll: {
+    /** px antes de activar el modo "scrolled" (shrink + sombra) */
+    shrinkAt: 60,
+    /** px antes de ocultar el header al bajar */
+    hideAt: 200,
+  },
+
+  /** Comportamiento visual */
+  appearance: {
+    /** Altura inicial del header en px */
+    heightDefault: 80,
+    /** Altura reducida al hacer scroll */
+    heightScrolled: 64,
+    /** El header es transparente al inicio (hero overlay) */
+    transparentOnTop: true,
+  },
+} as const;
+
+// ─── Props (para personalización por instancia) ───────────────────────────────
+interface Props {
+  /** Sobrescribir links si una página lo necesita */
+  links?: NavLink[];
+  /** Mostrar/ocultar el CTA */
+  showCta?: boolean;
+  /** Clase extra para el <header> */
+  class?: string;
+}
+
+const {
+  links = HEADER_CONFIG.links,
+  class: extraClass = "",
+} = Astro.props;
+
+const MOBILE_PANEL_ID = "mobile-panel";
+---
+
+<!-- ─── Header wrapper ─────────────────────────────────────────────────────── -->
+<header
+  id="site-header"
+  class:list={[
+    "fixed top-1   z-50 w-full",
+    "transition-all duration-300 ease-in-out",
+    extraClass,
+  ]}
+  style={`height: ${HEADER_CONFIG.appearance.heightDefault}px`}
+>
+  <!-- Fondo con glassmorphism (visible al hacer scroll) -->
+  <div
+    id="header-backdrop"
+    class="absolute inset-0 bg-[var(--color-secondary)]/0 backdrop-blur-0 border-b border-white/0
+           transition-all duration-300"
+  >
+  </div>
+
+  <!-- Contenido del header -->
+  <div
+    class="relative mx-2 bg-secondary h-full max-w-7xl px-4 sm:px-6 lg:px-8
+           flex items-center justify-between"
+  >
+    <!-- LOGO — Dumb Component -->
+    <NavLogo
+      name={HEADER_CONFIG.logo.name}
+      tagline={HEADER_CONFIG.logo.tagline}
+      href={HEADER_CONFIG.logo.href}
+    />
+
+    <!-- NAVEGACIÓN desktop — Dumb Component -->
+    <NavLinks links={links} orientation="horizontal" class="hidden lg:flex" />
+
+    <!-- BOTÓN HAMBURGUESA móvil — Dumb Component -->
+    <MobileMenuButton controls={MOBILE_PANEL_ID} />
+  </div>
+</header>
+
+<!-- MENÚ MÓVIL — Dumb Component (fuera del <header> para el z-index) -->
+<MobileMenu id={MOBILE_PANEL_ID} links={links} cta={HEADER_CONFIG.cta} />
+
+<!-- ─── Comportamiento de scroll ──────────────────────────────────────────── -->
+<script
+  define:vars={{
+    shrinkAt: HEADER_CONFIG.scroll.shrinkAt,
+    hideAt: HEADER_CONFIG.scroll.hideAt,
+    heightDefault: HEADER_CONFIG.appearance.heightDefault,
+    heightScrolled: HEADER_CONFIG.appearance.heightScrolled,
+    transparentOnTop: HEADER_CONFIG.appearance.transparentOnTop,
+  }}
+>
+  const header = document.getElementById("site-header");
+  const backdrop = document.getElementById("header-backdrop");
+  const accent = document.getElementById("header-accent");
+
+  if (!header || !backdrop || !accent)
+    throw new Error("Header elements not found");
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateHeader() {
+    const scrollY = window.scrollY;
+    const scrollingDown = scrollY > lastScrollY;
+
+    // ── Shrink + glassmorphism ────────────────────────────────────────────────
+    if (scrollY > shrinkAt) {
+      header.style.height = `${heightScrolled}px`;
+      backdrop.classList.remove(
+        "bg-[var(--color-secondary)]/0",
+        "backdrop-blur-0",
+        "border-white/0",
+      );
+      backdrop.classList.add(
+        "bg-[var(--color-secondary)]/90",
+        "backdrop-blur-xl",
+        "border-white/10",
+      );
+      accent.classList.remove("scale-x-0");
+    } else {
+      header.style.height = `${heightDefault}px`;
+      backdrop.classList.add(
+        "bg-[var(--color-secondary)]/0",
+        "backdrop-blur-0",
+        "border-white/0",
+      );
+      backdrop.classList.remove(
+        "bg-[var(--color-secondary)]/90",
+        "backdrop-blur-xl",
+        "border-white/10",
+      );
+      accent.classList.add("scale-x-0");
+    }
+
+    // ── Hide/Show al hacer scroll ─────────────────────────────────────────────
+    if (scrollY > hideAt) {
+      if (scrollingDown) {
+        header.classList.add("-translate-y-full");
+      } else {
+        header.classList.remove("-translate-y-full");
+      }
+    } else {
+      header.classList.remove("-translate-y-full");
+    }
+
+    lastScrollY = scrollY <= 0 ? 0 : scrollY;
+    ticking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+
+  // Ejecutar al cargar para páginas con scroll ya activo
+  updateHeader();
+</script>

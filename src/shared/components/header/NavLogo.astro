@@ -1,0 +1,41 @@
+---
+// ─── NavLogo — Dumb Component ─────────────────────────────────────────────────
+// Responsabilidad única: renderizar el logo del sitio.
+// No tiene lógica propia; recibe todo vía props.
+
+interface Props {
+  /** Texto principal del logo */
+  name: string;
+  /** Subtext o tagline debajo del nombre */
+  tagline?: string;
+  /** Ruta href del logo (vuelve al inicio) */
+  href: string;
+  /** Fuente CSS del nombre (opcional, usa la fuente display por defecto) */
+  fontClass?: string;
+}
+
+const { name, tagline, href, fontClass = "font-display" } = Astro.props;
+---
+
+<a
+  href={href}
+  aria-label={`Ir al inicio — ${name}`}
+  class="group flex flex-col leading-none select-none"
+>
+  <span
+    class:list={[
+      fontClass,
+      "text-2xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-[var(--color-accent)]",
+    ]}
+  >
+    {name}
+  </span>
+
+  {
+    tagline && (
+      <span class="text-[10px] font-body uppercase tracking-[0.25em] text-white/50 mt-0.5 transition-colors duration-300 group-hover:text-[var(--color-accent-muted)]">
+        {tagline}
+      </span>
+    )
+  }
+</a>

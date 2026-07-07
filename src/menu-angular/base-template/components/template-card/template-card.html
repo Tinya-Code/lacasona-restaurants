@@ -1,0 +1,120 @@
+@if (!hasPriceRange()) {
+<!-- DISEÑO 1: Producto Estándar (Estilo Lista / Minimalista) -->
+@if (product().image_url) {
+
+<div
+  (click)="productClick.emit(product())"
+  class="group relative py-6 px-4 h-full md:px-6 transition-all duration-300 cursor-pointer hover:bg-secondary/5 flex flex-col items-start gap-6"
+>
+  <div class="flex flex-col items-start gap-4 h-full w-full">
+    <!-- Contenido Izquierdo (Info) -->
+
+    <!-- Contenido Derecho (Info) -->
+    <div class="flex flex-col space-y-2 p-4 w-full">
+      <h3
+        class="text-4xl text-center border-4 border-accent font-display text-primary px-2 tracking-tight group-hover:text-accent transition-colors"
+      >
+        {{ product().name }}
+      </h3>
+      <p class="text-center text-primary/80 w-full line-clamp-2">
+        {{ product().description }}
+      </p>
+    </div>
+
+    <div
+      class="relative flex flex-col w-full justify-center items-center h-2/3 border-primary/50"
+    >
+      <div class="flex gap-4 relative items-center justify-center h-1">
+        <p
+          class="flex w-auto mx-auto border-2 border-white ring-1 ring-red-primary rounded-full px-4 py-2 bg-primary items-center gap-4"
+        >
+          <span
+            class="text-3xl md:text-2xl font-display text-white tracking-tighter"
+          >
+            {{ startingPrice() | precio }}
+          </span>
+          @if (product().qty_label) {
+          <span
+            class="text-[10px] font-bold text-secondary/40 uppercase tracking-widest"
+            >{{ product().qty_label }}</span
+          >
+          }
+        </p>
+        @if (canOrder()) {
+        <app-add-button
+          text=""
+          (clicked)="onAddClick($event)"
+          iconSize="h-8 w-8 md:w-6 md:h-6"
+          class="transform absolute -right-14 md:-right-10 group-hover:scale-110 transition-transform"
+        ></app-add-button>
+        }
+      </div>
+      <img
+        [src]="product().image_url"
+        class="w-full h-full object-cover drop-shadow-xl drop-shadow-black transform group-hover:scale-110 transition-transform duration-500"
+        alt="{{ product().name }}"
+      />
+      @if (product().is_recommended) {
+      <svg
+        lucideStar
+        class="w-8 h-8 absolute drop-shadow-xs drop-shadow-amber-600 bottom-2 left-2 text-accent fill-accent"
+      ></svg>
+      }
+    </div>
+  </div>
+</div>
+} @else {
+<!-- Layout 1 sin imagen -->
+<div
+  (click)="productClick.emit(product())"
+  class="group relative py-6 px-4 md:px-6 transition-all duration-300 cursor-pointer hover:bg-secondary/5 flex items-start gap-6"
+>
+  <div class="grid grid-cols-4 items-center space-y-2 w-full">
+    <div class="flex flex-col col-span-3 items-start justify-start gap-2">
+      <h3
+        class="text-3xl flex gap-4 font-display text-primarytracking-tight group-hover:text-accent transition-colors"
+      >
+        {{ product().name }} @if (product().is_recommended) {
+        <svg
+          lucideStar
+          class="w-8 h-8 drop-shadow-xs drop-shadow-amber-600 text-accent fill-accent"
+        ></svg>
+        }
+      </h3>
+      <p
+        class="flex justify-start w-auto max-w-60 rounded-full px-4 py-2 bg-primary border-2 border-white ring-1 ring-primary items-center gap-4"
+      >
+        <span class="text-2xl font-display text-white tracking-tighter">
+          {{ startingPrice() | precio }}
+        </span>
+        @if (product().qty_label) {
+        <span
+          class="text-[10px] font-bold text-secondary/40 uppercase tracking-widest"
+          >{{ product().qty_label }}</span
+        >
+        }
+      </p>
+    </div>
+    <div class="flex items-start h-full justify-end">
+      @if (canOrder()) {
+      <app-add-button
+        text=""
+        (clicked)="onAddClick($event)"
+        iconSize="h-10 w-10 md:w-6 md:h-6"
+        class="transform group-hover:scale-110 pt-2 transition-transform"
+      ></app-add-button>
+      }
+    </div>
+  </div>
+</div>
+
+} } @else {
+<!-- DISEÑO 2: Producto con Rangos de Precio (Estilo Card Prominente) -->
+<app-price-range-card
+  [product]="product()"
+  [startingPrice]="startingPrice()"
+  [canOrder]="canOrder()"
+  (productClick)="productClick.emit($event)"
+  (addToCart)="addToCart.emit($event)"
+/>
+}

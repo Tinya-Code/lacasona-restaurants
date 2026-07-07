@@ -12,6 +12,27 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.0.6"
+    "@analogjs/astro-angular": "^2.6.2",
+    "@angular/common": "^22.0.5",
+    "@angular/compiler": "^22.0.5",
+    "@angular/core": "^22.0.5",
+    "@angular/forms": "^22.0.5",
+    "@angular/platform-browser": "^22.0.5",
+    "@angular/platform-server": "^22.0.5",
+    "@angular/router": "^22.0.5",
+    "@lucide/angular": "^1.23.0",
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.6",
+    "rxjs": "^7.8.2",
+    "tailwindcss": "^4.3.2",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@angular/build": "^22.0.5",
+    "@angular/compiler-cli": "^22.0.5",
+    "@angular/language-service": "^22.0.5",
+    "@astrojs/sitemap": "^3.7.3",
+    "@iconify-json/lucide": "^1.2.116",
+    "astro-icon": "^1.1.5"
   }
 }

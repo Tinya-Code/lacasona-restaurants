@@ -1,0 +1,35 @@
+@import url('./fonts.css');
+@import "tailwindcss";
+
+
+@theme {
+  /* Tipografías */
+  --font-display: 'BespokeSerif-Extrabold', sans-serif;
+  --font-body: 'Switzer-Regular', sans-serif;
+  /* Colores base */
+  --color-primary: #DC2426; /* Rojo vibrante, moderno */
+  --color-secondary: #823D15; /* Negro Zinc 950, premium */
+
+  /* Complementario */
+  --color-background: #fafafa; /* Blanco suave para balance */
+  --color-surface: #f4f4f5; /* Gris Zinc 100 para secciones */
+
+  /* Acentos */
+  --color-accent: #f59e0b; /* Ámbar/Dorado, toque de elegancia */
+  --color-accent-muted: #fbbf24; /* Ámbar suave para detalles */
+
+  /* Texto */
+  --color-primary-text: #ffffff; /* Texto sobre fondos oscuros */
+  --color-secondary-text: #0a0a0a; /* Texto sobre fondos claros */
+  --color-text-accent: #dc2626; /* Destacar títulos o precios */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}

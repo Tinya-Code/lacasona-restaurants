@@ -1,0 +1,14 @@
+---
+import { Menu as AppMenu } from "../menu-angular/page/menu/menu";
+import LayoutAstroComponent from "../layouts/Layout.astro";
+---
+
+<LayoutAstroComponent
+    title="Menú La Casona Manchay"
+    description="Explora nuestro delicioso menú con opciones para todos los gustos. Comida peruana auténtica y fresca."
+    keywords="menú, carta, comida peruana, restaurantes Lima, gastronomía"
+    ogType="restaurant.restaurant"
+    canonicalUrl="/menu-la-casona-manchay"
+>
+    <AppMenu client:visible />
+</LayoutAstroComponent>

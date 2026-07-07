@@ -1,11 +1,15 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import LayoutAstroComponent from "../layouts/Layout.astro";
+import HeaderAstroComponent from "../shared/sections/Header.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<LayoutAstroComponent
+    title="La Casona Manchay"
+    description="Disfruta de los mejores platillos en La Casona Manchay. Tradición y sabor en cada bocado."
+    keywords="La Casona Manchay, comida peruana, restaurantes Lima, gastronomía, eventos"
+    ogType="restaurant.restaurant"
+    canonicalUrl="/"
+    ogImage="/og-image.jpg"
+>
+    <HeaderAstroComponent />
+</LayoutAstroComponent>
