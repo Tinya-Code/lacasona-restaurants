@@ -28,7 +28,7 @@ const currentPath = Astro.url.pathname;
 
 const containerClass =
   orientation === "horizontal"
-    ? "flex items-center gap-8"
+    ? "flex items-center gap-8 "
     : "flex flex-col gap-2 w-full";
 ---
 
@@ -50,7 +50,7 @@ const containerClass =
           rel={external ? "noopener noreferrer" : undefined}
           aria-current={isActive ? "page" : undefined}
           class:list={[
-            "relative font-body text-sm font-medium tracking-wide transition-colors duration-300",
+            "relative font-display text-sm font-medium tracking-wide transition-colors duration-300",
             "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--color-accent)]",
             "after:transition-[width] after:duration-300 hover:after:w-full",
             isActive

@@ -51,7 +51,7 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
     <app-template-header></app-template-header>
 
     <app-layout-scale>
-      <div class=" relative mx-2 bg-background ">
+      <div class=" relative mx-2 bg-secondary my-6 ">
         @if (hasBlocks() || hasCombos() || hasPromotions()) {
           <div class=" h-full w-auto mx-2 py-12">
             <app-block-promotions

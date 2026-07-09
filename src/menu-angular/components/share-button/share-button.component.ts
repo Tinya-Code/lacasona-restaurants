@@ -12,7 +12,7 @@ import { LucideShare2 } from "@lucide/angular";
       title="Compartir este menú"
     >
       <svg lucideShare2
-        class="w-4 h-4 group-hover:scale-110 transition-transform"
+        class="w-6 h-6 group-hover:scale-110 transition-transform"
       ></svg>
       <span class="text-lg uppercase tracking-widest font-display select-none">Compartir</span>
     </button>

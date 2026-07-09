@@ -8,96 +8,101 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 import { ShareButtonComponent } from "../../../components/share-button/share-button.component";
 import { RestaurantService } from "../../../core/services/restaurant.service";
-import { LucideMapPin, LucideMap, LucideCopy, LucideUtensils, LucideImages } from "@lucide/angular";
+import {
+  LucideMapPin,
+  LucideMap,
+  LucideCopy,
+  LucideUtensils,
+  LucideImages,
+} from "@lucide/angular";
 
 @Component({
   selector: "app-template-header",
   standalone: true,
-  imports: [ShareButtonComponent, LucideMapPin, LucideCopy, LucideMap, LucideUtensils, LucideImages],
+  imports: [
+    ShareButtonComponent,
+    LucideMapPin,
+    LucideCopy,
+    LucideMap,
+    LucideImages,
+  ],
   template: `
     <header
-      class="relative font-body bg-secondary border-b-8 border-primary px-6 pt-12 pb-16 mb-12 rounded-b-[100px] overflow-hidden"
+      class="relative font-body bg-secondary border-b-8 border-primary px-6 py-12 mb-12 rounded-b-[100px] overflow-hidden"
     >
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 relative z-10">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 items-center justify-center space-y-8 relative z-10"
+      >
         <!-- Logo Section -->
-        <a routerLink="/" class="relative group cursor-pointer">
-          <div
-            class="absolute inset-0 bg-primary blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"
-          ></div>
-          <div
-            class="w-32 h-32 bg-gradient-to-br from-primary to-primary/80 rounded-3xl flex items-center justify-center shadow-[0_20px_50px_rgba(220,38,38,0.3)] transform -rotate-6 group-hover:rotate-0 transition-all duration-700 ease-out"
-          >
-            <svg lucideUtensils class="w-16 h-16 text-white"></svg>
-          </div>
+        <a routerLink="/" class="relative group col-span-3  cursor-pointer ">
+          <img
+            src="/logo-borde-lacasona.svg"
+            alt="Logo"
+            class="w-full max-h-64 h-auto "
+          />
         </a>
 
         <!-- Info Section -->
-        <div class="text-center md:text-left flex-1 space-y-4">
-          <h1 class="text-6xl md:text-8xl font-display text-white leading-none tracking-tighter">
-            {{ restaurantName() }}<span class="text-primary">.</span>
-          </h1>
-
-          <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+        <div class="text-center  md:text-left gap-4 col-span-2 items-center justify-center flex flex-col space-y-4">
+          <div
+            class="flex flex-wrap items-center justify-center md:justify-start "
+          >
             <div
-              class="flex items-center gap-2 text-primary-text/80 bg-primary/10 px-4 py-2 rounded-xl border border-primary/20"
+              class="group flex items-center gap-3  px-3 py-2 rounded-full border-2 border-primary transition-colors duration-300"
             >
-              <svg lucideMapPin class="w-4 h-4 text-primary"></svg>
-              <span class="text-xs font-bold uppercase tracking-wider mr-2">{{ address() }}</span>
-              
-              <div class="flex items-center gap-3 border-l border-primary/20 pl-4 py-1">
-             
-              <button
+              <!-- Badge del pin -->
+
+                <svg lucideMapPin class="w-6 h-6 text-primary-text"></svg>
+       
+
+              <!-- Dirección -->
+              <span
+                class="text-lg font-semibold text-primary-text/90 tracking-tight max-w-[220px] truncate"
+              >
+                {{ address() }}
+              </span>
+
+              <!-- Acciones -->
+              <div
+                class="flex items-center gap-1 border-l border-primary/20 pl-3 ml-1"
+              >
+                <button
                   (click)="copyAddress()"
                   title="Copiar dirección"
-                  class="hover:text-primary transition-colors hover:scale-110"
+                  class="flex items-center justify-center w-8 h-8 rounded-full text-primary-text/60 hover:text-primary hover:bg-primary/10 transition-all duration-200 active:scale-90"
                 >
-                  <svg lucideCopy  class="w-4 h-4"></svg>
+                  <svg lucideCopy class="w-6 h-6"></svg>
                 </button>
                 <button
                   (click)="openMaps()"
                   title="Ver en Google Maps"
-                  class="hover:text-primary transition-colors hover:scale-110"
+                  class="flex items-center justify-center w-8 h-8 rounded-full text-primary-text/60 hover:text-primary hover:bg-primary/10 transition-all duration-200 active:scale-90"
                 >
-                  <svg lucideMap class="w-4 h-4"></svg>
+                  <svg lucideMap class="w-6 h-6"></svg>
                 </button>
               </div>
             </div>
           </div>
-        </div>
+          <!-- Action Section -->
+          <div class="flex md:flex-col lg:flex-row justify-center items-center gap-4">
+            <!-- Gallery Button -->
 
-        <!-- Action Section -->
-        <div class="flex flex-row md:flex-col items-start gap-4">
-          <!-- Gallery Button -->
-           <a
-            routerLink="/menu"
-            routerLinkActive="hidden"
-            class="group flex rounded-sm hover:border-transparent border-2 gap-2 px-4 py-2 border-primary/80 hover:bg-primary items-center "
-          >
-            <svg lucideUtensils
-              class="w-4 h-4 text-white group-hover:scale-110 transition-transform"
-            ></svg>
-
-            <span
-              class="text-lg text-white uppercase tracking-widest font-display transition-colors"
-              >Menu</span
+            <a
+              routerLink="/gallery"
+              class="group flex rounded-full hover:border-transparent border-2  gap-2 px-4 py-2 border-primary/80 hover:bg-primary items-center "
             >
-          </a>
-          <a
-            routerLink="/gallery"
-            class="group flex rounded-sm hover:border-transparent border-2 gap-2 px-4 py-2 border-primary/80 hover:bg-primary items-center "
-          >
-            <svg lucideImages
-              class="w-4 h-4 text-white group-hover:scale-110 transition-transform"
-            ></svg>
+              <svg
+                lucideImages
+                class="w-6 h-6 text-white group-hover:scale-110 transition-transform"
+              ></svg>
 
-            <span
-              class="text-lg text-white uppercase tracking-widest font-display transition-colors"
-              >Galería</span
-            >
-          </a>
+              <span
+                class="text-lg text-white uppercase tracking-widest font-display transition-colors"
+                >Galería</span
+              >
+            </a>
+            <!-- Share Button -->
 
-          <!-- Share Button -->
-          <div class="flex flex-col items-center gap-2">
             <app-share-button />
           </div>
         </div>

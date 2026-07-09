@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^22.0.5",
     "@angular/platform-server": "^22.0.5",
     "@angular/router": "^22.0.5",
+    "@iconify-json/fa6-brands": "^1.2.6",
+    "@iconify-json/simple-icons": "^1.2.89",
     "@lucide/angular": "^1.23.0",
     "@tailwindcss/vite": "^4.3.2",
     "astro": "^7.0.6",

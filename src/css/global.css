@@ -7,12 +7,12 @@
   --font-display: 'BespokeSerif-Extrabold', sans-serif;
   --font-body: 'Switzer-Regular', sans-serif;
   /* Colores base */
-  --color-primary: #DC2426; /* Rojo vibrante, moderno */
-  --color-secondary: #823D15; /* Negro Zinc 950, premium */
+  --color-primary: #DD2333; /* Rojo vibrante, moderno #823d15 */
+  --color-secondary: #1a1007 ; /* Negro Zinc 950, premium */
 
   /* Complementario */
-  --color-background: #fafafa; /* Blanco suave para balance */
-  --color-surface: #f4f4f5; /* Gris Zinc 100 para secciones */
+  --color-background: #ffffff; /* Blanco suave para balance */
+  --color-surface: #040404; /* Gris Zinc 100 para secciones */
 
   /* Acentos */
   --color-accent: #f59e0b; /* Ámbar/Dorado, toque de elegancia */
@@ -20,7 +20,7 @@
 
   /* Texto */
   --color-primary-text: #ffffff; /* Texto sobre fondos oscuros */
-  --color-secondary-text: #0a0a0a; /* Texto sobre fondos claros */
+  --color-secondary-text: #040404; /* Texto sobre fondos claros */
   --color-text-accent: #dc2626; /* Destacar títulos o precios */
 }
 
