@@ -2,12 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, computed } from '@angular/c
 import { TimeFormatPipe } from '../../../core/pipes/time-format.pipe';
 import { RestaurantService } from '../../../core/services/restaurant.service';
 import { BusinessHoursService } from '../../../core/services/business-hours.service';
-import { LucideUtensils, LucideArrowUpRight   } from "@lucide/angular";
-
+import { LucideArrowUpRight, LucidePhone } from "@lucide/angular";
 @Component({
   selector: 'app-template-footer',
   standalone: true,
-  imports: [ TimeFormatPipe, LucideUtensils, LucideArrowUpRight],
+  imports: [TimeFormatPipe, LucideArrowUpRight, LucidePhone],
   templateUrl: './footer.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

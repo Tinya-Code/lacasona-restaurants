@@ -1,6 +1,8 @@
 ---
 import LayoutAstroComponent from "../layouts/Layout.astro";
 import HeaderAstroComponent from "../shared/sections/Header.astro";
+import { TemplateFooter } from "../menu-angular/base-template/components/footer/footer";
+import { WhatsAppButton } from "../menu-angular/components/whatsapp-button/whatsapp-button.component";
 ---
 
 <LayoutAstroComponent
@@ -21,4 +23,6 @@ import HeaderAstroComponent from "../shared/sections/Header.astro";
         <h1>La Casona Manchay</h1>
         <p>Disfruta de los mejores platillos en La Casona Manchay. Tradición y sabor en cada bocado.</p>
     </div>
+    <TemplateFooter client:visible/>
+    <WhatsAppButton client:visible/>
 </LayoutAstroComponent>
