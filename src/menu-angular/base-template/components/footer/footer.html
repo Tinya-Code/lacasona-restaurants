@@ -12,11 +12,10 @@
       <div
         class="space-y-8 flex flex-col items-center text-center md:text-left"
       >
-        <div class="flex flex-col items-center md:items-start">
-          <span
-            class="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-6 block"
-            >Contacto & Horarios</span
-          >
+        <div class="flex flex-col items-center justify-center">
+          <h4 class="text-xl font-display text-center text-primary block">
+            Contacto & Horarios
+          </h4>
           <a
             [href]="'tel:' + restaurantPhone()"
             class="group inline-flex items-center gap-4 text-3xl font-display hover:text-primary transition-colors duration-300"
@@ -27,8 +26,8 @@
         </div>
 
         @if (todayHours(); as schedule) {
-        <div class="flex flex-col items-start">
-          <p class="text-xs text-white/40 uppercase tracking-widest mb-1">
+        <div class="flex flex-col items-center justify-center space-y-2">
+          <p class="text-xs text-white/40  tracking-widest mb-1">
             Horario de Hoy
           </p>
           <p class="text-lg font-bold text-accent">
@@ -42,18 +41,15 @@
       <div
         class="flex flex-col items-center text-center space-y-6 order-first md:order-none"
       >
-        <div class="relative">
-          <div class="absolute inset-0 bg-primary blur-2xl opacity-20"></div>
-          <div
-            class="w-24 h-24 bg-gradient-to-tr from-primary to-primary/80 rounded-[2rem] flex items-center justify-center shadow-2xl transform hover:rotate-12 transition-transform duration-500"
-          >
-            <svg lucideUtensils class="w-12 h-12 text-white"></svg>
-          </div>
-        </div>
-        <h2 class="text-5xl font-display tracking-tighter text-white">
+        <img
+          src="/logo-borde-lacasona.svg"
+          [alt]="restaurantName()"
+          class="w-64 h-full object-contain"
+        />
+        <h2 class="text-5xl hidden font-display tracking-tighter text-white">
           {{ restaurantName() }}<span class="text-primary">.</span>
         </h2>
-        <p class="text-sm text-white/40 italic max-w-xs leading-relaxed">
+        <p class="text-white/80 font-body max-w-xs leading-relaxed">
           {{ restaurantDescription() }}
         </p>
       </div>
@@ -62,56 +58,39 @@
       <div
         class="space-y-8 flex flex-col items-center text-center md:text-right"
       >
-        <div>
-          <span
-            class="text-[10px] font-black uppercase tracking-[0.4em] text-primary mb-6 block"
-            >Siguenos</span
-          >
+        <div class="flex flex-col justify-center space-y-4 items-center">
+          <h4 class="text-xl font-display text-primary block">Siguenos</h4>
           <div class="flex items-center justify-center md:justify-end gap-5">
-            @if (socialMediaSafe(); as sm) { @if (sm.facebook) {
+            @if (socialMediaSafe(); as sm) {
+               @if (sm.facebook) {
             <a
               [href]="sm.facebook"
               target="_blank"
               class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group hover:bg-primary hover:border-primary transition-all duration-300"
             >
-              <svg
-                lucideFacebook
-                class="w-6 h-6 text-white/60 group-hover:text-white group-hover:scale-110 transition-all"
-              ></svg>
+              <span class="icon-[fa6-brands--facebook] w-6 h-6"></span>
             </a>
-            } @if (sm.instagram) {
+            } 
+            @if (sm.instagram) {
             <a
               [href]="sm.instagram"
               target="_blank"
               class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group hover:bg-primary hover:border-primary transition-all duration-300"
             >
-              <svg
-                lucideInstagram
-                class="w-6 h-6 text-white/60 group-hover:text-white group-hover:scale-110 transition-all"
-              ></svg>
+              <span class="icon-[fa6-brands--instagram] w-6 h-6"></span>
             </a>
-            } }
+            } 
+          @if(sm.tiktok) {
+            <a
+              [href]="sm.tiktok"
+              target="_blank"
+              class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group hover:bg-primary hover:border-primary transition-all duration-300"
+            >
+            <span class="icon-[simple-icons--tiktok] w-6 h-6"></span>
+            </a>
+          }}
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Bottom Section: Copyright -->
-    <div
-      class="pt-12 flex flex-col md:flex-row items-center justify-between gap-6 opacity-30"
-    >
-      <p class="text-[9px] font-bold uppercase tracking-[0.5em] text-white">
-        &copy; 2026 {{ restaurantName() }}. Todos los derechos reservados.
-      </p>
-      <div class="flex items-center gap-6">
-        <span
-          class="text-[9px] font-bold uppercase tracking-widest cursor-pointer hover:text-primary transition-colors"
-          >Privacidad</span
-        >
-        <span
-          class="text-[9px] font-bold uppercase tracking-widest cursor-pointer hover:text-primary transition-colors"
-          >Términos</span
-        >
       </div>
     </div>
 

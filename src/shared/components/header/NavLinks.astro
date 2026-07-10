@@ -51,10 +51,10 @@ const containerClass =
           aria-current={isActive ? "page" : undefined}
           class:list={[
             "relative font-display text-sm font-medium tracking-wide transition-colors duration-300",
-            "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[var(--color-accent)]",
+            "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-accent",
             "after:transition-[width] after:duration-300 hover:after:w-full",
             isActive
-              ? "text-[var(--color-accent)] after:w-full"
+              ? "text-accent after:w-full"
               : "text-white/80 hover:text-white",
             orientation === "vertical"
               ? "w-full px-4 py-3 rounded-lg hover:bg-white/10 after:hidden"

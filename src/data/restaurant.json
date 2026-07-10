@@ -22,11 +22,7 @@
       },
       "order_config": {
         "delivery_fee": 8.0,
-        "payment_methods": [
-          "cash",
-          "yape",
-          "plin"
-        ],
+        "payment_methods": ["cash", "yape", "plin"],
         "delivery_enabled": true,
         "max_order_quantity": 20
       },
@@ -73,11 +69,9 @@
             "isOpen": true
           }
         },
-        "delivery_zones": [
-          "Cieneguilla"
-        ]
+        "delivery_zones": ["Cieneguilla"]
       },
-      "description": "Antiguo Monasterio, lugar que guarda en cada rincón nuestra cultura cieneguillera, donde la historia cobra vida en la gastronomía, los eventos especiales y cada experiencia.",
+      "description": "¡Ven a disfrutar del verdadero sabor en La Casona!  Nada mejor que un pollo a la brasa bien jugosito, broster crocante, alitas deliciosas , bebidas y más..",
       "tags": [
         "chifa",
         "comida china",
