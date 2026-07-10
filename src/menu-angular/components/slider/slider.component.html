@@ -1,8 +1,8 @@
 <div class="relative">
   <div
     #sliderContainer
-    class="flex  overflow-x-auto  scroll-smooth snap-x snap-mandatory scrollbar-hide"
-    style="scrollbar-width: none; -ms-overflow-style: none;"
+    class="flex gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide"
+    style="scrollbar-width: none; -ms-overflow-style: none"
   >
     <ng-content></ng-content>
   </div>
@@ -14,7 +14,7 @@
       aria-label="Anterior"
       title="Anterior"
     >
-      <svg lucideChevronLeft  class="w-6 h-6"></svg>
+      <svg lucideChevronLeft class="w-6 h-6"></svg>
     </button>
 
     <button
@@ -23,7 +23,7 @@
       aria-label="Siguiente"
       title="Siguiente"
     >
-      <svg lucideChevronRight  class="w-6 h-6"></svg>
+      <svg lucideChevronRight class="w-6 h-6"></svg>
     </button>
   }
 </div>
