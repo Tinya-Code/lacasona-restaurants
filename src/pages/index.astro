@@ -5,6 +5,8 @@ import { TemplateFooter } from "../menu-angular/base-template/components/footer/
 import { WhatsAppButton } from "../menu-angular/components/whatsapp-button/whatsapp-button.component";
 import MainContent from "../shared/components/mainContent.astro";
 import Hero from "../shared/sections/hero.astro";
+import { EVENTS_CONTENT } from "../data/events/events-content";
+import TestimonialsSlider from "../shared/sections/TestimonialSection.astro";
 ---
 
 <LayoutAstroComponent
@@ -22,6 +24,13 @@ import Hero from "../shared/sections/hero.astro";
     <section class="flex w-full mx-auto my-4 h-160 bg-primary ">
       <img src="/cuadricula-lacasona.svg" alt="" class="w-full h-auto object-cover" />
     </section>
+           <TestimonialsSlider
+      title={EVENTS_CONTENT.testimonials.title}
+      subtitle={EVENTS_CONTENT.testimonials.subtitle}
+      reviews={EVENTS_CONTENT.testimonials.reviews}
+      cta={EVENTS_CONTENT.testimonials.cta}
+    />
+    
   </MainContent>
   <TemplateFooter client:visible />
   <WhatsAppButton client:visible />

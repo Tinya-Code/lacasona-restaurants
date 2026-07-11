@@ -8,7 +8,7 @@ import { LucideShare2 } from "@lucide/angular";
   template: `
     <button
       (click)="shareMenu()"
-      class="flex items-center gap-2 px-4 py-2 bg-primary/80 hover:bg-primary text-white rounded-full transition-all duration-300 font-bold border border-primary/20 group backdrop-blur-sm"
+      class="flex items-center gap-2 px-8 py-3 bg-primary/80 hover:bg-primary active:scale-95  text-white rounded-full transition-all duration-300 font-bold border border-primary/20 group backdrop-blur-sm"
       title="Compartir este menú"
     >
       <svg
@@ -16,7 +16,7 @@ import { LucideShare2 } from "@lucide/angular";
         class="w-6 h-6 group-hover:scale-110 transition-transform"
       ></svg>
       <span
-        class="text-sm md:text-lg uppercase tracking-widest font-display select-none"
+        class="text-sm md:text-lg  font-display select-none"
         >Compartir</span
       >
     </button>

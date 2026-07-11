@@ -52,7 +52,7 @@ import { BlockPromotionsComponent } from "./blocks/block-promotions";
 
     <app-layout-scale>
       <div
-        class=" relative mx-2 bg-secondary md:bg-[url('/textura.svg')] bg-contain my-6 "
+        class=" relative mx-2 bg-secondary  bg-[url('/fondo-onda.svg')] bg-contain  my-6 "
       >
         @if (hasBlocks() || hasCombos() || hasPromotions()) {
           <div class=" h-full w-auto mx-2 py-12">

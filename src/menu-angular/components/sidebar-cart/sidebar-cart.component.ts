@@ -11,7 +11,7 @@ import { PrecioPipe } from "../../core/pipes/precio.pipe";
 import { CartItemComponent } from "../cart-item/cart-item.component";
 import { CheckoutFormComponent } from "../checkout-form/checkout-form.component";
 import { BusinessHoursService } from "../../core/services/business-hours.service";
-import { LucideArrowRight, LucideShoppingBag, LucideArrowLeft } from "@lucide/angular";
+import { LucideArrowRight, LucideShoppingBag, LucideArrowLeft, LucideX } from "@lucide/angular";
 
 @Component({
   selector: "app-sidebar-cart",
@@ -23,8 +23,9 @@ import { LucideArrowRight, LucideShoppingBag, LucideArrowLeft } from "@lucide/an
     CheckoutFormComponent,
     LucideArrowRight,
     LucideShoppingBag,
-    LucideArrowLeft
-],
+    LucideArrowLeft,
+    LucideX
+  ],
   templateUrl: "./sidebar-cart.component.html",
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,

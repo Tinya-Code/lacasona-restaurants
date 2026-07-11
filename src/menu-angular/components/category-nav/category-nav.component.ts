@@ -14,7 +14,7 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
         @for (catData of categories(); track catData.category.id) {
           <a
             (click)="scrollToCategory('category-' + catData.category.id)"
-            class="whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all bg-secondary/5 text-secondary hover:bg-primary/20 hover:text-primary active:scale-95 cursor-pointer"
+            class="whitespace-nowrap px-6 py-2.5 select-none rounded-full text-sm font-bold uppercase tracking-wider transition-all bg-secondary/5 text-secondary hover:bg-secondary/80 active:bg-primary/80 active:text-primary-text hover:text-primary-text active:scale-95 cursor-pointer"
           >
             {{ catData.category.name }}
           </a>

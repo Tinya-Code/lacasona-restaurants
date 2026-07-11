@@ -22,7 +22,7 @@ const {
   location = "Plaza Cívica de Manchay, frente al skate park",
   image = "/polleria-foto.webp",
   imageAlt = "Pollo a la brasa peruano servido con papas y ensalada",
-  menuHref = "#menu",
+  menuHref = "/menu-la-casona-manchay",
   menuLabel = "Ver Menú",
   promoHref = "#promociones",
   promoLabel = "Ver Promociones",
@@ -36,17 +36,17 @@ const {
     <!-- Columna de texto -->
     <div class="flex-1 text-center lg:text-left">
 
-      <h1 class="hero-title mt-6  leading-[0.95] text-white text-6xl lg:text-8xl">
+      <h1 class="font-display mt-6 tracking-tighter  drop-shadow-[2px_2px_rgba(0,0,0,0.6)] drop-shadow-black text-white text-7xl lg:text-8xl">
         {title}
         <span class="block text-primary">{highlight}</span>
       </h1>
 
-      <p class="mt-6 max-w-xl text-md  text-secondary/80 lg:mx-0 mx-auto font-body">
+      <p class="mt-6 max-w-xl text-md font-bold text-secondary lg:mx-0 mx-auto font-body">
         {description}
       </p>
 
-      <div class="mt-5 flex items-center justify-center gap-2 font-semibold text-secondary/80 lg:justify-start">
-        <Icon name="simple-icons:googlemaps" class="w-6 h-6 md:w-7 md:h-7 text-white" />
+      <div class="mt-5 flex items-start justify-center gap-1 font-display text-secondary/80 lg:justify-start">
+        <Icon name="simple-icons:googlemaps" class="w-6 h-6  text-white" />
         <span>{location}</span>
       </div>
 
@@ -77,9 +77,9 @@ const {
         />
         <!-- sticker -->
         <div
-          class="absolute -bottom-5 -left-5 flex h-24 w-24 rotate-[-8deg] items-center justify-center rounded-full bg-[#F2A93B] text-center shadow-lg sm:h-28 sm:w-28"
+          class="absolute -bottom-5 -left-5 flex h-24 w-24 rotate-[-8deg] items-center justify-center rounded-full bg-accent text-center shadow-lg sm:h-28 sm:w-28"
         >
-          <span class="hero-title text-[0.7rem] leading-tight text-[#1C1917] sm:text-xs">
+          <span class="font-display text-[0.7rem] leading-tight text-secondary sm:text-xs">
             100%<br />AL CARBÓN
           </span>
         </div>
@@ -88,43 +88,3 @@ const {
   </div>
 </section>
 
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap");
-
-  .hero-title {
-    font-family: "Anton", "Work Sans", sans-serif;
-    letter-spacing: 0.01em;
-  }
-
-  .hero-eyebrow,
-  .font-body {
-    font-family: "Work Sans", system-ui, sans-serif;
-  }
-
-  .ember-glow {
-    background: radial-gradient(circle, rgba(193, 68, 14, 0.45) 0%, rgba(242, 169, 59, 0.25) 45%, transparent 75%);
-    animation: ember-pulse 5s ease-in-out infinite;
-  }
-
-  .flame-flicker {
-    display: inline-block;
-    animation: flicker 2.4s ease-in-out infinite;
-  }
-
-  @keyframes ember-pulse {
-    0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
-    50% { opacity: 1; transform: translateY(-50%) scale(1.08); }
-  }
-
-  @keyframes flicker {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.12) rotate(-3deg); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ember-glow,
-    .flame-flicker {
-      animation: none;
-    }
-  }
-</style>

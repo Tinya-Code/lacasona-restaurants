@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, Component, input, output, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, ElementRef, ViewChild } from '@angular/core';
 import type { AfterViewInit } from '@angular/core';
 
 import { LucideChevronLeft, LucideChevronRight } from '@lucide/angular';
-
+  
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [],
+  imports: [LucideChevronLeft, LucideChevronRight],
   templateUrl: './slider.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

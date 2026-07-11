@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
-import  { LucideX } from '@lucide/angular';
+import { LucideX } from '@lucide/angular';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [],
+  imports: [LucideX],
   templateUrl: './modal.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
