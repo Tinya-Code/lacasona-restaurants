@@ -17,7 +17,7 @@
                 "price": 17,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -27,7 +27,7 @@
                 "price": 31,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -37,7 +37,7 @@
                 "price": 55,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -47,7 +47,7 @@
                 "price": 62,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               }
             ]
@@ -70,7 +70,7 @@
                 "price": 19,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -80,7 +80,7 @@
                 "price": 20,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -90,7 +90,7 @@
                 "price": 19,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -100,7 +100,7 @@
                 "price": 13,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               }
             ]
@@ -123,7 +123,7 @@
                 "price": 12,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -133,7 +133,7 @@
                 "price": 20,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -143,7 +143,7 @@
                 "price": 16,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -153,7 +153,7 @@
                 "price": 19,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               },
               {
@@ -163,7 +163,7 @@
                 "price": 14,
                 "is_recommended": null,
                 "is_hidden": false,
-                "image_url": null,
+                "image_url": "/images/products/pollo.png",
                 "cloudinary_id": null
               }
             ]
