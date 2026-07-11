@@ -1,0 +1,130 @@
+---
+import { Icon } from 'astro-icon/components';
+interface Props {
+  badge?: string;
+  title?: string;
+  highlight?: string;
+  description?: string;
+  location?: string;
+  image?: string;
+  imageAlt?: string;
+  menuHref?: string;
+  menuLabel?: string;
+  promoHref?: string;
+  promoLabel?: string;
+}
+
+const {
+  badge = "Al carbón, como debe ser",
+  title = "La Casona",
+  highlight = "Restaurant",
+  description = "Contamos con una gran variedad de platos: Pollo a la brasa, broaster, alitas y salchipapas preparados al momento. Bebidas naturales, cocteles de la casa y la sazón que Manchay ya conoce.",
+  location = "Plaza Cívica de Manchay, frente al skate park",
+  image = "/polleria-foto.webp",
+  imageAlt = "Pollo a la brasa peruano servido con papas y ensalada",
+  menuHref = "#menu",
+  menuLabel = "Ver Menú",
+  promoHref = "#promociones",
+  promoLabel = "Ver Promociones",
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden min-h-[100svh] py-26 ">
+
+
+  <div class="relative mx-auto flex px-4  flex-col items-center gap-12 lg:flex-row lg:gap-16">
+    <!-- Columna de texto -->
+    <div class="flex-1 text-center lg:text-left">
+
+      <h1 class="hero-title mt-6  leading-[0.95] text-white text-6xl lg:text-8xl">
+        {title}
+        <span class="block text-primary">{highlight}</span>
+      </h1>
+
+      <p class="mt-6 max-w-xl text-md  text-secondary/80 lg:mx-0 mx-auto font-body">
+        {description}
+      </p>
+
+      <div class="mt-5 flex items-center justify-center gap-2 font-semibold text-secondary/80 lg:justify-start">
+        <Icon name="simple-icons:googlemaps" class="w-6 h-6 md:w-7 md:h-7 text-white" />
+        <span>{location}</span>
+      </div>
+
+      <!-- Botones -->
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+        <a
+          href={menuHref}
+          class="group relative overflow-hidden rounded-full border-2 border-primary bg-primary px-7 py-3 active:scale-95 duration-300  font-display  text-white  transition-transform duration-200  hover:bg-primary"
+        >
+          {menuLabel}
+        </a>
+        <a
+          href={promoHref}
+          class="rounded-full border-2 border-primary   font-display text-primary transition-colors px-7 py-3 active:scale-95 duration-300 duration-200 hover:bg-primary hover:text-primary-text "
+        >
+          {promoLabel}
+        </a>
+      </div>
+    </div>
+
+    <!-- Columna de imagen -->
+    <div class="relative flex-1">
+      <div class="relative mx-auto max-w-md">
+        <img
+          src={image}
+          alt={imageAlt}
+          class="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl ring-1 ring-white/10 sm:aspect-[5/4] lg:aspect-[4/5]"
+        />
+        <!-- sticker -->
+        <div
+          class="absolute -bottom-5 -left-5 flex h-24 w-24 rotate-[-8deg] items-center justify-center rounded-full bg-[#F2A93B] text-center shadow-lg sm:h-28 sm:w-28"
+        >
+          <span class="hero-title text-[0.7rem] leading-tight text-[#1C1917] sm:text-xs">
+            100%<br />AL CARBÓN
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap");
+
+  .hero-title {
+    font-family: "Anton", "Work Sans", sans-serif;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-eyebrow,
+  .font-body {
+    font-family: "Work Sans", system-ui, sans-serif;
+  }
+
+  .ember-glow {
+    background: radial-gradient(circle, rgba(193, 68, 14, 0.45) 0%, rgba(242, 169, 59, 0.25) 45%, transparent 75%);
+    animation: ember-pulse 5s ease-in-out infinite;
+  }
+
+  .flame-flicker {
+    display: inline-block;
+    animation: flicker 2.4s ease-in-out infinite;
+  }
+
+  @keyframes ember-pulse {
+    0%, 100% { opacity: 0.7; transform: translateY(-50%) scale(1); }
+    50% { opacity: 1; transform: translateY(-50%) scale(1.08); }
+  }
+
+  @keyframes flicker {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.12) rotate(-3deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ember-glow,
+    .flame-flicker {
+      animation: none;
+    }
+  }
+</style>

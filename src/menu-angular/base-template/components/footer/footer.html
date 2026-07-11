@@ -6,7 +6,7 @@
   <div class="max-w-7xl mx-auto px-8 relative z-10">
     <!-- Top Section: 3 Columns -->
     <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start pb-20 border-b border-white/5"
+      class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start  "
     >
       <!-- Left: Contact & Hours -->
       <div
@@ -18,9 +18,9 @@
           </h4>
           <a
             [href]="'tel:' + restaurantPhone()"
-            class="group inline-flex items-center gap-4 text-3xl font-display hover:text-primary transition-colors duration-300"
+            class="group inline-flex items-center justify-center gap-4 text-3xl font-display hover:text-primary transition-colors duration-300"
           >
-            <svg lucidePhone class="w-5 h-5 text-accent"></svg>
+            <svg lucidePhone class="w-6 h-6 my-auto text-primary-text"></svg>
             {{ restaurantPhone() }}
           </a>
         </div>
@@ -41,15 +41,17 @@
       <div
         class="flex flex-col items-center text-center space-y-6 order-first md:order-none"
       >
+        <div class="bg-white h-60 w-60 flex justify-center items-center rounded-full outline-primary outline-4">
         <img
-          src="/logo-borde-lacasona.svg"
+          src="/logo-lacasona.svg"
           [alt]="restaurantName()"
-          class="w-64 h-full object-contain"
+          class="w-64 h-full px-8 object-contain"
         />
+        </div>
         <h2 class="text-5xl hidden font-display tracking-tighter text-white">
           {{ restaurantName() }}<span class="text-primary">.</span>
         </h2>
-        <p class="text-white/80 font-body max-w-xs leading-relaxed">
+        <p class="text-white/80 hidden font-body max-w-xs leading-relaxed">
           {{ restaurantDescription() }}
         </p>
       </div>
@@ -117,9 +119,9 @@
           <a
             href="https://wa.me/51924932128"
             target="_blank"
-            class="text-white/90 font-display tracking-wide hover:text-white transition-colors flex items-center gap-1.5"
+            class="text-white/90 font-display font-extrabold tracking-wide hover:text-white transition-colors flex items-center gap-1.5"
           >
-            Pedro Alejandro
+            Tinya Code
             <svg
               lucideArrowUpRight
               class="w-3.5 h-3.5 text-primary opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-300"

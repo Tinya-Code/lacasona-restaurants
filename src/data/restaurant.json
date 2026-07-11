@@ -1,10 +1,10 @@
 {
   "data": {
     "restaurant": {
-      "name": "Fina Estampa ",
-      "slug": "fina-estampa",
+      "name": "La Casona",
+      "slug": "La-Casona",
       "template_id": "chifa",
-      "phone": "942235532",
+      "phone": "942713879",
       "address": "Tambo Viejo - Cieneguilla, Lima, Perú",
       "location": {
         "lat": -12.113977,
@@ -13,7 +13,7 @@
     },
     "settings": {
       "whatsapp_config": {
-        "number": "942235532",
+        "number": "942713879",
         "message_template": "Hola Fina Estampa Cieneguilla, quisiera ordenar:"
       },
       "display_config": {

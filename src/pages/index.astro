@@ -3,26 +3,26 @@ import LayoutAstroComponent from "../layouts/Layout.astro";
 import HeaderAstroComponent from "../shared/sections/Header.astro";
 import { TemplateFooter } from "../menu-angular/base-template/components/footer/footer";
 import { WhatsAppButton } from "../menu-angular/components/whatsapp-button/whatsapp-button.component";
+import MainContent from "../shared/components/mainContent.astro";
+import Hero from "../shared/sections/hero.astro";
 ---
 
 <LayoutAstroComponent
-    title="La Casona Manchay"
-    description="Disfruta de los mejores platillos en La Casona Manchay. Tradición y sabor en cada bocado."
-    keywords="La Casona Manchay, comida peruana, restaurantes Lima, gastronomía, eventos"
-    ogType="restaurant.restaurant"
-    canonicalUrl="/"
-    ogImage="/og-image.jpg"
+  title="La Casona Manchay"
+  description="Disfruta de los mejores platillos en La Casona Manchay. Tradición y sabor en cada bocado."
+  keywords="La Casona Manchay, comida peruana, restaurantes Lima, gastronomía, eventos"
+  ogType="restaurant.restaurant"
+  canonicalUrl="/"
+  ogImage="/og-image.jpg"
 >
-    <HeaderAstroComponent />
+  <HeaderAstroComponent />
+  <MainContent>
+    <Hero />
 
-    <div class="min-h-screen mx-auto px-4 py-16">
-        <h1>La Casona Manchay</h1>
-        <p>Disfruta de los mejores platillos en La Casona Manchay. Tradición y sabor en cada bocado.</p>
-    </div>
-     <div class="min-h-screen mx-auto px-4 py-16">
-        <h1>La Casona Manchay</h1>
-        <p>Disfruta de los mejores platillos en La Casona Manchay. Tradición y sabor en cada bocado.</p>
-    </div>
-    <TemplateFooter client:visible/>
-    <WhatsAppButton client:visible/>
+    <section class="flex w-full mx-auto my-4 h-160 bg-primary ">
+      <img src="/cuadricula-lacasona.svg" alt="" class="w-full h-auto object-cover" />
+    </section>
+  </MainContent>
+  <TemplateFooter client:visible />
+  <WhatsAppButton client:visible />
 </LayoutAstroComponent>
