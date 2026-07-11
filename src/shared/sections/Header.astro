@@ -15,7 +15,6 @@ const HEADER_CONFIG = {
     { label: "Menú", href: "/menu-la-casona-manchay" },
     { label: "Galeria", href: "/info-restaurante" },
   ] satisfies NavLink[],
-
 } as const;
 
 // ─── Props (para personalización por instancia) ───────────────────────────────
@@ -31,7 +30,7 @@ const { links = HEADER_CONFIG.links, class: extraClass = "" } = Astro.props;
 <header
   id="site-header"
   class:list={[
-    "fixed top-4 h-12  z-50 w-full",
+    "fixed top-4 h-12 px-2  z-50 w-full",
     "transition-all duration-300 ease-in-out",
     extraClass,
   ]}
@@ -39,14 +38,14 @@ const { links = HEADER_CONFIG.links, class: extraClass = "" } = Astro.props;
   <!-- Fondo con glassmorphism (visible al hacer scroll) -->
   <div
     id="header-backdrop"
-    class="absolute inset-0 grid grid-cols-3  items-center shadow shadow-white/20 bg-secondary mx-2 rounded-full backdrop-blur-0  transition-all duration-300 px-4"
+    class="absolute inset-0 grid grid-cols-3 items-center shadow shadow-white/20 bg-secondary mx-2 rounded-full backdrop-blur-0 transition-all duration-300 px-4"
   >
     <!-- Grupo izquierdo -->
     <div
       class="flex items-center md:justify-start lg:justify-center col-start-1 col-end-2 gap-4 w-full"
     >
       <a
-        href="https://facebook.com/tuPagina"
+        href="https://www.facebook.com/profile.php?id=100093251413743&sk=photos"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Síguenos en Facebook"
@@ -56,7 +55,7 @@ const { links = HEADER_CONFIG.links, class: extraClass = "" } = Astro.props;
       </a>
 
       <a
-        href="https://instagram.com/tuUsuario"
+        href="https://www.instagram.com/lacasonarestaurante_1?fbclid=IwY2xjawS-1UBleHRuA2FlbQIxMABicmlkETFuMVR4dko0Tnp3bzk0Y3RCc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuH73AYoOkmbBWSxRSF3x5n8Ngm2NZPSBygtS6TRvbzyUqMwDNzgLoHsNrVg_aem_0qKfe0a3w9aYTgI6IzXlgg"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Síguenos en Instagram"
@@ -74,7 +73,7 @@ const { links = HEADER_CONFIG.links, class: extraClass = "" } = Astro.props;
       class="flex items-center justify-end lg:justify-center col-start-3 col-end-4 gap-4 w-full"
     >
       <a
-        href="https://tiktok.com/@tuUsuario"
+        href="https://www.tiktok.com/@lacasonarestaurante2"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Síguenos en TikTok"
@@ -84,7 +83,7 @@ const { links = HEADER_CONFIG.links, class: extraClass = "" } = Astro.props;
       </a>
 
       <a
-        href="https://maps.google.com/?q=TuNegocio"
+        href="https://maps.app.goo.gl/QBesT6xux4WyQtKW6"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Cómo llegar en Google Maps"

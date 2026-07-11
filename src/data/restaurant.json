@@ -22,15 +22,19 @@
       },
       "order_config": {
         "delivery_fee": 8.0,
-        "payment_methods": ["cash", "yape", "plin"],
+        "payment_methods": [
+          "cash",
+          "yape",
+          "plin"
+        ],
         "delivery_enabled": true,
         "max_order_quantity": 20
       },
       "business_config": {
         "social_media": {
-          "tiktok": "https://www.tiktok.com/@fina_estampa.restobar?is_from_webapp=1&sender_device=pc",
-          "facebook": "https://www.facebook.com/profile.php?id=61578311416144",
-          "instagram": "https://www.instagram.com/finaestampa_cieneguilla?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          "tiktok": "https://www.tiktok.com/@lacasonarestaurante2",
+          "facebook": "https://www.facebook.com/profile.php?id=100093251413743&sk=photos",
+          "instagram": "https://www.instagram.com/lacasonarestaurante_1?fbclid=IwY2xjawS-1UBleHRuA2FlbQIxMABicmlkETFuMVR4dko0Tnp3bzk0Y3RCc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuH73AYoOkmbBWSxRSF3x5n8Ngm2NZPSBygtS6TRvbzyUqMwDNzgLoHsNrVg_aem_0qKfe0a3w9aYTgI6IzXlgg"
         },
         "business_hours": {
           "monday": {
@@ -69,7 +73,9 @@
             "isOpen": true
           }
         },
-        "delivery_zones": ["Cieneguilla"]
+        "delivery_zones": [
+          "Cieneguilla"
+        ]
       },
       "description": "¡Ven a disfrutar del verdadero sabor en La Casona!  Nada mejor que un pollo a la brasa bien jugosito, broster crocante, alitas deliciosas , bebidas y más..",
       "tags": [

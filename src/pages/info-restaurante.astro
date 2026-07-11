@@ -3,6 +3,8 @@ import LayoutAstroComponent from "../layouts/Layout.astro";
 import HeaderAstroComponent from "../shared/sections/Header.astro";
 import { TemplateFooter } from "../menu-angular/base-template/components/footer/footer";
 import { WhatsAppButton } from "../menu-angular/components/whatsapp-button/whatsapp-button.component";
+import MainContentAstroComponent from "../shared/components/mainContent.astro";
+import GalleryAstroComponent from "../shared/sections/gallery.astro";
 ---
 
 <LayoutAstroComponent
@@ -13,6 +15,10 @@ import { WhatsAppButton } from "../menu-angular/components/whatsapp-button/whats
     canonicalUrl="/info-restaurante"
 >
     <HeaderAstroComponent />
+    <MainContentAstroComponent>
+        <GalleryAstroComponent/>
+    
+</MainContentAstroComponent>
     <TemplateFooter client:visible/>
     <WhatsAppButton client:visible/>
 </LayoutAstroComponent>

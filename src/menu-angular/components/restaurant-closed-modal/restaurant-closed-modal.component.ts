@@ -5,14 +5,14 @@ import {
   output,
 } from "@angular/core";
 
-import {  LucideClock } from "@lucide/angular";
+import { LucideClock } from "@lucide/angular";
 import { TimeFormatPipe } from "../../core/pipes/time-format.pipe";
 import { ModalComponent } from "../modal/modal.component";
 
 @Component({
   selector: "app-restaurant-closed-modal",
   standalone: true,
-  imports: [ TimeFormatPipe, ModalComponent],
+  imports: [TimeFormatPipe, ModalComponent, LucideClock],
   templateUrl: "./restaurant-closed-modal.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

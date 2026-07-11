@@ -305,63 +305,63 @@ export const EVENTS_CONTENT = {
     },
   },
   testimonials: {
-    title: "Lo que dicen nuestros clientes",
-    subtitle: "Experiencias reales de eventos celebrados con nosotros",
-    reviews: [
-      {
-        id: 1,
-        name: "María González",
-        event: "Boda",
-        text: "Nuestra boda fue perfecta gracias a Fina Estampa. La comida deliciosa y el servicio impecable.",
-        image: "/images/portada-fina-estampa.png",
-        rating: 5,
-      },
-      {
-        id: 2,
-        name: "Carlos Rodríguez",
-        event: "Cumpleaños",
-        text: "Celebramos el cumpleaños de mi madre aquí y fue una experiencia maravillosa. Muy recomendado.",
-        image: "/images/portada-fina-estampa.png",
-        rating: 5,
-      },
-      {
-        id: 3,
-        name: "Ana Martínez",
-        event: "Corporativo",
-        text: "Organizamos nuestro evento corporativo y todo salió perfecto. Excelente atención y espacios hermosos.",
-        image: "/images/portada-fina-estampa.png",
-        rating: 5,
-      },
-      {
-        id: 4,
-        name: "Luis Fernández",
-        event: "Bodas de Oro",
-        text: "Excelente atención de principio a fin. El chancho a la caja china estuvo espectacular y la decoración campestre superó nuestras expectativas.",
-        image: "/images/portada-fina-estampa.png",
-        rating: 5,
-      },
-      {
-        id: 5,
-        name: "Gabriela Torres",
-        event: "Baby Shower",
-        text: "El ambiente natural en Cieneguilla le dio un toque único a mi baby shower. Mis invitados quedaron encantados con la comida y el servicio de bar.",
-        image: "/images/portada-fina-estampa.png",
-        rating: 5,
-      },
-      {
-        id: 6,
-        name: "Ricardo Delgado",
-        event: "Aniversario",
-        text: "Un lugar mágico. La coordinación fue impecable, la música en su punto y los cocteles deliciosos. Definitivamente volveremos para futuros eventos.",
-        image: "/images/portada-fina-estampa.png",
-        rating: 5,
-      },
-    ],
-    cta: {
-      text: "Deja tu reseña",
-      link: "#resena",
+  title: "Lo que dicen nuestros clientes",
+  subtitle: "Experiencias reales en La Casona – Manchay",
+  reviews: [
+    {
+      id: 1,
+      name: "Andrew Fabricio Suárez Quispe",
+      event: "Visita casual",
+      text: "Una buena experiencia, la mesera muy amable al darme la clave del internet y la mejor parte fue la comida. Porciones generosas a buen precio, sales lleno y satisfecho.",
+      image: null,
+      rating: 5
     },
+    {
+      id: 2,
+      name: "Jenny Matias Bonifacio",
+      event: "Cena",
+      text: "Muy ricas las alitas, jugosas y bien sazonadas. El ambiente acogedor y el servicio rápido hicieron que la experiencia sea perfecta.",
+      image: null,
+      rating: 5
+    },
+    {
+      id: 3,
+      name: "David Alexander Quispe Sánchez",
+      event: "Consumo en el lugar",
+      text: "Su pollo a la brasa es muy rico y a precio cómodo. El mozo fue muy amable y el tiempo de espera corto. Recomendado para venir en familia.",
+      image: null,
+      rating: 5
+    },
+    {
+      id: 4,
+      name: "Nayeli Mardeli Perez Banda",
+      event: "Cena",
+      text: "Sus alitas grandes y deliciosas 😋. El ambiente natural y el buen servicio hacen que siempre quiera regresar.",
+      image: null,
+      rating: 5
+    },
+    {
+      id: 5,
+      name: "Zanthiel Meza",
+      event: "Visita en grupo",
+      text: "Buena atención y ambiente agradable. Ideal para venir con amigos o familia, siempre con buena comida y servicio.",
+      image: null,
+      rating: 4
+    },
+    {
+      id: 6,
+      name: "Klynder Joel Quispe Sánchez",
+      event: "Almuerzo",
+      text: "Excelente experiencia: comida abundante, servicio rápido y ambiente cómodo. Además, cuentan con suficiente espacio para estacionar.",
+      image: null,
+      rating: 5
+    },
+  ],
+  cta: {
+    text: "Deja tu reseña",
+    link: "#resena",
   },
+},
   finalCta: {
     title: "Haz de tu evento una experiencia inolvidable en Fina Estampa",
     subtitle: "Reserva ahora y deja que nos encarguemos de todo",

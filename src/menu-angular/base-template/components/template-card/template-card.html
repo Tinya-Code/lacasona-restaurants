@@ -4,7 +4,7 @@
 
 <div
   (click)="productClick.emit(product())"
-  class="group relative p-4 h-[400px] transition-all duration-300 cursor-pointer bg-tertiary/30 rounded-3xl flex-col items-start gap-6"
+  class="group relative p-4 min-h-80 transition-all duration-300 cursor-pointer  rounded-3xl flex-col items-start gap-6"
 >
   <div class="flex flex-col flex-1 items-start gap-4 h-full w-full">
     <!-- Contenido Derecho (Info) -->
@@ -20,23 +20,18 @@
         >
           {{ product().name }}
         </h3>
-        <p
-          class="text-center text-primary-text/80 w-full leading-relaxed line-clamp-3"
-        >
-          {{ product().description }}
-        </p>
       </div>
     </div>
 
     <div
       class="relative flex flex-col w-full justify-center items-center border-primary/50"
     >
-      <div class="w-full flex gap-4">
+      <div class="w-full grid grid-cols-2 border-2 border-accent  rounded-sm">
         <p
-          class="flex-1 rounded-sm tracking-widest font-display text-white text-center"
+          class="flex-1 rounded-sm px-2 tracking-widest font-display text-white text-center"
         >
           <span
-            class="text-2xl md:text-3xl font-display text-white tracking-tighter"
+            class="text-2xl  font-display text-white tracking-tighter"
           >
             {{ startingPrice() | precio }}
           </span>
@@ -51,8 +46,7 @@
         <app-add-button
           text=""
           (clicked)="onAddClick($event)"
-          class="flex-1"
-          customClass="w-full flex items-center justify-center border-px border-white active"
+          customClass="w-full h-full flex items-center !rounded-none justify-center  "
         ></app-add-button>
         }
       </div>
@@ -70,12 +64,12 @@
 <!-- Layout 1 sin imagen -->
 <div
   (click)="productClick.emit(product())"
-  class="group relative py-6 px-4 md:px-6 transition-all duration-300 cursor-pointer hover:bg-secondary/5 flex items-start gap-6"
+  class="group relative py-6 px-4  min-h-40  md:px-6 transition-all duration-300 cursor-pointer hover:bg-secondary/5 flex items-start gap-6"
 >
-  <div class="grid grid-cols-4 items-center space-y-2 w-full">
+  <div class="grid grid-cols-4 border-b border-accent/80 items-center space-y-2 w-full">
     <div class="flex flex-col col-span-3 items-start justify-start gap-2">
       <h3
-        class="text-3xl flex gap-4 font-display text-primarytracking-tight group-hover:text-accent transition-colors"
+        class="text-3xl flex gap-4 text-white font-display text-primarytracking-tight group-hover:text-accent transition-colors"
       >
         {{ product().name }} @if (product().is_recommended) {
         <svg
@@ -85,7 +79,7 @@
         }
       </h3>
       <p
-        class="flex justify-start w-auto max-w-60 rounded-full px-4 py-2 bg-primary border-2 border-white ring-1 ring-primary items-center gap-4"
+        class="flex justify-start w-auto max-w-60 rounded-full px-4 py-2 items-center gap-4"
       >
         <span class="text-2xl font-display text-white tracking-tighter">
           {{ startingPrice() | precio }}

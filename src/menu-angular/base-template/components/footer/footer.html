@@ -18,19 +18,19 @@
           </h4>
           <a
             [href]="'tel:' + restaurantPhone()"
-            class="group inline-flex items-center justify-center gap-4 text-3xl font-display hover:text-primary transition-colors duration-300"
+            class="group inline-flex items-center justify-center gap-4 text-xl font- hover:text-accent transition-colors duration-300"
           >
-            <svg lucidePhone class="w-6 h-6 my-auto text-primary-text"></svg>
+            <svg lucidePhone class="w-5 h-5 my-auto text-primary-text"></svg>
             {{ restaurantPhone() }}
           </a>
         </div>
 
         @if (todayHours(); as schedule) {
         <div class="flex flex-col items-center justify-center space-y-2">
-          <p class="text-xs text-white/40  tracking-widest mb-1">
+          <p class="text-xl font-display text-primary tracking-widest mb-1">
             Horario de Hoy
           </p>
-          <p class="text-lg font-bold text-accent">
+          <p class="text-xl font- text-primary-text">
             {{ schedule.open | timeFormat }} — {{ schedule.close | timeFormat }}
           </p>
         </div>
