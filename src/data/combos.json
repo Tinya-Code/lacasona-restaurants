@@ -5,7 +5,7 @@
       "name": "Combo 1",
       "description": "½ Kg de Chicharrón, Camote frito, Cancha, Sarza criolla, 2 Panes y 1 Café",
       "price": 25.00,
-      "url": "/images/basico.png",
+      "url": "/images/products/combo.png",
       "cloudinary_id": ""
     },
     {
@@ -13,7 +13,7 @@
       "name": "Combo 2",
       "description": "½ Kg de Chicharrón, Camote frito, Cancha, Sarza criolla, 4 Panes y 2 Cafés",
       "price": 50.00,
-      "url": "/images/basico.png",
+      "url": "/images/products/combo.png",
       "cloudinary_id": ""
     },
     {
@@ -21,7 +21,7 @@
       "name": "Combo 3",
       "description": "1 Kg de Chicharrón, Camote frito, Cancha, Sarza criolla, 6 Panes y 3 Cafés",
       "price": 95.00,
-      "url": "/images/basico.png",
+      "url": "/images/products/combo.png",
       "cloudinary_id": ""
     },
     {
@@ -29,7 +29,7 @@
       "name": "Combo para 5",
       "description": "1 pollo y 1/4 + porción de papas fritas + ensalada + Inca Kola 1.5 lt.",
       "price": 68.00,
-      "url": "/images/combos/combo-5.png",
+      "url": "/images/products/combo.png",
       "cloudinary_id": ""
     },
     {
@@ -37,7 +37,7 @@
       "name": "Combo para 6",
       "description": "1 pollo y 1/2 + porción de papas + ensalada familiar + Inca Kola 1.5 lt.",
       "price": 78.00,
-      "url": "/images/combos/combo-6.png",
+      "url": "/images/products/combo.png",
       "cloudinary_id": ""
     },
     {
@@ -45,7 +45,7 @@
       "name": "Mostro Familiar",
       "description": "1 pollo + arroz chaufa familiar + porción de papas + ensalada + Inca Kola 1.5 lt.",
       "price": 78.00,
-      "url": "/images/combos/mostro-familiar.png",
+      "url": "/images/products/combo.png",
       "cloudinary_id": ""
     }
   ]
