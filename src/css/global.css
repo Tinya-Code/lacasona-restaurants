@@ -8,11 +8,11 @@
   --font-display: 'BespokeSerif-Extrabold', sans-serif;
   --font-body: 'Switzer-Regular', sans-serif;
   /* Colores base */
-  --color-primary: #DD2333; /* Rojo vibrante, moderno #823d15 */
-  --color-secondary: #1a1007 ; /* Negro Zinc 950, premium */
+  --color-primary: #dd2333; /* Rojo vibrante, moderno #823d15 */
+  --color-secondary: #1a1007; /* Negro Zinc 950, premium */
 
   /* Complementario */
-  --color-background: #ffffff; /* Blanco suave para balance */
+  --color-background: #E9D2B4; /* Blanco suave para balance */
   --color-surface: #040404; /* Gris Zinc 100 para secciones */
 
   /* Acentos */
