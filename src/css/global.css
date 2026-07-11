@@ -1,15 +1,16 @@
-@import url('./fonts.css');
+@import url("./fonts.css");
 @import "tailwindcss";
 @plugin "@iconify/tailwind4";
 
-
 @theme {
   /* Tipografías */
-  --font-display: 'BespokeSerif-Extrabold', sans-serif;
-  --font-body: 'Switzer-Regular', sans-serif;
+  --font-display: "BespokeSerif-Extrabold", sans-serif;
+  --font-body: "Switzer-Regular", sans-serif;
   /* Colores base */
   --color-primary: #dd2333; /* Rojo vibrante, moderno #823d15 */
   --color-secondary: #1a1007; /* Negro Zinc 950, premium */
+
+  --color-tertiary: #823d15; /* Marrón suave para balance */
 
   /* Complementario */
   --color-background: #E9D2B4; /* Blanco suave para balance */
@@ -18,6 +19,7 @@
   /* Acentos */
   --color-accent: #f59e0b; /* Ámbar/Dorado, toque de elegancia */
   --color-accent-muted: #fbbf24; /* Ámbar suave para detalles */
+  --color-accent-secondary: #ddab87; /* Beige suave para detalles */
 
   /* Texto */
   --color-primary-text: #ffffff; /* Texto sobre fondos oscuros */

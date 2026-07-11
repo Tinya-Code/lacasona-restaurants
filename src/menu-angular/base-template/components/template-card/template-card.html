@@ -4,32 +4,39 @@
 
 <div
   (click)="productClick.emit(product())"
-  class="group relative py-6 px-4 h-full md:px-6 transition-all duration-300 cursor-pointer hover:bg-secondary/5 flex flex-col items-start gap-6"
+  class="group relative p-4 h-[400px] transition-all duration-300 cursor-pointer bg-tertiary/30 rounded-3xl flex-col items-start gap-6"
 >
-  <div class="flex flex-col items-start gap-4 h-full w-full">
-    <!-- Contenido Izquierdo (Info) -->
-
+  <div class="flex flex-col flex-1 items-start gap-4 h-full w-full">
     <!-- Contenido Derecho (Info) -->
-    <div class="flex flex-col space-y-2 p-4 w-full">
-      <h3
-        class="text-4xl text-center border-4 border-accent font-display text-primary px-2 tracking-tight group-hover:text-accent transition-colors"
-      >
-        {{ product().name }}
-      </h3>
-      <p class="text-center text-primary/80 w-full line-clamp-2">
-        {{ product().description }}
-      </p>
+    <div class="flex flex-col flex-1 gap-4 w-full">
+      <img
+        [src]="product().image_url"
+        class="w-full h-48 object-cover rounded-3xl border-b-10 border-accent"
+        alt="{{ product().name }}"
+      />
+      <div class="flex flex-col gap-2">
+        <h3
+          class="text-xl md:text-3xl text-center font-display text-primary-text tracking-tight group-hover:text-accent transition-colors"
+        >
+          {{ product().name }}
+        </h3>
+        <p
+          class="text-center text-primary-text/80 w-full leading-relaxed line-clamp-3"
+        >
+          {{ product().description }}
+        </p>
+      </div>
     </div>
 
     <div
-      class="relative flex flex-col w-full justify-center items-center h-2/3 border-primary/50"
+      class="relative flex flex-col w-full justify-center items-center border-primary/50"
     >
-      <div class="flex gap-4 relative items-center justify-center h-1">
+      <div class="w-full flex gap-4">
         <p
-          class="flex w-auto mx-auto border-2 border-white ring-1 ring-red-primary rounded-full px-4 py-2 bg-primary items-center gap-4"
+          class="flex-1 rounded-sm tracking-widest font-display text-white text-center"
         >
           <span
-            class="text-3xl md:text-2xl font-display text-white tracking-tighter"
+            class="text-2xl md:text-3xl font-display text-white tracking-tighter"
           >
             {{ startingPrice() | precio }}
           </span>
@@ -44,16 +51,12 @@
         <app-add-button
           text=""
           (clicked)="onAddClick($event)"
-          iconSize="h-8 w-8 md:w-6 md:h-6"
-          class="transform absolute -right-14 md:-right-10 group-hover:scale-110 transition-transform"
+          class="flex-1"
+          customClass="w-full flex items-center justify-center border-px border-white active"
         ></app-add-button>
         }
       </div>
-      <img
-        [src]="product().image_url"
-        class="w-full h-full object-cover drop-shadow-xl drop-shadow-black transform group-hover:scale-110 transition-transform duration-500"
-        alt="{{ product().name }}"
-      />
+
       @if (product().is_recommended) {
       <svg
         lucideStar
