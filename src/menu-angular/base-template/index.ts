@@ -1,37 +1,37 @@
+import type { OnInit } from "@angular/core";
 import {
   ChangeDetectionStrategy,
   Component,
-  input,
-  output,
   computed,
   inject,
+  input,
+  output,
   signal,
-} from '@angular/core';
-import type { OnInit } from '@angular/core';
+} from "@angular/core";
 
-import type { Product } from '../core/models/product.model';
-import type { Block } from '../core/models/block.model';
-import { TemplateHeader } from './components/header/header';
-import { TemplateFooter } from './components/footer/footer';
-import { LayoutScaleComponent } from '../layout/layout-scale/layout-scale';
-import type { Combo } from './components/combo-card/combo-card';
-import type { Promotion } from './components/promotion-card/promotion-card';
-import { MenuService } from '../core/services/menu.service';
+import type { Block } from "../core/models/block.model";
+import type { Product } from "../core/models/product.model";
+import { MenuService } from "../core/services/menu.service";
+import { LayoutScaleComponent } from "../layout/layout-scale/layout-scale";
+import type { Combo } from "./components/combo-card/combo-card";
+import { TemplateFooter } from "./components/footer/footer";
+import { TemplateHeader } from "./components/header/header";
+import type { Promotion } from "./components/promotion-card/promotion-card";
 
 // Block Components
-import { Block1Component } from './blocks/block-1';
-import { Block2Component } from './blocks/block-2';
-import { Block3Component } from './blocks/block-3';
-import { Block4Component } from './blocks/block-4';
-import { Block5Component } from './blocks/block-5';
-import { Block6Component } from './blocks/block-6';
-import { Block7Component } from './blocks/block-7';
-import { BlockCombosComponent } from './blocks/block-combos';
-import { BlockPromotionsComponent } from './blocks/block-promotions';
+import { Block1Component } from "./blocks/block-1";
+import { Block2Component } from "./blocks/block-2";
+import { Block3Component } from "./blocks/block-3";
+import { Block4Component } from "./blocks/block-4";
+import { Block5Component } from "./blocks/block-5";
+import { Block6Component } from "./blocks/block-6";
+import { Block7Component } from "./blocks/block-7";
+import { BlockCombosComponent } from "./blocks/block-combos";
+import { BlockPromotionsComponent } from "./blocks/block-promotions";
 //bg-[url('/images/fondo-carta.svg')]  bg-contain
 
 @Component({
-  selector: 'app-base-template',
+  selector: "app-base-template",
   standalone: true,
   imports: [
     TemplateHeader,
@@ -51,7 +51,9 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
     <app-template-header></app-template-header>
 
     <app-layout-scale>
-      <div class=" relative mx-2 bg-secondary bg-[url('/textura.svg')] bg-contain my-6 ">
+      <div
+        class=" relative mx-2 bg-secondary md:bg-[url('/textura.svg')] bg-contain my-6 "
+      >
         @if (hasBlocks() || hasCombos() || hasPromotions()) {
           <div class=" h-full w-auto mx-2 py-12">
             <app-block-promotions
@@ -61,12 +63,15 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
             >
             </app-block-promotions>
 
-            <app-block-combos [combos]="combos()" (addToCart)="addToCart.emit($event)">
+            <app-block-combos
+              [combos]="combos()"
+              (addToCart)="addToCart.emit($event)"
+            >
             </app-block-combos>
 
             @for (block of blocks(); track block.id) {
               @switch (block.id) {
-                @case ('block-1') {
+                @case ("block-1") {
                   <app-block-1
                     [categories]="block.categories"
                     [templateData]="templateData()"
@@ -74,7 +79,7 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
                     (addToCart)="addToCart.emit($event)"
                   ></app-block-1>
                 }
-                @case ('block-2') {
+                @case ("block-2") {
                   <app-block-2
                     [categories]="block.categories"
                     [templateData]="templateData()"
@@ -82,7 +87,7 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
                     (addToCart)="addToCart.emit($event)"
                   ></app-block-2>
                 }
-                @case ('block-3') {
+                @case ("block-3") {
                   <app-block-3
                     [categories]="block.categories"
                     [templateData]="templateData()"
@@ -90,7 +95,7 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
                     (addToCart)="addToCart.emit($event)"
                   ></app-block-3>
                 }
-                @case ('block-4') {
+                @case ("block-4") {
                   <app-block-4
                     [categories]="block.categories"
                     [templateData]="templateData()"
@@ -98,7 +103,7 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
                     (addToCart)="addToCart.emit($event)"
                   ></app-block-4>
                 }
-                @case ('block-5') {
+                @case ("block-5") {
                   <app-block-5
                     [categories]="block.categories"
                     [templateData]="templateData()"
@@ -106,7 +111,7 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
                     (addToCart)="addToCart.emit($event)"
                   ></app-block-5>
                 }
-                @case ('block-6') {
+                @case ("block-6") {
                   <app-block-6
                     [categories]="block.categories"
                     [templateData]="templateData()"
@@ -114,7 +119,7 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
                     (addToCart)="addToCart.emit($event)"
                   ></app-block-6>
                 }
-                @case ('block-7') {
+                @case ("block-7") {
                   <app-block-7
                     [categories]="block.categories"
                     [templateData]="templateData()"
@@ -130,13 +135,15 @@ import { BlockPromotionsComponent } from './blocks/block-promotions';
             class="flex flex-col items-center justify-center py-20 text-white italic font-medium"
           >
             <p class="text-xl">Estamos actualizando nuestra carta...</p>
-            <p class="text-sm mt-2">Danos un momento para prepararte lo mejor.</p>
+            <p class="text-sm mt-2">
+              Danos un momento para prepararte lo mejor.
+            </p>
           </div>
         }
       </div>
     </app-layout-scale>
 
-    <app-template-footer class="mt-20 block"></app-template-footer> 
+    <app-template-footer class="mt-20 block"></app-template-footer>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -150,7 +157,7 @@ export class BaseTemplate implements OnInit {
   productClick = output<Product>();
   addToCart = output<Product | Combo | Promotion>();
 
-  backgroundImage = signal('/images/bg.png');
+  backgroundImage = signal("/images/bg.png");
 
   ngOnInit(): void {
     this.menuService.getTemplateImages().subscribe((data) => {
