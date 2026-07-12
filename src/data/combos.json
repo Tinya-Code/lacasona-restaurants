@@ -5,7 +5,7 @@
       "name": "Combo 1",
       "description": "½ Kg de Chicharrón, Camote frito, Cancha, Sarza criolla, 2 Panes y 1 Café",
       "price": 25.00,
-      "url": "/images/products/combo.png",
+      "url": "/images/products/pollo.png",
       "cloudinary_id": ""
     },
     {
@@ -13,7 +13,7 @@
       "name": "Combo 2",
       "description": "½ Kg de Chicharrón, Camote frito, Cancha, Sarza criolla, 4 Panes y 2 Cafés",
       "price": 50.00,
-      "url": "/images/products/combo.png",
+      "url": "/images/products/pollo.png",
       "cloudinary_id": ""
     },
     {
