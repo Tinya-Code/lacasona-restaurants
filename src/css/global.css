@@ -13,8 +13,9 @@
   --color-tertiary: #823d15; /* Marrón suave para balance */
 
   /* Complementario */
-  --color-background: #E9D2B4; /* Blanco suave para balance */
+  --color-background: #e9d2b4; /* Blanco suave para balance */
   --color-surface: #040404; /* Gris Zinc 100 para secciones */
+  --color-background-secondary: #462e1c; /* Marrón oscuro para balance */
 
   /* Acentos */
   --color-accent: #f59e0b; /* Ámbar/Dorado, toque de elegancia */
