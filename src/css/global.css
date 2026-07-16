@@ -11,8 +11,12 @@
   --color-tertiary: #FF6B00; /* Terracota vibrante, fuego/madera */
 
   /* Complementario */
+
   --color-background: #FDE7DD; /* Durazno claro, cálido */
   --color-surface: #ffffff; /* Negro intenso para contraste */
+
+  --color-background-secondary: #462e1c; /* Marrón oscuro para balance */
+
 
   /* Acentos */
   --color-accent: #F9AB2F; /* Naranja brasa, energía */
