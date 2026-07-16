@@ -22,11 +22,38 @@ export class RestaurantService {
   }
 
   // Exposed signals
-  readonly restaurant = computed(() => this._restaurantInfo()?.data.restaurant);
-  readonly settings = computed(() => this._restaurantInfo()?.data.settings);
+  readonly restaurant = computed(() => {
+    const data = this._restaurantInfo()?.data;
+    if (!data) return null;
+    return {
+      name: data.name,
+      slug: data.name ? data.name.toLowerCase().replace(/\s+/g, '-') : "",
+      template_id: "default",
+      phone: data.phone,
+      address: data.address,
+      location: {
+        lat: Number(data.location_lat || 0),
+        lng: Number(data.location_lng || 0)
+      }
+    };
+  });
 
-  readonly orderConfig = computed(() => this.settings()?.order_config);
-  readonly whatsappConfig = computed(() => this.settings()?.whatsapp_config);
-  readonly businessConfig = computed(() => this.settings()?.business_config);
-  readonly socialMedia = computed(() => this.businessConfig()?.social_media);
+  readonly settings = computed(() => {
+    const data = this._restaurantInfo()?.data;
+    if (!data) return null;
+    return {
+      whatsapp_config: data.whatsapp_config,
+      display_config: data.display_config,
+      order_config: data.order_config,
+      business_config: data.business_config,
+      description: "",
+      tags: [] as string[],
+      logo_url: null as string | null
+    };
+  });
+
+  readonly orderConfig = computed(() => this._restaurantInfo()?.data?.order_config);
+  readonly whatsappConfig = computed(() => this._restaurantInfo()?.data?.whatsapp_config);
+  readonly businessConfig = computed(() => this._restaurantInfo()?.data?.business_config);
+  readonly socialMedia = computed(() => this._restaurantInfo()?.data?.business_config?.social_media);
 }

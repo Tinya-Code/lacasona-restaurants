@@ -1,31 +1,28 @@
 import { ChangeDetectionStrategy, Component, input, output, signal, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {  LucideShoppingBag, LucidePlus, LucideMinus, LucideX, LucideMessageCircle, LucideStar } from '@lucide/angular';
+import { LucideShoppingBag, LucidePlus, LucideMinus, LucideX, LucideMessageCircle } from '@lucide/angular';
 import type { Product } from '../../../core/models/product.model';
+import type { PriceRangeEntry } from '../../../core/models/price-range.model';
 import { PrecioPipe } from '../../../core/pipes/precio.pipe';
 import { DataStoreService } from '../../../core/services/data-store.service';
-import { MenuService } from '../../../core/services/menu.service';
 import { RestaurantService } from '../../../core/services/restaurant.service';
-import type { PriceRangeEntry } from '../../../core/models/price-range.model';
 
 @Component({
   selector: 'app-chifa-product-detail',
   standalone: true,
-  imports: [PrecioPipe, CommonModule, LucideShoppingBag, LucideMessageCircle, LucideX],
+  imports: [PrecioPipe, CommonModule, LucideShoppingBag, LucideMessageCircle, LucideX, LucidePlus, LucideMinus],
   templateUrl: './product-detail.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChifaProductDetail {
   product = input.required<Product>();
-  addToCart = output<{ product: Product, quantity: number, selectedEntry?: PriceRangeEntry }>();
+  addToCart = output<{ product: Product; quantity: number; selectedEntry?: PriceRangeEntry }>();
   close = output<void>();
 
   private readonly dataStore = inject(DataStoreService);
-  private readonly menuService = inject(MenuService);
   private readonly restaurantService = inject(RestaurantService);
 
   readonly maxQuantity = computed(() => this.restaurantService.orderConfig()?.max_order_quantity ?? 99);
-  
   readonly canOrder = computed(() => this.restaurantService.orderConfig()?.delivery_enabled ?? true);
 
   // UI Icons
@@ -34,41 +31,25 @@ export class ChifaProductDetail {
   Minus = LucideMinus;
   X = LucideX;
   MessageCircle = LucideMessageCircle;
-  Star = LucideStar;
 
   quantity = signal(1);
   private readonly _selectedEntry = signal<PriceRangeEntry | null>(null);
 
-  /** Reactive lookup: updates whenever priceRanges store or product changes */
-  readonly priceRange = computed(() => {
-    const rawId = this.product().price_range_id;
-    if (!rawId) return null;
+  /** Embedded price ranges from the product (API response). */
+  readonly priceRanges = computed(() => this.product().priceRanges ?? []);
 
-    const rangeId = String(rawId).trim();
-    const allRanges = this.menuService.priceRanges();
+  /** True if the product has price range options. */
+  readonly hasPriceRanges = computed(() => this.priceRanges().length > 0);
 
-    // Flexible matching (string comparison + trim)
-    return allRanges.find(r => String(r.id).trim() === rangeId) ?? null;
-  });
-
-  /** True if the product is expected to have a range but data hasn't arrived yet. */
-  readonly isLoadingRange = computed(() => {
-    return !!this.product().price_range_id && !this.priceRange();
-  });
-
-  /** The effectively selected entry. Defaults to the first entry if none is manually selected. */
+  /** The effectively selected entry. Defaults to the first entry. */
   readonly selectedEntry = computed(() => {
     const manual = this._selectedEntry();
     if (manual) return manual;
-
-    const range = this.priceRange();
-    return (range && range.entries.length > 0) ? range.entries[0] : null;
+    const ranges = this.priceRanges();
+    return ranges.length > 0 ? ranges[0] : null;
   });
 
   readonly currentPrice = computed(() => {
-    // If we are waiting for a range, don't show the flat price (which is usually empty/0)
-    if (this.isLoadingRange()) return null;
-
     const entry = this.selectedEntry();
     if (entry) return Number(entry.price);
     const raw = this.product().price;
@@ -77,8 +58,13 @@ export class ChifaProductDetail {
     return isNaN(parsed) ? 0 : parsed;
   });
 
-  increase() { if (this.quantity() < this.maxQuantity()) this.quantity.update(q => q + 1); }
-  decrease() { if (this.quantity() > 1) this.quantity.update(q => q - 1); }
+  increase() {
+    if (this.quantity() < this.maxQuantity()) this.quantity.update(q => q + 1);
+  }
+
+  decrease() {
+    if (this.quantity() > 1) this.quantity.update(q => q - 1);
+  }
 
   selectEntry(entry: PriceRangeEntry) {
     this._selectedEntry.set(entry);
@@ -88,7 +74,7 @@ export class ChifaProductDetail {
     this.addToCart.emit({
       product: this.product(),
       quantity: this.quantity(),
-      selectedEntry: this.selectedEntry() ?? undefined
+      selectedEntry: this.selectedEntry() ?? undefined,
     });
     this.close.emit();
   }
@@ -102,7 +88,7 @@ export class ChifaProductDetail {
 
     const entry = this.selectedEntry();
     if (entry) {
-      message += ` (${entry.qty} unds - S/ ${entry.price})`;
+      message += ` (${entry.quantity} ${entry.unit} - S/ ${entry.price})`;
       if (entry.bonus) message += ` + ${entry.bonus}`;
     }
 

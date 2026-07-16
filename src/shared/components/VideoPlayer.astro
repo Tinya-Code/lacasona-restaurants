@@ -1,0 +1,82 @@
+---
+export interface Props {
+  id: string;
+  src: string;
+  poster: string;
+  title: string;
+  caption?: string;
+}
+
+const {
+  id,
+  src,
+  poster,
+  title,
+  caption,
+} = Astro.props;
+---
+
+<article
+  class="video-player group h-100 w-55  relative overflow-hidden rounded-xl bg-black shadow-lg"
+  data-video-player
+>
+  <div class="relative w-full h-full">
+    <video
+      id={`video-${id}`}
+      preload="none"
+      playsinline
+      poster={poster}
+      class="w-full h-full object-cover"
+      data-src={src}
+      aria-label={title}
+    >
+      Tu navegador no soporta HTML5 Video.
+    </video>
+
+    <button
+      type="button"
+      class="play-btn absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300"
+      aria-label={`Reproducir ${title}`}
+    >
+      <span
+        class="flex h-20 w-20 items-center justify-center rounded-full bg-white/90 backdrop-blur"
+      >
+        <svg
+          class="h-10 w-10 translate-x-0.5"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </button>
+
+    <button
+      type="button"
+      class="toggle-play absolute top-4 right-4 h-10 w-10 flex items-center justify-center rounded-full bg-black/50 text-white pointer-events-auto opacity-0 transition-opacity duration-300"
+      aria-label="Pausar/Reproducir"
+    >
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+      </svg>
+    </button>
+
+    <div
+      class="controls pointer-events-none absolute inset-x-0 bottom-0 opacity-0 transition-all duration-300 group-hover:opacity-100"
+    >
+      <div class="bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4">
+        <div class="flex items-center justify-between text-white">
+          <button
+            type="button"
+            class="fullscreen pointer-events-auto hover:text-white/80 transition-colors opacity-0"
+            aria-label="Pantalla completa"
+          >
+            ⛶
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</article>

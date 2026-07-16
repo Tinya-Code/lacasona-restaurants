@@ -90,15 +90,13 @@ export class Menu implements OnInit {
         this.promotions.set(promotions.data);
       }
 
-      // 4. Also trigger price ranges load (internally managed by service signal)
-      this.menuService.loadPriceRanges();
-
       // Give it a tiny extra delay for the animations to feel smooth
       setTimeout(() => {
         this.isLoading.set(false);
       }, 300);
     });
   }
+
 
   onProductClick(product: any): void {
     this.selectedProduct.set(product);

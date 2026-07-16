@@ -4,7 +4,7 @@ import HeaderAstroComponent from "../shared/sections/Header.astro";
 import { TemplateFooter } from "../menu-angular/base-template/components/footer/footer";
 import { WhatsAppButton } from "../menu-angular/components/whatsapp-button/whatsapp-button.component";
 import MainContentAstroComponent from "../shared/components/mainContent.astro";
-import GalleryAstroComponent from "../shared/sections/gallery.astro";
+import { GalleryComponent } from "../menu-angular/components/gallery/gallery.component";
 ---
 
 <LayoutAstroComponent
@@ -16,9 +16,12 @@ import GalleryAstroComponent from "../shared/sections/gallery.astro";
 >
     <HeaderAstroComponent />
     <MainContentAstroComponent>
-        <GalleryAstroComponent/>
-    
-</MainContentAstroComponent>
-    <TemplateFooter client:visible/>
-    <WhatsAppButton client:visible/>
+        <GalleryComponent
+            client:visible
+            heading="La Casona"
+            description="Un recorrido visual por nuestros platos, el ambiente acogedor y los momentos que hacen única tu experiencia en Manchay."
+        />
+    </MainContentAstroComponent>
+    <TemplateFooter client:visible />
+    <WhatsAppButton client:visible />
 </LayoutAstroComponent>

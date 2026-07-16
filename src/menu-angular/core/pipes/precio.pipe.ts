@@ -26,8 +26,8 @@ export class PrecioPipe implements PipeTransform {
     return new Intl.NumberFormat("es-PE", {
       style: "currency",
       currency: "PEN",
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(num);
   }
 }

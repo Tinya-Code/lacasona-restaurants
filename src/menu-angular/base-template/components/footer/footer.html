@@ -5,15 +5,13 @@
 
   <div class="max-w-7xl mx-auto px-8 relative z-10">
     <!-- Top Section: 3 Columns -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start  "
-    >
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start">
       <!-- Left: Contact & Hours -->
       <div
         class="space-y-8 flex flex-col items-center text-center md:text-left"
       >
         <div class="flex flex-col items-center justify-center">
-          <h4 class="text-xl font-display text-center text-primary block">
+          <h4 class="text-xl font-display text-center text-accent block">
             Contacto & Horarios
           </h4>
           <a
@@ -27,9 +25,9 @@
 
         @if (todayHours(); as schedule) {
         <div class="flex flex-col items-center justify-center space-y-2">
-          <p class="text-xl font-display text-primary tracking-widest mb-1">
+          <h4 class="text-xl font-display text-accent tracking-widest mb-1">
             Horario de Hoy
-          </p>
+          </h4>
           <p class="text-xl font- text-primary-text">
             {{ schedule.open | timeFormat }} — {{ schedule.close | timeFormat }}
           </p>
@@ -41,13 +39,16 @@
       <div
         class="flex flex-col items-center text-center space-y-6 order-first md:order-none"
       >
-        <div class="bg-white h-60 w-60 flex justify-center items-center rounded-full outline-primary outline-4">
-        <img
-          src="/logo-lacasona.svg"
-          [alt]="restaurantName()"
-          class="w-64 h-full px-8 object-contain"
-        />
-        </div>
+        <a
+          href="/"
+          class="bg-white h-60 w-60 flex justify-center items-center rounded-full outline-primary outline-4"
+        >
+          <img
+            src="/logo-lacasona.svg"
+            [alt]="restaurantName()"
+            class="w-64 h-full px-8 object-contain"
+          />
+        </a>
         <h2 class="text-5xl hidden font-display tracking-tighter text-white">
           {{ restaurantName() }}<span class="text-primary">.</span>
         </h2>
@@ -61,10 +62,9 @@
         class="space-y-8 flex flex-col items-center text-center md:text-right"
       >
         <div class="flex flex-col justify-center space-y-4 items-center">
-          <h4 class="text-xl font-display text-primary block">Siguenos</h4>
+          <h4 class="text-xl font-display text-accent block">Siguenos</h4>
           <div class="flex items-center justify-center md:justify-end gap-5">
-            @if (socialMediaSafe(); as sm) {
-               @if (sm.facebook) {
+            @if (socialMediaSafe(); as sm) { @if (sm.facebook) {
             <a
               [href]="sm.facebook"
               target="_blank"
@@ -72,8 +72,7 @@
             >
               <span class="icon-[fa6-brands--facebook] w-6 h-6"></span>
             </a>
-            } 
-            @if (sm.instagram) {
+            } @if (sm.instagram) {
             <a
               [href]="sm.instagram"
               target="_blank"
@@ -81,16 +80,15 @@
             >
               <span class="icon-[fa6-brands--instagram] w-6 h-6"></span>
             </a>
-            } 
-          @if(sm.tiktok) {
+            } @if(sm.tiktok) {
             <a
               [href]="sm.tiktok"
               target="_blank"
               class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group hover:bg-primary hover:border-primary transition-all duration-300"
             >
-            <span class="icon-[simple-icons--tiktok] w-6 h-6"></span>
+              <span class="icon-[simple-icons--tiktok] w-6 h-6"></span>
             </a>
-          }}
+            }}
           </div>
         </div>
       </div>

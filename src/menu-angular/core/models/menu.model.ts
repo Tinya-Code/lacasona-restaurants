@@ -1,38 +1,51 @@
 import type { Block } from './block.model';
-import type { PriceRange } from './price-range.model';
 
-export interface Menu {
+/**
+ * Respuesta del endpoint /carta/restaurant/:id
+ */
+export interface MenuResponseData {
+  restaurant_id: string;
+  restaurant_name: string;
   blocks: Block[];
 }
 
-/**
- * Representa la estructura de menu_render.json
- */
 export interface MenuResponse {
-  data: Menu;
+  success: boolean;
+  message: string;
+  data: MenuResponseData;
+  timestamp: string;
+  statusCode: number;
 }
 
 /**
- * Representa la estructura de price_ranges.json
- */
-export interface PriceRangesResponse {
-  data: PriceRange[];
-}
-
-/**
- * Representa la estructura de gallery.json
+ * Representa la estructura de la respuesta del endpoint /gallery
  */
 export interface GalleryItem {
-  id: string;
-  type: 'video-link' | 'image';
-  url: string;
+  id: number;
+  restaurantId: string;
   title: string;
-  description: string;
-  cloudinary_id: string;
+  imageUrl: string;
+  description: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface GalleryPagination {
+  page: number;
+  limit: number;
+  total: number;
+  totalPages: number;
+  hasNext: boolean;
+  hasPrevious: boolean;
 }
 
 export interface GalleryResponse {
+  success: boolean;
+  message: string;
   data: GalleryItem[];
+  timestamp: string;
+  statusCode: number;
+  pagination: GalleryPagination;
 }
 
 /**
@@ -55,4 +68,32 @@ export interface TemplateImages {
 
 export interface TemplateImagesResponse {
   data: TemplateImages;
+}
+
+export interface Combo {
+  id: number;
+  restaurant_id: string;
+  name: string;
+  description: string;
+  image_url: string;
+  price: string | number;
+  is_active: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CombosResponse {
+  success: boolean;
+  message: string;
+  data: Combo[];
+  timestamp: string;
+  statusCode: number;
+  pagination: {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrevious: boolean;
+  };
 }

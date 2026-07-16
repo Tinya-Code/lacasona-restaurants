@@ -1,10 +1,10 @@
 export interface CartItem {
   id: string;
-  originalProductId: string;
+  originalProductId: number;
   name: string;
   price: number;
   quantity: number;
-  image_url: string | null;
+  imageUrl: string | null;
   selectedEntry?: {
     qty: number | string;
     price: number | string;

@@ -16,7 +16,7 @@ export class TimeFormatPipe implements PipeTransform {
 
     if (isNaN(hours)) return value;
 
-    const period = hours >= 12 ? "PM" : "AM";
+    const period = hours >= 12 ? "pm" : "am";
     hours = hours % 12;
     hours = hours ? hours : 12; // La hora 0 se convierte en 12
 

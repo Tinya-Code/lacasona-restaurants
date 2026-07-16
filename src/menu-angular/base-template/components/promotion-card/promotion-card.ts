@@ -41,18 +41,17 @@ export class PromotionCardComponent {
 
   onCardClick() {
     const promo = this.promotion();
-    // Map Promotion to Product
     const product: Product = {
-      id: promo.id,
+      id: Number(promo.id) || 0,
       name: promo.name,
       description: promo.description,
-      price: promo.discountedPrice, // Show the discounted price as the main price
-      image_url: promo.url,
-      qty_label: null,
-      price_range_id: null,
-      category_id: 'promotion',
-      cloudinary_id: promo.cloudinary_id,
-      is_hidden: false
+      price: String(promo.discountedPrice), // Show the discounted price as the main price
+      imageUrl: promo.url,
+      categoryId: 'promotion',
+      isActive: true,
+      isRecommended: false,
+      prices: [],
+      priceRanges: []
     };
     this.productClick.emit(product);
   }
