@@ -1,0 +1,189 @@
+---
+import VideoPlayerAstroComponent from "../components/VideoPlayer.astro";
+
+export interface Video {
+  id: string;
+  src: string;
+  poster: string;
+  title: string;
+  caption?: string;
+}
+
+interface Props {
+  videos: Video[];
+  columns?: 1 | 2 | 3 | 4;
+  sectionTitle?: string;
+  sectionDescription?: string;
+}
+const tiktokUrl = "https://www.tiktok.com/@lacasonarestaurante2";
+
+const {
+  videos,
+  columns = 3,
+  sectionTitle = "Nuestra Comunidad",
+  sectionDescription = "Descubre nuestra comunidad a través de nuestros videos",
+} = Astro.props;
+---
+
+<section
+  aria-labelledby="videos-title"
+  class="py-16 w-full bg-secondary bg-blend-color-burn bg-[url('/bg-patern_1.webp')] bg-contain"
+>
+  <div class="mx-auto max-w-4xl px-4 grid grid-cols-2 md:grid-cols-3 gap-8">
+    <div
+      class="flex flex-col col-span-2 md:col-span-1 items-center justify-center"
+    >
+      <div class="pb-4 max-w-xs">
+        <h2
+          id="videos-title"
+          class="text-center text-primary-text text-4xl font-display"
+        >
+          {sectionTitle}
+        </h2>
+        <p class="text-center hidden text-primary-text/80">
+          {sectionDescription}
+        </p>
+      </div>
+      <div
+        class="p-3 w-full max-w-50 justify-between bg-white rounded-xl flex items-center"
+      >
+      
+          <a
+            href={tiktokUrl}
+            class="bg-white h-11 w-11  flex justify-center items-center rounded-full outline-primary outline-2"
+          >
+            <img
+              src="/logo-lacasona.svg"
+              alt="Logo La Casona"
+              class="w-fullh-full px-2 object-contain"
+            />
+          </a>
+     
+
+
+        <a
+          href={tiktokUrl}
+          class="bg-primary active:scale-95 duration-300  font-display text-white px-6 py-2.5 rounded-full font-semibold hover:bg-primary/90 transition-colors"
+        >
+          + Seguir
+        </a>
+      </div>
+    </div>
+
+    <div
+      class={`grid grid-cols-2 md:grid-cols-2 gap-4 col-span-2 justify-items-center`}
+    >
+      {videos.map((video) => <VideoPlayerAstroComponent {...video} />)}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const players = document.querySelectorAll("[data-video-player]");
+
+    players.forEach((player) => {
+      const video = player.querySelector("video");
+
+      const playBtn = player.querySelector(".play-btn");
+
+      const togglePlay = player.querySelector(".toggle-play");
+
+      const fullscreen = player.querySelector(".fullscreen");
+
+      let loaded = false;
+
+      const pauseOthers = () => {
+        document.querySelectorAll("[data-video-player] video").forEach((v) => {
+          if (v !== video) {
+            v.pause();
+          }
+        });
+      };
+
+      const loadVideo = () => {
+        if (loaded) return;
+
+        video.src = video.dataset.src;
+
+        video.load();
+
+        loaded = true;
+      };
+
+      const playVideo = async () => {
+        loadVideo();
+
+        pauseOthers();
+
+        try {
+          await video.play();
+
+          playBtn.style.display = "none";
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      playBtn?.addEventListener("click", playVideo);
+
+      togglePlay?.addEventListener("click", () => {
+        if (video.paused) {
+          playVideo();
+        } else {
+          video.pause();
+        }
+      });
+
+      video.addEventListener("pause", () => {
+        playBtn.style.display = "flex";
+        togglePlay.style.opacity = "0";
+        fullscreen.style.opacity = "0";
+      });
+
+      video.addEventListener("play", () => {
+        playBtn.style.display = "none";
+        togglePlay.style.opacity = "1";
+        fullscreen.style.opacity = "1";
+      });
+
+      fullscreen.addEventListener("click", () => {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          video.msRequestFullscreen();
+        }
+      });
+
+      // Mantener aspect ratio al entrar/salir de fullscreen
+      video.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement === video) {
+          video.style.objectFit = "contain";
+        } else {
+          video.style.objectFit = "cover";
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+
+          if (!entry.isIntersecting && !video.paused) {
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+      },
+    );
+
+    document
+      .querySelectorAll("[data-video-player] video")
+      .forEach((video) => observer.observe(video));
+  });
+</script>

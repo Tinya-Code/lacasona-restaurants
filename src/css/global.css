@@ -4,28 +4,30 @@
 
 @theme {
   /* Tipografías */
-  --font-display: "BespokeSerif-Extrabold", sans-serif;
+  --font-display:  "BespokeSerif-Extrabold", sans-serif;
   --font-body: "Switzer-Regular", sans-serif;
-  /* Colores base */
-  --color-primary: #dd2333; /* Rojo vibrante, moderno #823d15 */
-  --color-secondary: #1a1007; /* Negro Zinc 950, premium */
-
-  --color-tertiary: #823d15; /* Marrón suave para balance */
+  --color-primary: #8B1A1A; /* Rojo vino más oscuro, sofisticado */
+  --color-secondary: #1a1007; /* Marrón carbón cálido */
+  --color-tertiary: #FF6B00; /* Terracota vibrante, fuego/madera */
 
   /* Complementario */
-  --color-background: #e9d2b4; /* Blanco suave para balance */
-  --color-surface: #040404; /* Gris Zinc 100 para secciones */
+
+  --color-background: #FDE7DD; /* Durazno claro, cálido */
+  --color-surface: #ffffff; /* Negro intenso para contraste */
+
   --color-background-secondary: #462e1c; /* Marrón oscuro para balance */
 
+
   /* Acentos */
-  --color-accent: #f59e0b; /* Ámbar/Dorado, toque de elegancia */
+  --color-accent: #F9AB2F; /* Naranja brasa, energía */
   --color-accent-muted: #fbbf24; /* Ámbar suave para detalles */
   --color-accent-secondary: #ddab87; /* Beige suave para detalles */
 
   /* Texto */
   --color-primary-text: #ffffff; /* Texto sobre fondos oscuros */
-  --color-secondary-text: #040404; /* Texto sobre fondos claros */
+  --color-secondary-text: #1a1007; /* Texto sobre fondos claros */
   --color-text-accent: #dc2626; /* Destacar títulos o precios */
+  --breakpoint-xxs: 160px;
 }
 
 html {
@@ -37,3 +39,5 @@ img {
   user-select: none;
   pointer-events: none;
 }
+
+

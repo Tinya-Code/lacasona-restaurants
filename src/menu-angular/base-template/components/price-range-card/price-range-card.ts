@@ -22,9 +22,9 @@ import { PrecioPipe } from "../../../core/pipes/precio.pipe";
       <div
         class="relative flex rounded-full h-40 w-40 bg-secondary justify-center"
       >
-        @if (product().image_url) {
+        @if (product().imageUrl) {
           <img
-            [src]="product().image_url"
+            [src]="product().imageUrl"
             class="w-full h-auto object-contain drop-shadow-2xl transform group-hover:-translate-x-4 transition-transform duration-700"
             alt="{{ product().name }}"
           />
@@ -37,7 +37,7 @@ import { PrecioPipe } from "../../../core/pipes/precio.pipe";
           class="text-4xl flex items-start justify-between gap-2 font-display text-white tracking-tight transition-colors"
         >
           {{ product().name }}
-          @if (product().is_recommended) {
+          @if (product().isRecommended) {
             <svg
               lucideStar
               class="w-5 h-5 drop-shadow-xs drop-shadow-amber-600 text-accent fill-accent"

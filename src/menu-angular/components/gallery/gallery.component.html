@@ -1,0 +1,119 @@
+<section
+  class="w-full px-4 py-16 sm:px-8 lg:px-16"
+  aria-labelledby="gallery-heading"
+>
+  <header class="mx-auto mb-10 pt-10 max-w-3xl text-center">
+    <h2
+      id="gallery-heading"
+      class="font-display text-secondary text-5xl md:text-7xl"
+    >
+      Galería de 
+      <span class="block text-secondary">{{ heading() }}</span>
+    </h2>
+    @if (description()) {
+      <p class="mt-4 text-secondary/80">{{ description() }}</p>
+    }
+  </header>
+
+  @if (loading()) {
+    <div class="flex justify-center items-center py-20">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+    </div>
+  } @else if (error()) {
+    <p class="text-center text-red-500 py-10" role="alert">
+      {{ error() }}
+    </p>
+  } @else {
+    <!-- Grid estilo Pinterest -->
+    <ul id="gallery-grid" class="pinterest-grid mx-auto max-w-7xl">
+      @for (item of items(); track item.id) {
+        <li class="gallery-item pinterest-item">
+          <figure class="group relative m-0 overflow-hidden rounded-md bg-primary-text/5">
+            <img
+              [src]="item.imageUrl"
+              [alt]="item.title"
+              loading="lazy"
+              decoding="async"
+              class="block w-full h-auto transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+            <figcaption class="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-secondary/95 via-secondary/25 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="flex items-baseline justify-between gap-2">
+                <span class="text-lg font-semibold text-primary-text">
+                  {{ item.title }}
+                </span>
+              </span>
+            </figcaption>
+          </figure>
+        </li>
+      }
+    </ul>
+
+    @if (items().length === 0) {
+      <p
+        id="gallery-empty"
+        class="mx-auto mt-10 max-w-md text-center text-primary-text/60"
+        role="status"
+      >
+        No hay elementos en la galería.
+      </p>
+    }
+  }
+</section>
+
+<style>
+  .pinterest-grid {
+    column-count: 2;
+    column-gap: 1rem;
+  }
+  @media (min-width: 640px) {
+    .pinterest-grid {
+      column-count: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    .pinterest-grid {
+      column-count: 3;
+    }
+  }
+  @media (min-width: 1280px) {
+    .pinterest-grid {
+      column-count: 4;
+    }
+  }
+
+  .pinterest-item {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 100%;
+  }
+
+  @supports (grid-template-rows: masonry) {
+    .pinterest-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: masonry;
+      column-gap: 1rem;
+      row-gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .pinterest-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .pinterest-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (min-width: 1280px) {
+      .pinterest-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .pinterest-item {
+      margin-bottom: 0;
+    }
+  }
+</style>

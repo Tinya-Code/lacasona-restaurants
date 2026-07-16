@@ -20,7 +20,7 @@ const {
   highlight = "Restaurant",
   description = "Contamos con una gran variedad de platos: Pollo a la brasa, broaster, alitas y salchipapas preparados al momento. Bebidas naturales, cocteles de la casa y la sazón que Manchay ya conoce.",
   location = "Plaza Cívica de Manchay, frente al skate park",
-  image = "/polleria-foto.webp",
+  image = "/hero.webp",
   imageAlt = "Pollo a la brasa peruano servido con papas y ensalada",
   menuHref = "/menu-la-casona-manchay",
   menuLabel = "Ver Menú",
@@ -29,38 +29,38 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative overflow-hidden min-h-[100svh] py-26 ">
+<section class="relative flex flex-col justify-center items-center overflow-hidden min-h-[100svh] md:max-h-150 py-26 ">
 
 
-  <div class="relative mx-auto flex px-4  flex-col items-center gap-12 lg:flex-row lg:gap-16">
+  <div class="relative mx-auto flex flex-col md:flex-row justify-center space-y-4 items-center gap-4   ">
     <!-- Columna de texto -->
-    <div class="flex-1 text-center lg:text-left">
+    <div class="flex-1  px-4 text-center lg:col-span-2 md:max-w-md lg:text-left">
 
-      <h1 class="font-display mt-6 tracking-tighter  drop-shadow-[2px_2px_rgba(0,0,0,0.6)] drop-shadow-black text-white text-7xl lg:text-8xl">
+      <h1 class="font-display mt-6 tracking-tighter drop-shadow-xs text-secondary-text text-5xl md:text-6xl lg:text-7xl ">
         {title}
-        <span class="block text-primary">{highlight}</span>
+        <span class="block text-secondary-text">{highlight}</span>
       </h1>
 
-      <p class="mt-6 max-w-xl text-md font-bold text-secondary lg:mx-0 mx-auto font-body">
+      <p class="mt-6 max-w-xl  font-bold text-secondary-text/80 lg:mx-0 mx-auto font-body">
         {description}
       </p>
 
-      <div class="mt-5 flex items-start justify-center gap-1 font-display text-secondary/80 lg:justify-start">
-        <Icon name="simple-icons:googlemaps" class="w-6 h-6  text-white" />
-        <span>{location}</span>
+      <div class="mt-5 flex items-start justify-center gap-0.5 font-display text-secondary/80 lg:justify-start">
+        <Icon name="simple-icons:googlemaps" class="w-6 h-6  text-accent" />
+        <span class="text-secondary-text">{location}</span>
       </div>
 
       <!-- Botones -->
       <div class="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
         <a
           href={menuHref}
-          class="group relative overflow-hidden rounded-full border-2 border-primary bg-primary px-7 py-3 active:scale-95 duration-300  font-display  text-white  transition-transform duration-200  hover:bg-primary"
+          class="group relative overflow-hidden rounded-full border-2 border-primary bg-primary px-7 py-3 active:scale-95 duration-300  font-display  text-white  transition-transform   hover:bg-primary"
         >
           {menuLabel}
         </a>
         <a
           href={promoHref}
-          class="rounded-full border-2 border-primary   font-display text-primary transition-colors px-7 py-3 active:scale-95 duration-300 duration-200 hover:bg-primary hover:text-primary-text "
+          class="rounded-full border-2 border-primary  font-display text-primary transition-colors px-7 py-3 active:scale-95 duration-300  hover:bg-primary hover:text-primary-text "
         >
           {promoLabel}
         </a>
@@ -68,22 +68,15 @@ const {
     </div>
 
     <!-- Columna de imagen -->
-    <div class="relative flex-1">
-      <div class="relative mx-auto max-w-md">
+    <div class="relative flex-1 max-w-2xl md:mx-4 justify-center items-center max-h-100 lg:col-span-3 ">
+
         <img
           src={image}
           alt={imageAlt}
-          class="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-2xl ring-1 ring-white/10 sm:aspect-[5/4] lg:aspect-[4/5]"
+          class=" w-full  h-full md:rotate-90 lg:rotate-0 object-cover  "
         />
-        <!-- sticker -->
-        <div
-          class="absolute -bottom-5 -left-5 flex h-24 w-24 rotate-[-8deg] items-center justify-center rounded-full bg-accent text-center shadow-lg sm:h-28 sm:w-28"
-        >
-          <span class="font-display text-[0.7rem] leading-tight text-secondary sm:text-xs">
-            100%<br />AL CARBÓN
-          </span>
-        </div>
-      </div>
+
+
     </div>
   </div>
 </section>

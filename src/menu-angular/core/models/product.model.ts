@@ -1,16 +1,25 @@
+export interface ProductPriceRange {
+  id: number;
+  productId: number;
+  quantity: string;
+  unit: string;
+  price: string;
+  bonus: string | null;
+  isDefault: boolean;
+}
+
 /**
  * Interfaz para los productos del menú.
  */
 export interface Product {
-  id: string;
+  id: number;
   name: string;
   description: string | null;
-  qty_label: string | null;
-  price: number | string | null;
-  price_range_id: string | null;
-  category_id: string;
-  is_recommended?: boolean;
-  is_hidden: boolean;
-  image_url: string | null;
-  cloudinary_id: string | null;
+  price: string;
+  categoryId: string;
+  imageUrl: string | null;
+  isActive: boolean;
+  isRecommended: boolean;
+  prices: any[];
+  priceRanges: ProductPriceRange[];
 }

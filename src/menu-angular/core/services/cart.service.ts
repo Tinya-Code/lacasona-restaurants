@@ -87,7 +87,7 @@ export class Cart {
         name: `${product.name}${entryLabel}`,
         price: resolvedPrice,
         quantity: quantity,
-        image_url: product.image_url,
+        imageUrl: product.imageUrl,
         selectedEntry: selectedEntry
           ? {
               qty: selectedEntry.qty,

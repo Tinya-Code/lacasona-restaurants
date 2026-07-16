@@ -1,21 +1,20 @@
 import { HttpClient } from "@angular/common/http";
-import { inject, Injectable, signal } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import type { Observable } from "rxjs";
 import { of } from "rxjs";
-import { catchError, map, shareReplay } from "rxjs/operators";
+import { catchError } from "rxjs/operators";
 import {
   type GalleryResponse,
   type MenuResponse,
-  type PriceRangesResponse,
   type TemplateImagesResponse,
+  type CombosResponse,
 } from "../models/menu.model";
 import type { RestaurantInfo } from "../models/restaurant.model";
 
-// Local data imports
+// Local data imports (used as fallback when HTTP is unavailable)
 import combosLocal from "../../../data/combos.json";
 import galleryLocal from "../../../data/gallery.json";
 import menuDataLocal from "../../../data/menu_render.json";
-import priceRangesLocal from "../../../data/price_ranges.json";
 import promotionsLocal from "../../../data/promotions.json";
 import restaurantLocal from "../../../data/restaurant.json";
 import templateImagesLocal from "../../../data/template-images.json";
@@ -25,9 +24,11 @@ import recommendedLocal from "../../../data/recommended.json";
   providedIn: "root",
 })
 export class MenuService {
-  private useApi = false;
-  private apiUrl =
-    "https://script.google.com/macros/s/AKfycbxCDiG_frhFkGDYnaY-bB6qelCLwp2sg26cL5EtxrfL2MQ7-iArHPY-S1K74tgmApeC/exec";
+  private useApi = true;
+  private readonly apiUrl = "https://tinyacode.com";
+  private readonly restaurantId = "00000000-0000-0000-0000-000000000001";
+
+  private readonly http: HttpClient | null;
 
   constructor() {
     this.http = inject(HttpClient, { optional: true }) as HttpClient | null;
@@ -36,57 +37,22 @@ export class MenuService {
     }
   }
 
-  private http: HttpClient | null;
-
-  // ─── Reactive price ranges store ────────────────────────────────────────────
-  private readonly _priceRanges = signal<
-    import("../models/price-range.model").PriceRange[]
-  >([]);
-  readonly priceRanges = this._priceRanges.asReadonly();
-
-  private priceRanges$?: Observable<PriceRangesResponse>;
-
-  loadPriceRanges(): void {
-    this.getPriceRanges().subscribe((response) => {
-      // Ensure we only set the signal if we have an array of data
-      if (response && Array.isArray(response.data)) {
-        this._priceRanges.set(response.data);
-      } else {
-        console.warn(
-          'MenuService: price-ranges API did not return an array in the "data" property',
-          response,
-        );
-      }
-    });
-  }
-
   setUseApi(value: boolean): void {
     this.useApi = value;
   }
 
+  /**
+   * Get menu data (carta). Products include embedded priceRanges[].
+   */
   getMenuData(): Observable<MenuResponse> {
     if (this.useApi && this.http) {
-      return this.http.get<MenuResponse>(`${this.apiUrl}?json=menu`);
-    } else {
-      return of(menuDataLocal as unknown as MenuResponse);
+      return this.http
+        .get<MenuResponse>(
+          `${this.apiUrl}/carta/restaurant/${this.restaurantId}`
+        )
+        .pipe(catchError(() => of(menuDataLocal as unknown as MenuResponse)));
     }
-  }
-
-  getPriceRanges(): Observable<PriceRangesResponse> {
-    if (!this.priceRanges$) {
-      const source$ =
-        this.useApi && this.http
-          ? this.http.get<PriceRangesResponse>(
-              `${this.apiUrl}?json=price-range`,
-            )
-          : of(priceRangesLocal as PriceRangesResponse);
-
-      this.priceRanges$ = source$.pipe(
-        shareReplay(1),
-        catchError(() => of({ data: [] })),
-      );
-    }
-    return this.priceRanges$!;
+    return of(menuDataLocal as unknown as MenuResponse);
   }
 
   /**
@@ -94,81 +60,15 @@ export class MenuService {
    */
   getRestaurantInfo(): Observable<RestaurantInfo> {
     if (this.useApi && this.http) {
-      return this.http.get<any>(`${this.apiUrl}?json=settings`).pipe(
-        map((response) => {
-          if (response && response.data && response.data.restaurant_name) {
-            const d = response.data;
-
-            const dayMap: { [key: string]: string } = {
-              lunes: "monday",
-              martes: "tuesday",
-              miercoles: "wednesday",
-              jueves: "thursday",
-              viernes: "friday",
-              sabado: "saturday",
-              domingo: "sunday",
-            };
-            const mappedBusinessHours: any = {};
-            if (d.business_hours) {
-              for (const [key, value] of Object.entries(d.business_hours)) {
-                const mappedKey = dayMap[key.toLowerCase()] || key;
-                mappedBusinessHours[mappedKey] = value;
-              }
-            }
-
-            // Map flat structure to nested RestaurantInfo
-            return {
-              data: {
-                restaurant: {
-                  name: d.restaurant_name,
-                  slug: d.restaurant_slug,
-                  template_id: "default", // Fallback
-                  phone: String(d.restaurant_phone),
-                  address: d.restaurant_address,
-                  location: {
-                    lat: d.location_lat,
-                    lng: d.location_lng,
-                  },
-                },
-                settings: {
-                  whatsapp_config: {
-                    number: String(d.whatsapp_number),
-                    message_template: d.whatsapp_message,
-                  },
-                  display_config: {
-                    currency: "PEN", // Fallback or read if available
-                    language: d.language,
-                  },
-                  order_config: {
-                    delivery_fee: Number(d.delivery_fee),
-                    payment_methods: d.payment_methods || [],
-                    delivery_enabled: d.delivery_enabled === "Activo",
-                    max_order_quantity: Number(d.max_order_quantity),
-                  },
-                  business_config: {
-                    social_media: {
-                      tiktok: d.tiktok || "",
-                      facebook: d.facebook || "",
-                      instagram: d.instagram || "",
-                    },
-                    business_hours: mappedBusinessHours,
-                    delivery_zones: Array.isArray(d.delivery_zones)
-                      ? d.delivery_zones
-                      : [],
-                  },
-                  description: d.description || "",
-                  tags: Array.isArray(d.tags) ? d.tags : [],
-                  logo_url: d.logo_url || null,
-                },
-              },
-            } as RestaurantInfo;
-          }
-          return response as RestaurantInfo;
-        }),
-      );
-    } else {
-      return of(restaurantLocal as RestaurantInfo);
+      return this.http
+        .get<RestaurantInfo>(
+          `${this.apiUrl}/restaurants/${this.restaurantId}/settings`
+        )
+        .pipe(
+          catchError(() => of(restaurantLocal as unknown as RestaurantInfo))
+        );
     }
+    return of(restaurantLocal as unknown as RestaurantInfo);
   }
 
   /**
@@ -176,34 +76,19 @@ export class MenuService {
    */
   getGalleryData(): Observable<GalleryResponse> {
     if (this.useApi && this.http) {
-      return this.http.get<GalleryResponse>(`${this.apiUrl}?json=gallery`).pipe(
-        map((response) => {
-          if (response && response.data) {
-            response.data = response.data.map((item: any) => ({
-              ...item,
-              type: item.type || "image",
-            }));
-          }
-          return response;
-        }),
-      );
-    } else {
-      return of(galleryLocal as GalleryResponse).pipe(
-        map((response) => {
-          if (response && response.data) {
-            response.data = response.data.map((item: any) => ({
-              ...item,
-              type: item.type || "image",
-            }));
-          }
-          return response;
-        }),
-      );
+      return this.http
+        .get<GalleryResponse>(
+          `${this.apiUrl}/restaurants/${this.restaurantId}/gallery`
+        )
+        .pipe(
+          catchError(() => of(galleryLocal as unknown as GalleryResponse))
+        );
     }
+    return of(galleryLocal as unknown as GalleryResponse);
   }
 
   /**
-   * Get template images data.
+   * Get template images (local only).
    */
   getTemplateImages(): Observable<TemplateImagesResponse> {
     return of(templateImagesLocal as TemplateImagesResponse);
@@ -212,39 +97,28 @@ export class MenuService {
   /**
    * Get all combos.
    */
-  getCombos(): Observable<{ data: any[] }> {
+  getCombos(): Observable<CombosResponse> {
     if (this.useApi && this.http) {
       return this.http
-        .get<{ data: any[] }>(`${this.apiUrl}?json=combos`)
-        .pipe(catchError(() => of({ data: [] })));
-    } else {
-      return of(combosLocal as { data: any[] });
+        .get<CombosResponse>(
+          `${this.apiUrl}/restaurants/${this.restaurantId}/combos`
+        )
+        .pipe(catchError(() => of(combosLocal as unknown as CombosResponse)));
     }
+    return of(combosLocal as unknown as CombosResponse);
   }
 
   /**
-   * Get all promotions.
+   * Get all promotions (local only for now).
    */
   getPromotions(): Observable<{ data: any[] }> {
-    if (this.useApi && this.http) {
-      return this.http
-        .get<{ data: any[] }>(`${this.apiUrl}?json=promotions`)
-        .pipe(catchError(() => of({ data: [] })));
-    } else {
-      return of(promotionsLocal as { data: any[] });
-    }
+    return of(promotionsLocal as { data: any[] });
   }
 
   /**
-   * Get all recommended items.
+   * Get all recommended items (local only for now).
    */
   getRecommended(): Observable<{ data: any[] }> {
-    if (this.useApi && this.http) {
-      return this.http
-        .get<{ data: any[] }>(`${this.apiUrl}?json=recommended`)
-        .pipe(catchError(() => of({ data: [] })));
-    } else {
-      return of(recommendedLocal as { data: any[] });
-    }
+    return of(recommendedLocal as { data: any[] });
   }
 }

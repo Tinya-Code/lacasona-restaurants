@@ -1,23 +1,13 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output, computed, inject } from '@angular/core';
+import { type Combo } from '../../../core/models/menu.model';
 import { PrecioPipe } from '../../../core/pipes/precio.pipe';
 import { AddButtonComponent } from '../add-button/add-button.component';
 import { RestaurantService } from '../../../core/services/restaurant.service';
-import { computed, inject} from '@angular/core';
-
-
-export interface Combo {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  url: string;
-  cloudinary_id: string;
-}
 
 @Component({
   selector: 'app-combo-card',
   standalone: true,
-  imports: [ PrecioPipe, AddButtonComponent],
+  imports: [PrecioPipe, AddButtonComponent],
   templateUrl: './combo-card.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

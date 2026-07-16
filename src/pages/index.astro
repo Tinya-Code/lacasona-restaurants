@@ -7,6 +7,23 @@ import MainContent from "../shared/components/mainContent.astro";
 import Hero from "../shared/sections/hero.astro";
 import { EVENTS_CONTENT } from "../data/events/events-content";
 import TestimonialsSlider from "../shared/sections/TestimonialSection.astro";
+import VideoGallery from "../shared/sections/VideoGallery.astro";
+const videos = [
+  {
+    id: "1",
+    src: "/video/video1.mp4",
+    poster: "/video/video1.jpeg",
+    title: "Pollo a la Brasa",
+    caption: "Nuestro plato estrella"
+  },
+  {
+    id: "2",
+    src: "/video/video2.mp4",
+    poster: "/video/video2.jpeg",
+    title: "Pollo a la Brasa",
+    caption: "Nuestro plato estrella"
+  },
+];
 ---
 
 <LayoutAstroComponent
@@ -21,17 +38,30 @@ import TestimonialsSlider from "../shared/sections/TestimonialSection.astro";
   <MainContent>
     <Hero />
 
-    <section class="flex w-full mx-auto my-4 h-160 bg-primary ">
-      <img src="/cuadricula-lacasona.svg" alt="" class="w-full h-auto object-cover" />
+    <section class="flex w-full mx-auto h-160 bg-primary">
+      <img
+        src="/cuadricula-lacasona.svg"
+        alt=""
+        class="w-full h-auto object-cover"
+      />
+
+
+
     </section>
-           <TestimonialsSlider
+
+<VideoGallery
+  videos={videos}
+  columns={3}
+  sectionTitle="Momentos en La Casona"
+/>
+    <TestimonialsSlider
       title={EVENTS_CONTENT.testimonials.title}
       subtitle={EVENTS_CONTENT.testimonials.subtitle}
       reviews={EVENTS_CONTENT.testimonials.reviews}
       cta={EVENTS_CONTENT.testimonials.cta}
     />
-    
   </MainContent>
   <TemplateFooter client:visible />
   <WhatsAppButton client:visible />
+  <div class="h-10 fixed bottom-0  bg-linear-to-t from-black fr to-transparent w-full "></div>
 </LayoutAstroComponent>

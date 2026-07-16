@@ -1,52 +1,49 @@
 {
+  "success": true,
+  "message": "Combos retrieved successfully",
   "data": [
     {
-      "id": "CMB001",
-      "name": "Combo 1",
-      "description": "½ Kg de Chicharrón, Camote frito, Cancha, Sarza criolla, 2 Panes y 1 Café",
-      "price": 25.00,
-      "url": "/images/products/pollo.png",
-      "cloudinary_id": ""
-    },
-    {
-      "id": "CMB002",
-      "name": "Combo 2",
-      "description": "½ Kg de Chicharrón, Camote frito, Cancha, Sarza criolla, 4 Panes y 2 Cafés",
-      "price": 50.00,
-      "url": "/images/products/pollo.png",
-      "cloudinary_id": ""
-    },
-    {
-      "id": "CMB003",
-      "name": "Combo 3",
-      "description": "1 Kg de Chicharrón, Camote frito, Cancha, Sarza criolla, 6 Panes y 3 Cafés",
-      "price": 95.00,
-      "url": "/images/products/combo.png",
-      "cloudinary_id": ""
-    },
-    {
-      "id": "CMB004",
+      "id": 1,
+      "restaurant_id": "00000000-0000-0000-0000-000000000001",
       "name": "Combo para 5",
       "description": "1 pollo y 1/4 + porción de papas fritas + ensalada + Inca Kola 1.5 lt.",
-      "price": 68.00,
-      "url": "/images/products/combo.png",
-      "cloudinary_id": ""
+      "image_url": "https://res.cloudinary.com/default-placeholder.png",
+      "price": "68.00",
+      "is_active": 1,
+      "created_at": "2026-07-16T09:14:26.000Z",
+      "updated_at": "2026-07-16T09:14:26.000Z"
     },
     {
-      "id": "CMB005",
+      "id": 2,
+      "restaurant_id": "00000000-0000-0000-0000-000000000001",
       "name": "Combo para 6",
       "description": "1 pollo y 1/2 + porción de papas + ensalada familiar + Inca Kola 1.5 lt.",
-      "price": 78.00,
-      "url": "/images/products/combo.png",
-      "cloudinary_id": ""
+      "image_url": "https://res.cloudinary.com/default-placeholder.png",
+      "price": "78.00",
+      "is_active": 1,
+      "created_at": "2026-07-16T09:15:05.000Z",
+      "updated_at": "2026-07-16T09:15:05.000Z"
     },
     {
-      "id": "CMB006",
+      "id": 3,
+      "restaurant_id": "00000000-0000-0000-0000-000000000001",
       "name": "Mostro Familiar",
-      "description": "1 pollo + arroz chaufa familiar + porción de papas + ensalada + Inca Kola 1.5 lt.",
-      "price": 78.00,
-      "url": "/images/products/combo.png",
-      "cloudinary_id": ""
+      "description": "1 pollo + arroz chaufa familiar + porción de papas + ensalada + Inca Kola 1.5 lt",
+      "image_url": "https://res.cloudinary.com/default-placeholder.png",
+      "price": "70.00",
+      "is_active": 1,
+      "created_at": "2026-07-16T09:16:04.000Z",
+      "updated_at": "2026-07-16T09:16:04.000Z"
     }
-  ]
+  ],
+  "timestamp": "2026-07-16T21:21:38.868Z",
+  "statusCode": 200,
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "total": 3,
+    "totalPages": 1,
+    "hasNext": false,
+    "hasPrevious": false
+  }
 }
