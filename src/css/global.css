@@ -27,7 +27,7 @@
   --color-primary-text: #ffffff; /* Texto sobre fondos oscuros */
   --color-secondary-text: #1a1007; /* Texto sobre fondos claros */
   --color-text-accent: #dc2626; /* Destacar títulos o precios */
-  --breakpoint-xxs: 160px;
+  --breakpoint-xxs: 60px;
 }
 
 html {

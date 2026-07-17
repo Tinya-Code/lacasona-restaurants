@@ -12,27 +12,19 @@ import { LayoutScaleComponent } from '../../layout/layout-scale/layout-scale';
   imports: [CommonModule, PromotionCardMiniComponent, LayoutScaleComponent],
   template: `
     @if (promotions().length > 0) {
-      <div class="w-full py-16 px-4 md:px-8 relative overflow-hidden bg-gradient-to-b from-background/30 via-background-secondary/20 to-transparent">
-        <!-- Background glows -->
-        <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+      <section class="w-full py-16 px-4 min-h-80  bg-secondary bg-blend-color-burn bg-[url('/bg-patern_1.webp')] ">
 
-        <!-- Section Title -->
         <div class="max-w-7xl mx-auto mb-12 text-center relative z-10">
-          <span class="text-accent font-semibold tracking-widest text-xs uppercase bg-accent/10 px-3 py-1.5 rounded-full">Ofertas Exclusivas</span>
-          <h2 class="text-4xl md:text-5xl font-display font-bold text-white mt-4 tracking-tight">
-            Nuestras Promociones
+          <span class="text-accent  text-xs  bg-accent/10 px-3 py-1.5 rounded-full">Ofertas Exclusivas</span>
+          <h2 class="text-4xl md:text-5xl font-display font-bold text-primary-text mt-4 tracking-tight">
+            Nuestras Promociones Mensuales 
           </h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto my-4 rounded-full"></div>
-          <p class="text-white/70 max-w-xl mx-auto text-base md:text-lg font-body">
-            Aprovecha nuestras ofertas estelares diseñadas especialmente para deleitar tu paladar.
-          </p>
+ 
         </div>
 
-        <!-- Layout Scale Wrapper containing Cards -->
-        <app-layout-scale>
+
           <!-- Cards Grid -->
-          <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+          <div class="w-full border  mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  ">
             @for (promo of promotions(); track promo.id) {
               <app-promotion-card-mini 
                 [promotion]="promo" 
@@ -41,8 +33,8 @@ import { LayoutScaleComponent } from '../../layout/layout-scale/layout-scale';
               </app-promotion-card-mini>
             }
           </div>
-        </app-layout-scale>
-      </div>
+
+      </section>
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

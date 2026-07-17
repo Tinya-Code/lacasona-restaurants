@@ -12,7 +12,7 @@ import { SliderComponent } from '../../components/slider/slider.component';
   imports: [PromotionCardComponent, TemplateSectionTitleComponent, SliderComponent],
   template: `
     @if (promotions().length > 0) {
-      <section class="relative py-12 px-8">
+      <section id="promotions" class="relative py-12 px-8">
         <app-template-section-title [title]="title()" [description]="description()">
         </app-template-section-title>
 

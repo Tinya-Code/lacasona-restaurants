@@ -7,21 +7,21 @@
   class="group relative flex @container min-h-65 md:min-h-55 h-full bg-tertiary transition-all duration-300 cursor-pointer rounded-3xl"
 >
   <h3
-    class="text-[2rem] @xxs:md:w-20 @xxs:text-left w-60 md:w-52 md:text-3xl text-center  absolute top-1 left-2  font-display text-primary-text tracking-tight group-hover:text-accent transition-colors"
+    class="text-[2rem]  leading-7 w-60 md:w-52 md:text-3xl text-center flex absolute top-1 left-2  font-display text-primary-text tracking-tight group-hover:text-accent transition-colors"
   >
     {{ product().name }} @if (product().isRecommended) {
     <svg
       lucideStar
-      class="w-8 h-8 absolute drop-shadow-xs drop-shadow-amber-600 bottom-2 left-2 text-accent fill-accent"
+      class="w-8 h-8  drop-shadow-xs drop-shadow-amber-600  text-accent fill-accent"
     ></svg>
     }
   </h3>
   <div class="flex rounded-sm absolute -right-7 top-4 font-display text-white">
-    <p class="text-4xl font-display left-4 top-9 w-4 text-tertiary absolute">
+    <p class="text-4xl font-display left-4 top-8 w-4 text-tertiary absolute">
       {{ startingPrice() | precio }}
     </p>
     <svg
-      class="h-30 w-30"
+      class="h-27 w-27"
       width="100%"
       height="100%"
       viewBox="0 0 1279 1261"
@@ -51,7 +51,7 @@
   <div class="flex relative w-full items-end h-full mt-auto">
     <img
       [src]="product().imageUrl"
-      class="w-full h-auto z-10 px-8 pt-2 drop-shadow-xl drop-shadow-black"
+      class="w-auto object-contain max-h-50 md:max-h-40 h-full mx-auto z-10 px-8 pt-2 drop-shadow-xl drop-shadow-black"
       alt="{{ product().name }}"
     />
 

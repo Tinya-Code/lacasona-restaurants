@@ -144,8 +144,7 @@ export class MenuService {
                 ? Number(firstPriceEntry.price)
                 : basePrice;
 
-              // 5. Image preference
-              const url = apiPromo.image_url || "/images/combos/combo-1.png";
+       
 
               return {
                 id: String(apiPromo.id),
@@ -154,7 +153,7 @@ export class MenuService {
                 price: basePrice,
                 discountedPrice: discountedPrice,
                 cloudinary_id: "",
-                url,
+                url:apiPromo.image_url || "",
                 // Keep references to raw fields if components need them
                 category_id: apiPromo.category_id,
                 restaurant_id: apiPromo.restaurant_id,
