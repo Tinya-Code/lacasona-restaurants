@@ -5,14 +5,14 @@ import {
   output,
 } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { LucideStar } from "@lucide/angular";
+import { LucideStar, LucidePlus } from "@lucide/angular";
 import type { Product } from "../../../core/models/product.model";
 import { PrecioPipe } from "../../../core/pipes/precio.pipe";
 
 @Component({
   selector: "app-price-range-card",
   standalone: true,
-  imports: [PrecioPipe, CommonModule, LucideStar],
+  imports: [PrecioPipe, CommonModule, LucideStar, LucidePlus],
   template: `
     <div
       (click)="productClick.emit(product())"
@@ -20,7 +20,7 @@ import { PrecioPipe } from "../../../core/pipes/precio.pipe";
     >
       <!-- Image (Side position) -->
       <div
-        class="relative flex rounded-full h-40 w-40 bg-secondary justify-center"
+        class="relative flex rounded-full w-50 h-50  bg-secondary justify-center"
       >
         @if (product().imageUrl) {
           <img
@@ -40,7 +40,7 @@ import { PrecioPipe } from "../../../core/pipes/precio.pipe";
           @if (product().isRecommended) {
             <svg
               lucideStar
-              class="w-5 h-5 drop-shadow-xs drop-shadow-amber-600 text-accent fill-accent"
+              class="w-8 h-8 drop-shadow-xs drop-shadow-amber-600 text-accent fill-accent"
             ></svg>
           }
         </h3>
@@ -48,13 +48,13 @@ import { PrecioPipe } from "../../../core/pipes/precio.pipe";
 
       <!-- Bottom: Info & Selection Action -->
       <div class="mt-auto w-full relative flex flex-col justify-between">
-        <div class="flex flex-col">
+        <div class="flex flex-col ">
           <span
-            class="text-xs font-body font-bold uppercase tracking-[0.2em] text-white/70"
+            class="text-sm md:text-sm  font-body font-bold uppercase tracking-[0.2em] text-white/80"
           >
             Desde
           </span>
-          <span class="text-3xl font-display text-accent tracking-tighter">
+          <span class="text-4xl md:text-3xl font-display text-accent tracking-tighter">
             {{ startingPrice() | precio }}
           </span>
         </div>
@@ -63,10 +63,10 @@ import { PrecioPipe } from "../../../core/pipes/precio.pipe";
           <div
             class="flex justify-between w-full items-center gap-2 px-4 py-2 border-2 border-accent group-hover:bg-accent transition-colors"
           >
-            <span class="text-xs font-body font-bold uppercase tracking-widest">
+            <span class="text-md font-bold md:text-sm font-body ">
               Elegir cantidades
             </span>
-            <svg lucidePlus class="w-4 h-4 font-bold"></svg>
+            <svg lucidePlus class="w-6 h-6 font-bold"></svg>
           </div>
         }
       </div>

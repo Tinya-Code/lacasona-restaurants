@@ -57,21 +57,7 @@ const getInitials = (name: string) =>
         {subtitle}
       </p>
 
-      <!-- Rating summary -->
-      <div class="mx-auto mt-5 flex w-fit flex-col items-center justify-center gap-2 rounded-2xl border border-secondary/10 px-4 py-2 sm:mt-6 sm:flex-row sm:gap-3 sm:rounded-full sm:px-6">
-        <div class="flex items-center gap-0.5">
-          <span class="mr-1 text-lg font-bold leading-none text-secondary sm:text-xl">4.9</span>
-          {Array.from({ length: 5 }).map(() => (
-            <Icon
-              name="lucide:star"
-              class="h-3.5 w-3.5 fill-accent text-accent sm:h-4 sm:w-4"
-            />
-          ))}
-        </div>
-        <span class="border-t border-secondary/10 pt-1.5 text-center text-[11px] font-medium text-secondary/60 sm:border-l sm:border-t-0 sm:pl-3 sm:pt-0">
-          Calificación excelente en Google Maps (230+ reseñas)
-        </span>
-      </div>
+
     </header>
 
     <!-- Carousel with scroll-snap -->

@@ -12,14 +12,15 @@ import { TemplateSectionTitleComponent } from '../components/template-section-ti
   template: `
     @if (categories().length > 0) {
       <section class="relative py-12  px-8    ">
+         <div class="grid grid-cols-5 md:grid-cols-12 md:gap-12 items-start">
         @for (cat of categories(); track cat.id; let isLast = $last; let total = $count) {
-          <section [id]="'category-' + cat.id" class="flex flex-col">
+          <section [id]="'category-' + cat.id" class="flex flex-col w-full col-span-4 md:col-span-8">
             <app-template-section-title
               [title]="cat.name"
               [description]="cat.description || ''"
             ></app-template-section-title>
 
-            <div class="grid grid-cols-2 md:grid-cols-3">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
               @for (product of cat.products; track product.id) {
                 <app-template-card
                   [product]="product"
@@ -31,6 +32,7 @@ import { TemplateSectionTitleComponent } from '../components/template-section-ti
             </div>
           </section>
         }
+        </div>
       </section>
     }
   `,
