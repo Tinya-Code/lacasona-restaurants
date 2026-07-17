@@ -7,12 +7,14 @@
   class="group relative flex @container min-h-65 md:min-h-55 h-full bg-tertiary transition-all duration-300 cursor-pointer rounded-3xl"
 >
   <h3
-    class="text-[2rem]  leading-7 w-60 md:w-52 md:text-3xl text-center flex absolute top-2 left-4 md:top-1 md:left-2  font-display text-primary-text tracking-tight group-hover:text-accent transition-colors"
+    class="text-[2rem]  leading-7 w-[76%] md:text-3xl text-center flex absolute top-2 left-4 md:top-1 md:left-2  font-display text-primary-text tracking-tight group-hover:text-accent transition-colors"
   >
-    {{ product().name }} @if (product().isRecommended) {
+ {{ product().name }} 
+    
+    @if (product().isRecommended) {
     <svg
       lucideStar
-      class="w-8 h-8  drop-shadow-xs drop-shadow-amber-600  text-accent fill-accent"
+      class="w-8 h-8 z-10   drop-shadow-xs drop-shadow-amber-600  text-accent fill-accent"
     ></svg>
     }
   </h3>
@@ -51,7 +53,7 @@
   <div class="flex relative w-full items-end h-full mt-auto">
     <img
       [src]="product().imageUrl"
-      class="w-auto object-contain max-h-50 md:max-h-40 h-full mx-auto z-10 px-8 pt-2 drop-shadow-xl drop-shadow-black"
+      class="w-auto object-contain max-h-[80%] md:max-h-[80%] h-full mx-auto z-10 px-8 pt-2 drop-shadow-xl drop-shadow-black"
       alt="{{ product().name }}"
     />
 

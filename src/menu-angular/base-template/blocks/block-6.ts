@@ -11,7 +11,7 @@ import { TemplateSectionTitleComponent } from '../components/template-section-ti
   imports: [TemplateCardComponent, TemplateSectionTitleComponent],
   template: `
     @if (categories().length > 0) {
-      <section class="relative py-12  px-8 overflow-hidden ">
+      <section class="relative py-12  px-8  ">
         <div class="grid grid-cols-5 md:grid-cols-12 md:gap-12 items-start">
           @for (cat of categories(); track cat.id; let isLast = $last; let total = $count) {
             <section

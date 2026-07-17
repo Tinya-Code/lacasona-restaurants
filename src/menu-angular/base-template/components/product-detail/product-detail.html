@@ -5,7 +5,7 @@
   <!-- Modal Container -->
   <!-- Mobile: Bottom Sheet (Rounded Top) | Desktop: Centered Modal (Full Rounded) -->
   <div
-    class="relative w-full max-w-4xl  md:max-h-[90vh] bg-white rounded-t-sm md:rounded-sm shadow-2xl overflow-hidden grid grid-cols-1 {{ product().imageUrl ? 'md:grid-cols-2' : 'md:grid-cols-1' }}  animate-in slide-in-from-bottom md:zoom-in duration-300">
+    class="relative w-full max-w-4xl  md:max-h-[90svh] bg-white rounded-t-sm md:rounded-sm shadow-2xl overflow-hidden grid grid-cols-1 {{ product().imageUrl ? 'md:grid-cols-2' : 'md:grid-cols-1' }}  animate-in slide-in-from-bottom md:zoom-in duration-300">
 
     <!-- Close Button (Top Right Floating - Mobile Only) -->
     <button (click)="close.emit()"
@@ -15,8 +15,8 @@
     @if (product().imageUrl) {
     <!-- 1. IMAGE SECTION -->
     <!-- Mobile: Small Top Banner or Hidden if too much content | Desktop: Full Side -->
-    <div class="w-full  h-62 md:h-auto  relative overflow-hidden bg-secondary bg-blend-color-burn bg-[url('/bg-patern_1.webp')]">
-      <img [src]="product().imageUrl" [alt]="product().name" class="w-auto h-full mx-auto object-contain">
+    <div class="w-full  h-62 md:h-auto md:max-h-[90svh]  relative overflow-hidden bg-secondary bg-blend-color-burn bg-[url('/bg-patern_1.webp')]">
+      <img [src]="product().imageUrl" [alt]="product().name" class="w-auto h-full p-2 mx-auto object-contain">
     </div>
     }
     <!-- 2. CONTENT & ACTIONS SECTION -->
