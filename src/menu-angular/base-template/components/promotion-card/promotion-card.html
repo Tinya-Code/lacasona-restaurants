@@ -17,9 +17,11 @@
 
 
       <div class="flex w-full items-start  mx-auto    flex-col relative">
-        <span class="text-lg font-display text-primary-text/50 line-through">
-          {{ promotion().price | precio }}
-        </span>
+        @if (promotion().price > promotion().discountedPrice) {
+          <span class="text-lg font-display text-primary-text/50 line-through">
+            {{ promotion().price | precio }}
+          </span>
+        }
         <span class="text-3xl py-1 px-3 rounded-sm  bg-primary font-display text-white">
           {{ promotion().discountedPrice | precio }}
         </span>

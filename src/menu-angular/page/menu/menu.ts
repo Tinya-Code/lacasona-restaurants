@@ -102,8 +102,20 @@ export class Menu implements OnInit {
     this.selectedProduct.set(product);
   }
 
-  onAddToCart(product: any, quantity: number = 1, selectedEntry?: any): void {
-    this._cart.addItem(product as any, quantity, selectedEntry);
+  onAddToCart(item: any, quantity: number = 1, selectedEntry?: any): void {
+    const normalizedProduct: any = {
+      id: Number(item.id) || item.id,
+      name: item.name,
+      description: item.description || "",
+      price: String(item.discountedPrice !== undefined ? item.discountedPrice : item.price),
+      imageUrl: item.imageUrl || item.image_url || item.url || "",
+      categoryId: item.categoryId || item.category_id || "item",
+      isActive: true,
+      isRecommended: false,
+      prices: item.prices || [],
+      priceRanges: item.priceRanges || [],
+    };
+    this._cart.addItem(normalizedProduct, quantity, selectedEntry);
   }
 
   closeProductDetail(): void {

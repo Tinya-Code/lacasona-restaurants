@@ -20,7 +20,7 @@ export class WhatsAppButton {
   );
 
   readonly whatsappUrl = computed(
-    () => `https://wa.me/51${this.phoneNumber()}?text=${encodeURIComponent(this.message())}`,
+    () => `https://wa.me/${this.phoneNumber()}?text=${encodeURIComponent(this.message())}`,
   );
 
   showTooltip = signal(false);

@@ -17,7 +17,7 @@ import { BusinessHoursService } from '../../core/services/business-hours.service
 @Component({
   selector: 'app-checkout-form',
   standalone: true,
-  imports: [ReactiveFormsModule,  LucideMessageCircle, LucideDynamicIcon],
+  imports: [ReactiveFormsModule, LucideMessageCircle, LucideDynamicIcon],
   templateUrl: './checkout-form.component.html',
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -114,7 +114,7 @@ export class CheckoutFormComponent {
     }
     message += `Método de Pago: ${this.formatPaymentMethod(paymentMethod!)}\n`;
 
-    window.open(`https://wa.me/51${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
   }
 
   protected formatPaymentMethod(method: string): string {

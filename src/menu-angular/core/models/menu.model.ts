@@ -97,3 +97,66 @@ export interface CombosResponse {
     hasPrevious: boolean;
   };
 }
+
+export interface ApiPromotionPrice {
+  id: number;
+  productId: number;
+  price: string;
+  name: string;
+  description: string | null;
+  startDay: number | null;
+  endDay: number | null;
+  startDatetime: string | null;
+  endDatetime: string | null;
+  ruleType: string;
+}
+
+export interface ApiPromotion {
+  id: number;
+  restaurant_id: string;
+  category_id: string;
+  name: string;
+  description: string | null;
+  price: string;
+  image_url: string | null;
+  is_active: number;
+  created_at: string;
+  updated_at: string;
+  is_recommended: number;
+  sort_datetime: string;
+  prices: ApiPromotionPrice[];
+  priceRanges: any[];
+}
+
+export interface PromotionsResponse {
+  success: boolean;
+  message: string;
+  data: ApiPromotion[];
+  timestamp: string;
+  statusCode: number;
+  pagination: {
+    page: number;
+    limit: number;
+    total: string | number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrevious: boolean;
+  };
+}
+
+export interface Promotion {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  discountedPrice: number;
+  cloudinary_id: string;
+  url: string;
+  prices?: any[];
+  priceRanges?: any[];
+  category_id?: string;
+  restaurant_id?: string;
+  is_active?: number;
+  is_recommended?: number;
+}
+

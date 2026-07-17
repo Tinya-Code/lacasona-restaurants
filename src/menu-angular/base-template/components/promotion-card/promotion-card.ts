@@ -14,6 +14,8 @@ export interface Promotion {
   discountedPrice: number;
   cloudinary_id: string;
   url: string;
+  prices?: any[];
+  priceRanges?: any[];
 }
 
 @Component({
@@ -50,8 +52,8 @@ export class PromotionCardComponent {
       categoryId: 'promotion',
       isActive: true,
       isRecommended: false,
-      prices: [],
-      priceRanges: []
+      prices: promo.prices || [],
+      priceRanges: promo.priceRanges || []
     };
     this.productClick.emit(product);
   }

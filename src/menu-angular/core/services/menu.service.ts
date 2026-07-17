@@ -8,8 +8,11 @@ import {
   type MenuResponse,
   type TemplateImagesResponse,
   type CombosResponse,
+  type PromotionsResponse,
+  type ApiPromotion,
 } from "../models/menu.model";
 import type { RestaurantInfo } from "../models/restaurant.model";
+import { map } from "rxjs/operators";
 
 // Local data imports (used as fallback when HTTP is unavailable)
 import combosLocal from "../../../data/combos.json";
@@ -109,10 +112,89 @@ export class MenuService {
   }
 
   /**
-   * Get all promotions (local only for now).
+   * Get all promotions.
    */
   getPromotions(): Observable<{ data: any[] }> {
-    return of(promotionsLocal as { data: any[] });
+    if (this.useApi && this.http) {
+      return this.http
+        .get<PromotionsResponse>(
+          `${this.apiUrl}/restaurants/${this.restaurantId}/products/promotions`
+        )
+        .pipe(
+          map((response) => {
+            const mappedData = (response.data || []).map((apiPromo: ApiPromotion) => {
+              const hasPrices = apiPromo.prices && apiPromo.prices.length > 0;
+              const firstPriceEntry = hasPrices ? apiPromo.prices[0] : null;
+
+              // 1. Name preference
+              const name = firstPriceEntry?.name || apiPromo.name || "";
+
+              // 2. Description preference
+              const description = firstPriceEntry?.description || apiPromo.description || "";
+
+              // 3. Price preference (original price)
+              const basePrice = apiPromo.price
+                ? Number(apiPromo.price)
+                : firstPriceEntry?.price
+                  ? Number(firstPriceEntry.price)
+                  : 0;
+
+              // 4. Discounted price preference (promotional price)
+              const discountedPrice = firstPriceEntry?.price
+                ? Number(firstPriceEntry.price)
+                : basePrice;
+
+              // 5. Image preference
+              const url = apiPromo.image_url || "/images/combos/combo-1.png";
+
+              return {
+                id: String(apiPromo.id),
+                name,
+                description,
+                price: basePrice,
+                discountedPrice: discountedPrice,
+                cloudinary_id: "",
+                url,
+                // Keep references to raw fields if components need them
+                category_id: apiPromo.category_id,
+                restaurant_id: apiPromo.restaurant_id,
+                is_active: apiPromo.is_active,
+                is_recommended: apiPromo.is_recommended,
+                prices: apiPromo.prices,
+                priceRanges: apiPromo.priceRanges
+              };
+            });
+            return { ...response, data: mappedData };
+          }),
+          catchError(() => {
+            // Map local promotions to match the structure if they don't have it
+            const mappedLocal = (promotionsLocal.data || []).map((p: any) => ({
+              id: String(p.id),
+              name: p.name,
+              description: p.description,
+              price: Number(p.price),
+              discountedPrice: Number(p.discountedPrice),
+              cloudinary_id: p.cloudinary_id || "",
+              url: p.url || "/images/combos/combo-1.png",
+              prices: [],
+              priceRanges: []
+            }));
+            return of({ success: true, data: mappedLocal });
+          })
+        );
+    }
+    const mappedLocal = (promotionsLocal.data || []).map((p: any) => ({
+      id: String(p.id),
+      name: p.name,
+      description: p.description,
+      price: Number(p.price),
+      discountedPrice: Number(p.discountedPrice),
+      cloudinary_id: p.cloudinary_id || "",
+      url: p.url || "/images/combos/combo-1.png",
+      prices: [],
+      priceRanges: []
+    }));
+    return of({ success: true, data: mappedLocal });
   }
 
   /**

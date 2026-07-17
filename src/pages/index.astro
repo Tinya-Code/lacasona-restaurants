@@ -8,20 +8,21 @@ import Hero from "../shared/sections/hero.astro";
 import { EVENTS_CONTENT } from "../data/events/events-content";
 import TestimonialsSlider from "../shared/sections/TestimonialSection.astro";
 import VideoGallery from "../shared/sections/VideoGallery.astro";
+import { PromotionsSectionComponent } from "../menu-angular/components/promotions-section/promotions-section.component";
 const videos = [
   {
     id: "1",
     src: "/video/video1.mp4",
     poster: "/video/video1.jpeg",
     title: "Pollo a la Brasa",
-    caption: "Nuestro plato estrella"
+    caption: "Nuestro plato estrella",
   },
   {
     id: "2",
     src: "/video/video2.mp4",
     poster: "/video/video2.jpeg",
     title: "Pollo a la Brasa",
-    caption: "Nuestro plato estrella"
+    caption: "Nuestro plato estrella",
   },
 ];
 ---
@@ -37,6 +38,7 @@ const videos = [
   <HeaderAstroComponent />
   <MainContent>
     <Hero />
+    <PromotionsSectionComponent client:load />
 
     <section class="flex w-full mx-auto h-160 bg-primary">
       <img
@@ -44,16 +46,13 @@ const videos = [
         alt=""
         class="w-full h-auto object-cover"
       />
-
-
-
     </section>
 
-<VideoGallery
-  videos={videos}
-  columns={3}
-  sectionTitle="Momentos en La Casona"
-/>
+    <VideoGallery
+      videos={videos}
+      columns={3}
+      sectionTitle="Momentos en La Casona"
+    />
     <TestimonialsSlider
       title={EVENTS_CONTENT.testimonials.title}
       subtitle={EVENTS_CONTENT.testimonials.subtitle}
@@ -63,5 +62,8 @@ const videos = [
   </MainContent>
   <TemplateFooter client:visible />
   <WhatsAppButton client:visible />
-  <div class="h-10 fixed bottom-0  bg-linear-to-t from-black fr to-transparent w-full "></div>
+  <div
+    class="h-10 fixed bottom-0 bg-linear-to-t from-black fr to-transparent w-full"
+  >
+  </div>
 </LayoutAstroComponent>
