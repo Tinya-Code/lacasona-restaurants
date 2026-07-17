@@ -13,6 +13,7 @@ import { TemplateSectionTitleComponent } from '../components/template-section-ti
     @if (categories().length > 0) {
       <section class="relative py-12  px-8  overflow-hidden  ">
         <div class="relative grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8 items-end">
+          <img src="/broaster-fondo.webp" alt="" class="absolute hidden md:block top-0 left-0 w-auto h-full object-contain ">
           @for (cat of categories(); track cat.id; let isLast = $last; let total = $count) {
             <section [id]="'category-' + cat.id" class="flex flex-col col-span-12 md:col-start-5 md:col-span-8 ">
               <app-template-section-title
