@@ -1,20 +1,33 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from "@angular/core";
 
-import type { Product } from '../../core/models/product.model';
-import type { Category } from '../../core/models/category.model';
-import { TemplateCardComponent } from '../components/template-card/template-card';
-import { TemplateSectionTitleComponent } from '../components/template-section-title/template-section-title.component';
+import type { Category } from "../../core/models/category.model";
+import type { Product } from "../../core/models/product.model";
+import { TemplateCardComponent } from "../components/template-card/template-card";
+import { TemplateSectionTitleComponent } from "../components/template-section-title/template-section-title.component";
 
 @Component({
-  selector: 'app-block-4',
+  selector: "app-block-4",
   standalone: true,
   imports: [TemplateCardComponent, TemplateSectionTitleComponent],
   template: `
     @if (categories().length > 0) {
       <section class="relative py-12  px-8    ">
-        <div class="relative grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8 items-start">
-          @for (cat of categories(); track cat.id; let isLast = $last; let total = $count) {
-            <section [id]="'category-' + cat.id" class="flex flex-col col-span-12 md:col-span-8 ">
+        <div class="relative grid grid-cols-1 gap-x-12 gap-y-8 items-start">
+          @for (
+            cat of categories();
+            track cat.id;
+            let isLast = $last;
+            let total = $count
+          ) {
+            <section
+              [id]="'category-' + cat.id"
+              class="flex flex-col col-span-12 md:col-span-8 "
+            >
               <app-template-section-title
                 [title]="cat.name"
                 [description]="cat.description || ''"
