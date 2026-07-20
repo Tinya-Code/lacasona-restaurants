@@ -2,6 +2,7 @@ import { computed, inject, Injectable, signal } from "@angular/core";
 import type { CartItem } from "../models/cart.model";
 import type { PriceRangeEntry } from "../models/price-range.model";
 import type { Product } from "../models/product.model";
+import type { DeliveryZone } from "../models/restaurant.model";
 import { RestaurantService } from "./restaurant.service";
 
 @Injectable({
@@ -15,6 +16,9 @@ export class Cart {
   // Cart items signal
   readonly items = signal<CartItem[]>([]);
 
+  // Delivery zone selection
+  readonly selectedDeliveryZone = signal<DeliveryZone | null>(null);
+
   // Computed signals
   readonly count = computed(() =>
     this.items().reduce((acc, item) => acc + item.quantity, 0),
@@ -25,13 +29,22 @@ export class Cart {
   readonly subtotal = computed(() =>
     this.items().reduce((acc, item) => acc + item.price * item.quantity, 0),
   );
-  readonly deliveryFee = computed(
-    () => this.restaurantService.orderConfig()?.delivery_fee ?? 0,
-  );
+  
+  readonly deliveryFee = computed(() => {
+    const zone = this.selectedDeliveryZone();
+    if (zone) {
+      return zone.fee;
+    }
+    return this.restaurantService.orderConfig()?.delivery_fee ?? 0;
+  });
 
   readonly total = computed(() => this.subtotal() + this.deliveryFee());
 
   readonly isEmpty = computed(() => this.items().length === 0);
+  
+  readonly deliveryZones = computed(() => 
+    this.restaurantService.restaurantConfig()?.business_config?.delivery_zones ?? []
+  );
 
   /**
    * Open the cart sidebar.
@@ -90,7 +103,7 @@ export class Cart {
         imageUrl: product.imageUrl,
         selectedEntry: selectedEntry
           ? {
-              qty: selectedEntry.qty,
+              qty: selectedEntry.qty ?? selectedEntry.quantity,
               price: selectedEntry.price,
               bonus: selectedEntry.bonus,
             }
@@ -140,6 +153,20 @@ export class Cart {
    */
   clear(): void {
     this.items.set([]);
+  }
+
+  /**
+   * Select a delivery zone.
+   */
+  selectDeliveryZone(zone: DeliveryZone): void {
+    this.selectedDeliveryZone.set(zone);
+  }
+
+  /**
+   * Clear delivery zone selection.
+   */
+  clearDeliveryZone(): void {
+    this.selectedDeliveryZone.set(null);
   }
 
   /**

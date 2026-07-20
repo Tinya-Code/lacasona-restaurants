@@ -102,6 +102,12 @@ export class CheckoutFormComponent {
     if (this.isDeliveryEnabled() && deliveryFee > 0) {
       message += `\n*Subtotal: S/ ${this.cart.subtotal().toFixed(2)}*\n`;
       message += `*Delivery: S/ ${deliveryFee.toFixed(2)}*\n`;
+      
+      // Agregar información de la zona de entrega si está seleccionada
+      const selectedZone = this.cart.selectedDeliveryZone();
+      if (selectedZone) {
+        message += `*Zona de entrega: ${selectedZone.name}*\n`;
+      }
     }
 
     message += `\n*Total: S/ ${total.toFixed(2)}*\n\n`;

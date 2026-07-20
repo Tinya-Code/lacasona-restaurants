@@ -11,7 +11,8 @@ import { PrecioPipe } from "../../core/pipes/precio.pipe";
 import { CartItemComponent } from "../cart-item/cart-item.component";
 import { CheckoutFormComponent } from "../checkout-form/checkout-form.component";
 import { BusinessHoursService } from "../../core/services/business-hours.service";
-import { LucideArrowRight, LucideShoppingBag, LucideArrowLeft, LucideX } from "@lucide/angular";
+import { LucideArrowRight, LucideShoppingBag, LucideArrowLeft, LucideX, LucideMapPin } from "@lucide/angular";
+import type { DeliveryZone } from "../../core/models/restaurant.model";
 
 @Component({
   selector: "app-sidebar-cart",
@@ -24,10 +25,15 @@ import { LucideArrowRight, LucideShoppingBag, LucideArrowLeft, LucideX } from "@
     LucideArrowRight,
     LucideShoppingBag,
     LucideArrowLeft,
-    LucideX
+    LucideX,
+    LucideMapPin
   ],
   templateUrl: "./sidebar-cart.component.html",
-  styles: ``,
+  styles: `
+    .rotate-90 {
+      transform: rotate(90deg);
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarCart {
@@ -39,6 +45,7 @@ export class SidebarCart {
 
   // UI State
   showCheckout = signal(false);
+  showDeliveryZones = signal(false);
 
   // Exposición de signals del servicio Cart
   readonly isOpen = this._cart.isOpen;
@@ -49,6 +56,8 @@ export class SidebarCart {
   readonly total = this._cart.total;
   readonly isEmpty = this._cart.isEmpty;
   readonly isRestaurandClosed = this._cart.isBusinessClosed;
+  readonly deliveryZones = this._cart.deliveryZones;
+  readonly selectedDeliveryZone = this._cart.selectedDeliveryZone;
 
   // Horarios
   readonly businessHours = this._businessHours.hours;
@@ -105,5 +114,27 @@ export class SidebarCart {
    */
   closeClosedModal(): void {
     this._cart.closeBusinessClosedModal();
+  }
+
+  /**
+   * Selecciona una zona de entrega.
+   */
+  selectDeliveryZone(zone: DeliveryZone): void {
+    this._cart.selectDeliveryZone(zone);
+    this.showDeliveryZones.set(false);
+  }
+
+  /**
+   * Abre/cierra el selector de zonas de entrega.
+   */
+  toggleDeliveryZones(): void {
+    this.showDeliveryZones.set(!this.showDeliveryZones());
+  }
+
+  /**
+   * Cierra el selector de zonas de entrega.
+   */
+  closeDeliveryZones(): void {
+    this.showDeliveryZones.set(false);
   }
 }

@@ -1,5 +1,6 @@
 ---
 import "../css/global.css";
+import { BannersModalComponent } from "../menu-angular/components/banners-modal/banners-modal.component";
 
 // ─── Configuración SEO por defecto del sitio ────────────────────────────────
 const SITE_CONFIG = {
@@ -147,6 +148,7 @@ const finalStructuredData = structuredData ?? defaultStructuredData;
 		/>
 	</head>
 	<body class="font-body bg-background relative">
+		<BannersModalComponent client:load />
 		<slot />
 	</body>
 </html>

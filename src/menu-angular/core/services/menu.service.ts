@@ -10,6 +10,7 @@ import {
   type CombosResponse,
   type PromotionsResponse,
   type ApiPromotion,
+  type BannersResponse,
 } from "../models/menu.model";
 import type { RestaurantInfo } from "../models/restaurant.model";
 import { map } from "rxjs/operators";
@@ -22,6 +23,7 @@ import promotionsLocal from "../../../data/promotions.json";
 import restaurantLocal from "../../../data/restaurant.json";
 import templateImagesLocal from "../../../data/template-images.json";
 import recommendedLocal from "../../../data/recommended.json";
+import bannersLocal from "../../../data/banners.json";
 
 @Injectable({
   providedIn: "root",
@@ -201,5 +203,27 @@ export class MenuService {
    */
   getRecommended(): Observable<{ data: any[] }> {
     return of(recommendedLocal as { data: any[] });
+  }
+
+  /**
+   * Get active banners.
+   */
+  getBanners(): Observable<BannersResponse> {
+    if (this.useApi && this.http) {
+      return this.http
+        .get<BannersResponse>(
+          `${this.apiUrl}/restaurants/${this.restaurantId}/banners`
+        )
+        .pipe(
+          map((res) => {
+            if (!res || !res.data || res.data.length === 0) {
+              return bannersLocal as unknown as BannersResponse;
+            }
+            return res;
+          }),
+          catchError(() => of(bannersLocal as unknown as BannersResponse))
+        );
+    }
+    return of(bannersLocal as unknown as BannersResponse);
   }
 }

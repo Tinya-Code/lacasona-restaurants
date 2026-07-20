@@ -12,6 +12,7 @@ import { LucideX } from '@lucide/angular';
 export class ModalComponent {
   isOpen = input.required<boolean>();
   title = input<string>('');
+  variant = input<'default' | 'banner'>('default');
   close = output<void>();
 
   onClose(): void {

@@ -1,0 +1,13 @@
+{
+  "statusCode": 200,
+  "message": "Active banners retrieved successfully",
+  "data": [
+
+ 
+  ],
+  "meta": {
+    "page": 1,
+    "limit": 10,
+    "total": 1
+  }
+}

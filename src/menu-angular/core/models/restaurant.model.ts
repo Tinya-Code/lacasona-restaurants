@@ -23,12 +23,17 @@ export interface OrderConfig {
   pickup_enabled: boolean;
 }
 
+export interface DeliveryZone {
+  name: string;
+  fee: number;
+}
+
 export interface BusinessConfig {
   business_hours: {
     [key: string]: BusinessHours;
   };
   timezone: string;
-  delivery_zones: string[];
+  delivery_zones: DeliveryZone[];
   social_media: {
     facebook: string;
     instagram: string;

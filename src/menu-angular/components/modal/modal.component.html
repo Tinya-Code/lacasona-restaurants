@@ -1,14 +1,20 @@
 <!-- Backdrop -->
-<div
-  class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-all duration-300 pointer-events-none opacity-0 invisible"
+<div class="fixed inset-0  transition-all duration-300 pointer-events-none opacity-0 invisible"
+  [class]="variant() === 'banner' ? 'bg-slate-900/60 backdrop-blur-md  z-60' : 'bg-slate-900/40 backdrop-blur-sm z-50'"
   [class.!opacity-100]="isOpen()" [class.!visible]="isOpen()" [class.!pointer-events-auto]="isOpen()"
   (click)="onClose()"></div>
 
 <!-- Modal Container -->
-<div
-  class="fixed  bottom-0 left-0 right-0 backdrop-blur-3xl bg-white   rounded-t-4xl z-60 max-h-[92vh] flex flex-col  p-6 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] translate-y-full max-w-2xl mx-auto"
-  [class.!translate-y-0]="isOpen()">
+<div class="fixed z-60 transition-all flex flex-col
+  bottom-0 left-0 right-0    duration-500 translate-y-full mx-auto opacity-0 invisible"
+   [class]="variant() === 'banner' ? ' max-w-sm' : 'max-w-2xl max-h-[92vh] rounded-t-4xl backdrop-blur-3xl  bg-white p-6  '"
+  [class.!opacity-100]="isOpen()"
+  [class.!visible]="isOpen()"
+  [class.!translate-y-0]="isOpen()"
+>
 
+
+  @if (variant() !== 'banner') {
   <!-- Header -->
   <div class="px-6 py-4 flex items-center justify-between border-b-2 border-secondary/50">
     <h2 class="font-display text-slate-800 text-xl overflow-hidden text-ellipsis whitespace-nowrap">{{ title() }}</h2>
@@ -17,10 +23,11 @@
       <svg lucideX class="w-6 h-6"></svg>
     </button>
   </div>
+  }
 
-  <!-- Content -->
-  <div
-    class="grow realitve overflow-y-auto p-6 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-200 hover:scrollbar-thumb-slate-300">
+  <!-- Content Wrapper -->
+  <div class="relative  flex justify-center items-center w-full grow overflow-y-auto p-6 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-200 hover:scrollbar-thumb-slate-300">
     <ng-content></ng-content>
   </div>
+
 </div>

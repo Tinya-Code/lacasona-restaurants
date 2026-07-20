@@ -56,4 +56,5 @@ export class RestaurantService {
   readonly whatsappConfig = computed(() => this._restaurantInfo()?.data?.whatsapp_config);
   readonly businessConfig = computed(() => this._restaurantInfo()?.data?.business_config);
   readonly socialMedia = computed(() => this._restaurantInfo()?.data?.business_config?.social_media);
+  readonly restaurantConfig = computed(() => this._restaurantInfo()?.data);
 }

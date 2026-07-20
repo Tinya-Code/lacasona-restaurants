@@ -160,3 +160,5 @@ export interface Promotion {
   is_recommended?: number;
 }
 
+export * from './banner.model';
+

@@ -1,0 +1,9 @@
+<app-modal [isOpen]="isOpen()" [variant]="'banner'" (close)="onClose()">
+  @if (selectedBanner) {
+    <img
+      [src]="selectedBanner.imageUrl"
+      [alt]="selectedBanner.title"
+      class="w-full h-auto object-contain max-h-[95vh] mx-auto"
+    />
+  }
+</app-modal>

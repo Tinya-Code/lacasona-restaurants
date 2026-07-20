@@ -1,17 +1,30 @@
-import { ChangeDetectionStrategy, Component, input, output, inject, computed } from '@angular/core';
-import { LucideStar } from '@lucide/angular';
-import type { Product } from '../../../core/models/product.model';
-import { PrecioPipe } from '../../../core/pipes/precio.pipe';
-import { AddButtonComponent } from '../add-button/add-button.component';
-import { RestaurantService } from '../../../core/services/restaurant.service';
-import { CommonModule } from '@angular/common';
-import { PriceRangeCard } from '../price-range-card/price-range-card';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+  inject,
+  computed,
+} from "@angular/core";
+import { LucideStar } from "@lucide/angular";
+import type { Product } from "../../../core/models/product.model";
+import { PrecioPipe } from "../../../core/pipes/precio.pipe";
+import { AddButtonComponent } from "../add-button/add-button.component";
+import { RestaurantService } from "../../../core/services/restaurant.service";
+import { CommonModule } from "@angular/common";
+import { PriceRangeCard } from "../price-range-card/price-range-card";
 
 @Component({
-  selector: 'app-template-card',
+  selector: "app-template-card",
   standalone: true,
-  imports: [PrecioPipe, AddButtonComponent, CommonModule, LucideStar, PriceRangeCard],
-  templateUrl: './template-card.html',
+  imports: [
+    PrecioPipe,
+    AddButtonComponent,
+    CommonModule,
+    LucideStar,
+    PriceRangeCard,
+  ],
+  templateUrl: "./template-card.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TemplateCardComponent {
@@ -21,7 +34,9 @@ export class TemplateCardComponent {
 
   private readonly restaurantService = inject(RestaurantService);
 
-  readonly canOrder = computed(() => this.restaurantService.orderConfig()?.delivery_enabled ?? true);
+  readonly canOrder = computed(
+    () => this.restaurantService.orderConfig()?.delivery_enabled ?? true,
+  );
 
   /** True if the product has embedded price ranges from the API. */
   readonly hasPriceRange = computed(() => {
@@ -34,15 +49,18 @@ export class TemplateCardComponent {
     const ranges = this.product().priceRanges;
     if (ranges && ranges.length > 0) {
       const prices = ranges
-        .map(r => Number(r.price))
-        .filter(n => !isNaN(n) && n > 0);
+        .map((r) => Number(r.price))
+        .filter((n) => !isNaN(n) && n > 0);
       return prices.length > 0 ? Math.min(...prices) : null;
     }
     const p = this.product().price;
-    if (p === '' || p === null || p === undefined) return null;
+    if (p === "" || p === null || p === undefined) return null;
     const n = Number(p);
     return isNaN(n) ? null : n;
   });
+  hasDecimal(value: number): boolean {
+    return value % 1 !== 0; // true si tiene decimales
+  }
 
   onAddClick(event: Event) {
     event.stopPropagation();

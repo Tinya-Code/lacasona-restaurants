@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { PrecioPipe } from '../../../core/pipes/precio.pipe';
+import { NgClass } from '@angular/common';
 import { AddButtonComponent } from '../add-button/add-button.component';
 import type { Product } from '../../../core/models/product.model';
 import { RestaurantService } from '../../../core/services/restaurant.service';
@@ -57,6 +57,10 @@ export class PromotionCardComponent {
     };
     this.productClick.emit(product);
   }
+  hasDecimal(value: number): boolean {
+  return value % 1 !== 0; // true si tiene decimales
+}
+
 
   onAddClick(event: Event) {
     event.stopPropagation();

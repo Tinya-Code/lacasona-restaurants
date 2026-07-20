@@ -71,33 +71,67 @@
   <!-- Footer (Solo en vista de carrito) -->
   @if (!isEmpty() && !showCheckout()) {
   <div class="p-6 bg-white border-t border-gray-100 ">
+    <!-- Selector de Zonas de Entrega -->
+    @if (deliveryZones().length > 0) {
+    <div class="mb-6">
+      <button (click)="toggleDeliveryZones()" 
+        class="w-full flex items-center justify-between p-3 border border-gray-200 rounded-sm hover:border-secondary transition-colors">
+        <div class="flex items-center gap-2">
+          <svg lucideMapPin class="w-4 h-4 text-secondary"></svg>
+          <span class="text-sm font-display text-secondary/80">
+            @if (selectedDeliveryZone(); as zone) {
+              {{ zone.name }}
+            } @else {
+              Seleccionar zona de entrega
+            }
+          </span>
+        </div>
+        <svg lucideArrowRight class="w-4 h-4 text-secondary transition-transform" 
+          [class.rotate-90]="showDeliveryZones()"></svg>
+      </button>
+
+      @if (showDeliveryZones()) {
+      <div class="mt-2 border border-gray-200 rounded-sm max-h-40 overflow-y-auto">
+        @for (zone of deliveryZones(); track zone.name) {
+        <button (click)="selectDeliveryZone(zone)" 
+          class="w-full flex items-center justify-between p-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
+          [class.bg-secondary/10]="selectedDeliveryZone()?.name === zone.name">
+          <span class="text-sm font-display text-secondary/80">{{ zone.name }}</span>
+          <span class="text-sm font-display text-secondary/80">{{ zone.fee | precio }}</span>
+        </button>
+        }
+      </div>
+      }
+    </div>
+    }
+
     <div class="space-y-3 mb-6">
-      <div class="flex justify-between items-center text-sm font-medium text-muted">
-        <span>Subtotal</span>
-        <span>{{ subtotal() | precio }}</span>
+      <div class="flex justify-between items-center text-sm font-display ">
+        <span class="text-secondary/80">Subtotal</span>
+        <span class=" text-secondary/80">{{ subtotal() | precio }}</span>
       </div>
 
       @if (deliveryFee() > 0) {
-      <div class="flex justify-between items-center text-sm font-medium text-muted">
-        <span>Delivery</span>
-        <span>{{ deliveryFee() | precio }}</span>
+      <div class="flex justify-between items-center text-sm font-display ">
+        <span class="text-secondary/80">Delivery</span>
+        <span class=" text-secondary/80">{{ deliveryFee() | precio }}</span>
       </div>
       }
 
-      <div class="flex justify-between items-center pt-3 border-t border-gray-0">
-        <span class="text-lg font-bold  text-secondary uppercase tracking-tight">Total</span>
-        <span class="text-2xl font-body font-bold text-primary">{{ total() | precio }}</span>
+      <div class="flex justify-between font-display  items-center pt-3 border-t border-gray-0">
+        <span class="text-lg  text-secondary uppercase tracking-tight">Total</span>
+        <span class="text-2xl font-bold text-primary">{{ total() | precio }}</span>
       </div>
     </div>
 
     <div class="flex flex-col gap-3">
       <button (click)="checkout()"
-        class="w-full bg-secondary text-white py-4 rounded-sm font-bold text-lg shadow-lg hover:shadow-primary/10 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+        class="w-full bg-secondary text-white py-4 rounded-sm font-display text-lg shadow-lg hover:shadow-primary/10 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2">
         <span>Finalizar Pedido</span>
         <svg lucideArrowRight class="w-5 h-5"></svg>
       </button>
       <button (click)="clear()"
-        class="w-full text-red-400 hover:text-red-500 text-xs font-bold uppercase tracking-widest py-2 transition-colors">
+        class="w-full text-red-500 hover:text-red-600 text-xs font-display uppercase tracking-widest py-2 transition-colors">
         Vaciar Carrito
       </button>
     </div>
