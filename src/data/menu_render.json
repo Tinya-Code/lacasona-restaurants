@@ -1,54 +1,67 @@
 {
+  "success": true,
+  "message": "Carta retrieved successfully",
   "data": {
+    "restaurant_id": "00000000-0000-0000-0000-000000000001",
+    "restaurant_name": "La Casona",
     "blocks": [
       {
         "id": "block-1",
         "categories": [
           {
-            "id": "cat-pollos-brasa",
+            "id": "4eab156f-921c-4fbe-9d20-ea54bb56b5eb",
+            "block_id": "block-1",
             "name": "Pollos a la Brasa",
             "description": null,
-            "block_id": "block-1",
+            "is_active": 1,
             "products": [
               {
-                "id": "prod-cuarto-casona",
-                "name": "Cuarto Casona",
-                "description": "1/4 de pollo + papas fritas + ensalada + crema",
-                "price": 17,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-1.webp",
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-medio-casona",
-                "name": "Medio Casona",
-                "description": "1/2 pollo + papas fritas + ensalada + crema",
-                "price": 31,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-2.webp",
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-clasico-casona",
+                "id": 14,
                 "name": "Clásico Casona",
                 "description": "1 pollo + papas fritas + ensalada + crema",
-                "price": 55,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-1.webp",
-                "cloudinary_id": null
+                "price": "55.00",
+                "categoryId": "4eab156f-921c-4fbe-9d20-ea54bb56b5eb",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-clasico-bebida",
-                "name": "Clásico + Bebida",
+                "id": 29,
+                "name": "Clásico Casona + Bebida",
                 "description": "1 pollo + papas fritas + ensalada + jarra de bebida o Inca Kola 1.5 lt.",
-                "price": 62,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-1.webp",
-                "cloudinary_id": null
+                "price": "62.00",
+                "categoryId": "4eab156f-921c-4fbe-9d20-ea54bb56b5eb",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 12,
+                "name": "Cuarto Casona",
+                "description": "1/4 de pollo + papas fritas + ensalada + crema",
+                "price": "17.00",
+                "categoryId": "4eab156f-921c-4fbe-9d20-ea54bb56b5eb",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784259619/tinyafood/t2zrm3bnikm3sojd13sv.png",
+                "isActive": true,
+                "isRecommended": true,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 13,
+                "name": "Medio Casona",
+                "description": "1/2 pollo + papas fritas + ensalada + crema",
+                "price": "31.00",
+                "categoryId": "4eab156f-921c-4fbe-9d20-ea54bb56b5eb",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784188586/tinyafood/osumq0nphljbva9bv0d9.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               }
             ]
           }
@@ -58,50 +71,72 @@
         "id": "block-2",
         "categories": [
           {
-            "id": "cat-combinaciones",
+            "id": "16f70288-158c-4b3c-820d-41f576d05fd5",
+            "block_id": "block-2",
             "name": "Combinaciones",
             "description": null,
-            "block_id": "block-2",
+            "is_active": 1,
             "products": [
               {
-                "id": "prod-salchibrasa",
-                "name": "Salchibrasa",
-                "description": "1/4 de pollo + papas fritas + hot dog ahumado + ensalada",
-                "price": 19,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-1.webp",
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-a-lo-pobre",
+                "id": 31,
                 "name": "A lo Pobre",
                 "description": "1/4 de pollo + papas + huevo frito + plátano frito + ensalada",
-                "price": 20,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-1.webp",
-                "cloudinary_id": null
+                "price": "20.00",
+                "categoryId": "16f70288-158c-4b3c-820d-41f576d05fd5",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-mostro",
-                "name": "Mostro",
-                "description": "1/4 de pollo + papas + porción de chaufa + ensalada",
-                "price": 19,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-1.webp",
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-mostrito",
+                "id": 32,
                 "name": "Mostrito",
                 "description": "1/4 de pollo + papas + porción de chaufa + ensalada (a partir de 2)",
-                "price": 13,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-1.webp",
-                "cloudinary_id": null
+                "price": "13.00",
+                "categoryId": "16f70288-158c-4b3c-820d-41f576d05fd5",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 18,
+                "name": "Mostro",
+                "description": "1/4 de pollo + papas + porción de chaufa + ensalada",
+                "price": "19.00",
+                "categoryId": "16f70288-158c-4b3c-820d-41f576d05fd5",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784274444/tinyafood/nvnlwmy2acjpm6eqjcct.png",
+                "isActive": true,
+                "isRecommended": true,
+                "prices": [
+                  {
+                    "id": 10,
+                    "productId": 18,
+                    "price": "19.00",
+                    "name": "Mostro Clasico",
+                    "description": null,
+                    "startDay": null,
+                    "endDay": null,
+                    "startDatetime": "2026-07-17T03:00:00.000Z",
+                    "endDatetime": "2026-08-02T03:01:00.000Z",
+                    "ruleType": "PROMOTION"
+                  }
+                ],
+                "priceRanges": []
+              },
+              {
+                "id": 30,
+                "name": "Salchibrasa",
+                "description": "1/4 de pollo + papas fritas + hot dog ahumado + ensalada",
+                "price": "19.00",
+                "categoryId": "16f70288-158c-4b3c-820d-41f576d05fd5",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               }
             ]
           }
@@ -111,60 +146,129 @@
         "id": "block-3",
         "categories": [
           {
-            "id": "cat-broster",
+            "id": "0d996d6b-0572-447e-bbd1-11f91efbde23",
+            "block_id": "block-3",
             "name": "Broster",
             "description": null,
-            "block_id": "block-3",
+            "is_active": 1,
             "products": [
               {
-                "id": "prod-combo-individual",
-                "name": "Combo Individual",
-                "description": "1 presa + papas + ensalada y cremas",
-                "price": 12,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-1.webp",
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-combo-duo",
-                "name": "Combo Duo",
-                "description": "2 presas + papas + ensalada + chaufa y cremas",
-                "price": 20,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-2.webp",
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-salchi-broster",
-                "name": "Salchi-Broster",
-                "description": "1 presa de broster + papas + hot dog + ensalada y cremas",
-                "price": 16,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-2.webp",
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-broaster-mostro",
-                "name": "Broaster Mostro",
-                "description": "1/2 broster + papas + ensalada + chaufa y cremas",
-                "price": 19,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-2.webp",
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-broaster-mostrito",
+                "id": 37,
                 "name": "Broaster Mostrito",
                 "description": "1 presa de broster + papas + ensalada + chaufa y cremas",
-                "price": 14,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": "/images/products/pollo-2.webp",
-                "cloudinary_id": null
+                "price": "14.00",
+                "categoryId": "0d996d6b-0572-447e-bbd1-11f91efbde23",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784268883/tinyafood/aduigx7flgmrtlkicpcr.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 36,
+                "name": "Broaster Mostro",
+                "description": "1/4 broster + papas + ensalada + chaufa y cremas",
+                "price": "19.00",
+                "categoryId": "0d996d6b-0572-447e-bbd1-11f91efbde23",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784268746/tinyafood/rc2xbmj2az40xtlnkehg.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [
+                  {
+                    "id": 9,
+                    "productId": 36,
+                    "price": "20.90",
+                    "name": "Mostro Broaster",
+                    "description": null,
+                    "startDay": null,
+                    "endDay": null,
+                    "startDatetime": "2026-07-17T06:05:00.000Z",
+                    "endDatetime": "2026-08-01T06:05:00.000Z",
+                    "ruleType": "PROMOTION"
+                  }
+                ],
+                "priceRanges": []
+              },
+              {
+                "id": 34,
+                "name": "Combo Duo",
+                "description": "2 presas + papas + ensalada + chaufa y cremas",
+                "price": "20.00",
+                "categoryId": "0d996d6b-0572-447e-bbd1-11f91efbde23",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 33,
+                "name": "Combo Individual",
+                "description": "1 presa + papas + ensalada y cremas",
+                "price": "12.00",
+                "categoryId": "0d996d6b-0572-447e-bbd1-11f91efbde23",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 35,
+                "name": "Salchi Broster",
+                "description": "1 presa de broster + papas + hot dog + ensalada y cremas",
+                "price": "16.00",
+                "categoryId": "0d996d6b-0572-447e-bbd1-11f91efbde23",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              }
+            ]
+          },
+          {
+            "id": "6e56e884-99d6-483a-9324-749e612d448d",
+            "block_id": "block-3",
+            "name": "Chifa",
+            "description": null,
+            "is_active": 1,
+            "products": [
+              {
+                "id": 39,
+                "name": "Aeropuerto",
+                "description": "",
+                "price": "13.00",
+                "categoryId": "6e56e884-99d6-483a-9324-749e612d448d",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 38,
+                "name": "Arroz Chaufa",
+                "description": "",
+                "price": "12.00",
+                "categoryId": "6e56e884-99d6-483a-9324-749e612d448d",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 40,
+                "name": "Arroz Chaufa Compartido",
+                "description": "",
+                "price": "20.00",
+                "categoryId": "6e56e884-99d6-483a-9324-749e612d448d",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               }
             ]
           }
@@ -174,40 +278,264 @@
         "id": "block-4",
         "categories": [
           {
-            "id": "cat-combos",
-            "name": "Combos Familiares",
-            "description": null,
+            "id": "3473f7bc-7117-4853-8729-eb840bdf4650",
             "block_id": "block-4",
+            "name": "Alitas",
+            "description": null,
+            "is_active": 1,
             "products": [
               {
-                "id": "prod-combo-5",
-                "name": "Combo para 5",
-                "description": "1 pollo y 1/4 + porción de papas fritas + ensalada + Inca Kola 1.5 lt.",
-                "price": 68,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 19,
+                "name": "Alitas Acevichadas",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "3473f7bc-7117-4853-8729-eb840bdf4650",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784280064/tinyafood/fwgo8wet9v56tx9ecayn.png",
+                "isActive": true,
+                "isRecommended": true,
+                "prices": [
+                  {
+                    "id": 13,
+                    "productId": 19,
+                    "price": "14.90",
+                    "name": "Lunes de alitas",
+                    "description": "Disfruta de las mejores alitas para comenzar la semana",
+                    "startDay": null,
+                    "endDay": null,
+                    "startDatetime": "2026-07-19T05:11:00.000Z",
+                    "endDatetime": "2026-12-29T08:11:00.000Z",
+                    "ruleType": "PROMOTION"
+                  }
+                ],
+                "priceRanges": [
+                  {
+                    "id": 18,
+                    "productId": 19,
+                    "quantity": "6.00",
+                    "unit": "unidad",
+                    "price": "18.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 19,
+                    "productId": 19,
+                    "quantity": "12.00",
+                    "unit": "unidad",
+                    "price": "33.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 20,
+                    "productId": 19,
+                    "quantity": "18.00",
+                    "unit": "unidad",
+                    "price": "48.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  }
+                ]
               },
               {
-                "id": "prod-combo-6",
-                "name": "Combo para 6",
-                "description": "1 pollo y 1/2 + porción de papas + ensalada familiar + Inca Kola 1.5 lt.",
-                "price": 78,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 21,
+                "name": "Alitas BBQ",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "3473f7bc-7117-4853-8729-eb840bdf4650",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784280374/tinyafood/i7pp6lj8sb5bfbqjx8dc.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 24,
+                    "productId": 21,
+                    "quantity": "6.00",
+                    "unit": "unidad",
+                    "price": "18.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 25,
+                    "productId": 21,
+                    "quantity": "12.00",
+                    "unit": "unidad",
+                    "price": "33.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 26,
+                    "productId": 21,
+                    "quantity": "18.00",
+                    "unit": "unidad",
+                    "price": "48.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  }
+                ]
               },
               {
-                "id": "prod-mostro-familiar",
-                "name": "Mostro Familiar",
-                "description": "1 pollo + arroz chaufa familiar + porción de papas + ensalada + Inca Kola 1.5 lt.",
-                "price": 78,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 15,
+                "name": "Alitas Broster",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "3473f7bc-7117-4853-8729-eb840bdf4650",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784280579/tinyafood/kzphdqclxfrj7f9zfkkr.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 13,
+                    "productId": 15,
+                    "quantity": "6.00",
+                    "unit": "unidad",
+                    "price": "18.00",
+                    "bonus": "Porción de papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 14,
+                    "productId": 15,
+                    "quantity": "18.00",
+                    "unit": "unidad",
+                    "price": "33.00",
+                    "bonus": "porción de papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 15,
+                    "productId": 15,
+                    "quantity": "18.00",
+                    "unit": "unidad",
+                    "price": "48.00",
+                    "bonus": "porción de papas fritas",
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 20,
+                "name": "Alitas Bufalo",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "3473f7bc-7117-4853-8729-eb840bdf4650",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784281032/tinyafood/fdrfzprsduhji7k9ay3m.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 21,
+                    "productId": 20,
+                    "quantity": "6.00",
+                    "unit": "unidad",
+                    "price": "18.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 22,
+                    "productId": 20,
+                    "quantity": "12.00",
+                    "unit": "unidad",
+                    "price": "33.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 23,
+                    "productId": 20,
+                    "quantity": "18.00",
+                    "unit": "unidad",
+                    "price": "48.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 23,
+                "name": "Alitas Kola Wing",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "3473f7bc-7117-4853-8729-eb840bdf4650",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784281091/tinyafood/rt6srwxpi6zlbmnt5vi6.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 30,
+                    "productId": 23,
+                    "quantity": "6.00",
+                    "unit": "unidad",
+                    "price": "18.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 31,
+                    "productId": 23,
+                    "quantity": "12.00",
+                    "unit": "unidad",
+                    "price": "33.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 32,
+                    "productId": 23,
+                    "quantity": "18.00",
+                    "unit": "unidad",
+                    "price": "48.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 22,
+                "name": "Alitas Maracuyá",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "3473f7bc-7117-4853-8729-eb840bdf4650",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784281056/tinyafood/yh18sxsjc0ple2hwb6qy.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 27,
+                    "productId": 22,
+                    "quantity": "6.00",
+                    "unit": "unidad",
+                    "price": "18.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 28,
+                    "productId": 22,
+                    "quantity": "12.00",
+                    "unit": "unidad",
+                    "price": "33.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  },
+                  {
+                    "id": 29,
+                    "productId": 22,
+                    "quantity": "18.00",
+                    "unit": "unidad",
+                    "price": "48.00",
+                    "bonus": "papas fritas",
+                    "isDefault": false
+                  }
+                ]
               }
             ]
           }
@@ -217,514 +545,795 @@
         "id": "block-5",
         "categories": [
           {
-            "id": "cat-chifa",
-            "name": "Chifa",
-            "description": null,
+            "id": "e97e46ab-dc71-4335-8b3b-570e17d5d8de",
             "block_id": "block-5",
+            "name": "Salchipapas",
+            "description": null,
+            "is_active": 1,
             "products": [
               {
-                "id": "prod-arroz-chaufa",
-                "name": "Arroz Chaufa",
-                "description": null,
-                "price": 12,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 26,
+                "name": "Salchipapa a lo Pobre",
+                "description": "Porción de papas + hot dog + huevo frito + plátano frito + cremas",
+                "price": "15.00",
+                "categoryId": "e97e46ab-dc71-4335-8b3b-570e17d5d8de",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784313329/tinyafood/obpjqeae55wziuinwmlz.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-aeropuerto",
-                "name": "Aeropuerto",
-                "description": null,
-                "price": 13,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 27,
+                "name": "Salchipapa Casona",
+                "description": "Porción de papas + hot dog ahumado + huevo frito + plátano frito + cremas",
+                "price": "17.00",
+                "categoryId": "e97e46ab-dc71-4335-8b3b-570e17d5d8de",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784313367/tinyafood/ectmgr9gkma0u29knq92.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-chaufa-compartido",
-                "name": "Arroz Chaufa Compartido",
-                "description": null,
-                "price": 20,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 24,
+                "name": "Salchipapa Clásica",
+                "description": "Porción de papas + hot dog ahumado + cremas",
+                "price": "11.00",
+                "categoryId": "e97e46ab-dc71-4335-8b3b-570e17d5d8de",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784313280/tinyafood/xhnrh2i6a5a6a7ir3rvo.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 25,
+                "name": "Salchipapa Especial",
+                "description": "Porción de papas + hot dog ahumado + huevo frito + cremas",
+                "price": "13.00",
+                "categoryId": "e97e46ab-dc71-4335-8b3b-570e17d5d8de",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784313304/tinyafood/z1ovptuojnrhsc4zillt.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               }
             ]
           }
         ]
       },
-       {
+      {
         "id": "block-6",
         "categories": [
           {
-            "id": "cat-alitas-salchipapas",
-            "name": "Alitas y Salchipapas",
-            "description": null,
+            "id": "a0f058f9-1e71-4e4b-924c-02e043393a99",
             "block_id": "block-6",
+            "name": "Cocteles Clasicos",
+            "description": null,
+            "is_active": 1,
             "products": [
               {
-                "id": "prod-alitas-broster",
-                "name": "Alitas Broster",
-                "description": "Todas acompañadas de papa nativa",
-                "price": null,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 45,
+                "name": "Algarrobina",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784569282/tinyafood/ws4wrqlih4lwafbyrins.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-alitas-bufalo",
-                "name": "Alitas Búfalo",
-                "description": "Todas acompañadas de papa nativa",
-                "price": null,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 52,
+                "name": "Biblia",
+                "description": "Piña, crema de coco y limón. (Sin alcohol)",
+                "price": "12.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784569262/tinyafood/ibr4a5hasjl93w0cn2ca.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-alitas-maracuya",
-                "name": "Alitas Maracuyá",
-                "description": "Todas acompañadas de papa nativa",
-                "price": null,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 55,
+                "name": "Botella de Vino Santiago Queirolo",
+                "description": "",
+                "price": "35.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784566951/tinyafood/gx0rkzhz9xpobwq0trgi.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-alitas-acevichada",
-                "name": "Alitas Acevichada",
-                "description": "Todas acompañadas de papa nativa",
-                "price": null,
-                "is_recommended": true,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 47,
+                "name": "Chilcano",
+                "description": "",
+                "price": "12.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784570322/tinyafood/fou0djhzsfffdrcojoax.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-alitas-bbq",
-                "name": "Alitas BBQ",
-                "description": "Todas acompañadas de papa nativa",
-                "price": null,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 53,
+                "name": "Copa de Sangría",
+                "description": "Vino tinto, frutas frescas y jugo de frutas.",
+                "price": "12.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-alitas-kola",
-                "name": "Alitas Kola Wing",
-                "description": "Todas acompañadas de papa nativa",
-                "price": null,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 63,
+                "name": "Cuba libre",
+                "description": "",
+                "price": "12.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-alitas-x6",
-                "name": "Alitas x 6",
-                "description": "Un sabor",
-                "price": 18,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 61,
+                "name": "Daiquiri de durazno",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-alitas-x12",
-                "name": "Alitas x 12",
-                "description": "Dos sabores",
-                "price": 33,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 62,
+                "name": "Daiquiri de fresa",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-alitas-x18",
-                "name": "Alitas x 18",
-                "description": "Tres sabores",
-                "price": 48,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 54,
+                "name": "Jarra de Sangría",
+                "description": "Vino tinto, frutas frescas y jugo de frutas.",
+                "price": "35.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-salchipapas-clasica",
-                "name": "Salchipapas Clásica",
-                "description": "Porción de papas + Hot Dog ahumado + cremas",
-                "price": 11,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 50,
+                "name": "Limonada de Hierba Luisa",
+                "description": "Sin alcohol",
+                "price": "10.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-salchipapas-especial",
-                "name": "Salchipapas Especial",
-                "description": "Porción de papas + Hot Dog ahumado + huevo frito + cremas",
-                "price": 13,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 48,
+                "name": "Machupicchu",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-salchipapas-pobre",
-                "name": "Salchipapas a lo Pobre",
-                "description": "Porción de papas + Hot Dog + plátano + huevo + cremas",
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 44,
+                "name": "Maracuyá sour",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               },
               {
-                "id": "prod-salchi-casona",
-                "name": "Salchi-Casona",
-                "description": "Porción de papas + Hot Dog ahumado + huevo frito + plátano frito + cremas",
-                "price": 17,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "id": 42,
+                "name": "Mojito Clásico",
+                "description": "",
+                "price": "12.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 64,
+                "name": "Mojito Clásico",
+                "description": "Ron",
+                "price": "12.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 41,
+                "name": "Mojito de fresa",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 60,
+                "name": "Perfecto amor",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 46,
+                "name": "Piña colada",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 51,
+                "name": "Piña colada",
+                "description": "Sin alcohol",
+                "price": "12.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 59,
+                "name": "Piscina",
+                "description": "",
+                "price": "15.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 43,
+                "name": "Pisco Sour",
+                "description": "",
+                "price": "14.00",
+                "categoryId": "a0f058f9-1e71-4e4b-924c-02e043393a99",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784570231/tinyafood/ood6v2h8vpkd8actgqbw.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
               }
             ]
           }
         ]
-      },{
+      },
+      {
         "id": "block-7",
         "categories": [
           {
-            "id": "cat-bebidas-cocteles",
-            "name": "Bebidas y Cocteles",
-            "description": null,
+            "id": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
             "block_id": "block-7",
+            "name": "Bebidas",
+            "description": null,
+            "is_active": 1,
             "products": [
               {
-                "id": "prod-margarita-fresa",
-                "name": "Margarita de Fresa",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-tequila-sunrise",
-                "name": "Tequila Sunrise",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-piscina",
-                "name": "Piscina",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-perfecto-amor",
-                "name": "Perfecto Amor",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-sangria-copa",
-                "name": "Sangría Copa",
-                "description": null,
-                "price": 12,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-sangria-jarra",
-                "name": "Sangría Jarra",
-                "description": null,
-                "price": 35,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-vino-santiago",
-                "name": "Vino Santiago Quebrillo",
-                "description": null,
-                "price": 35,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-daiquiri-durazno",
-                "name": "Daiquiri de Durazno",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-daiquiri-fresa",
-                "name": "Daiquiri de Fresa",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-mojito-ron",
-                "name": "Mojito Clásico (Ron)",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-libre",
-                "name": "Libre",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-pantera-rosa",
-                "name": "Pantera Rosa",
-                "description": null,
-                "price": 15,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-
-              {
-                "id": "prod-limonada-americana",
-                "name": "Limonada Americana",
-                "description": null,
-                "price": 12,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-chicha-morada",
-                "name": "Chicha Morada",
-                "description": null,
-                "price": 14,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-limonada-hawaiana",
-                "name": "Limonada Hawaiana",
-                "description": null,
-                "price": 14,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-limonada-clasica",
-                "name": "Limonada Clásica",
-                "description": null,
-                "price": 14,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-limonada-fresa",
-                "name": "Limonada de Fresa",
-                "description": null,
-                "price": 14,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-maracuya",
-                "name": "Maracuyá",
-                "description": null,
-                "price": 14,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-maracu-pina",
-                "name": "Maracu-Piña",
-                "description": null,
-                "price": 14,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-
-              {
-                "id": "prod-frozen",
-                "name": "Frozen",
-                "description": null,
-                "price": 16,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-
-              {
-                "id": "prod-inca-kola-personal",
-                "name": "Inca Kola Personal",
-                "description": null,
-                "price": 4,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-coca-cola-personal",
-                "name": "Coca Cola Personal",
-                "description": null,
-                "price": 4,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-inca-kola-litro",
-                "name": "Inca Kola 1 Lt.",
-                "description": null,
-                "price": 8,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-coca-cola-litro",
-                "name": "Coca Cola 1.5 Lt.",
-                "description": null,
-                "price": 8,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-
-              {
-                "id": "prod-anis",
-                "name": "Anís",
-                "description": null,
-                "price": 3,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-manzanilla",
-                "name": "Manzanilla",
-                "description": null,
-                "price": 3,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-te-hierba-luisa",
-                "name": "Hierba Luisa",
-                "description": null,
-                "price": 3,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-te-canela-clavo",
-                "name": "Té de Canela y Clavo",
-                "description": null,
-                "price": 3,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-cafe",
-                "name": "Café",
-                "description": null,
-                "price": 3,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
-              },
-              {
-                "id": "prod-cerveza-corona",
+                "id": 80,
                 "name": "Cerveza Corona",
-                "description": null,
-                "price": 8,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784310138/tinyafood/ad3f3txgemu1txrskmit.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 51,
+                    "productId": 80,
+                    "quantity": "1.00",
+                    "unit": "unidad",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
               },
               {
-                "id": "prod-cerveza-heineken",
+                "id": 81,
                 "name": "Cerveza Heineken",
-                "description": null,
-                "price": 8,
-                "is_recommended": null,
-                "is_hidden": false,
-                "image_url": null,
-                "cloudinary_id": null
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784329973/tinyafood/k7zr0ysgdaiwsrnhenqn.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 52,
+                    "productId": 81,
+                    "quantity": "1.00",
+                    "unit": "unidad",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 67,
+                "name": "Chicha morada",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784310831/tinyafood/kg5rjct9rvhqlxfu7nkc.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 35,
+                    "productId": 67,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "14.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 36,
+                    "productId": 67,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 74,
+                "name": "Frozen",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784341425/tinyafood/hparjgdebcygyjquxdm3.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 49,
+                    "productId": 74,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "16.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 50,
+                    "productId": 74,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "9.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 66,
+                "name": "Limonada Americana",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784341012/tinyafood/m2mow2kfagptb3gdllfg.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 33,
+                    "productId": 66,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "12.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 34,
+                    "productId": 66,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 70,
+                "name": "Limonada Clásica",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784339497/tinyafood/ws8bqjfmfmhqqc7d5x4s.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 41,
+                    "productId": 70,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "12.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 42,
+                    "productId": 70,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "7.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 71,
+                "name": "Limonada de fresa",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784341585/tinyafood/u4325bn59n7wahzvn8b8.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 43,
+                    "productId": 71,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "14.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 44,
+                    "productId": 71,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 69,
+                "name": "Limonada de Hierba Luisa",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784341743/tinyafood/sktlqrikmohk9iqwwvrd.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 39,
+                    "productId": 69,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "14.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 40,
+                    "productId": 69,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 68,
+                "name": "Limonada Hawaiana",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784341931/tinyafood/n7oudbmrqaby20hdqnrd.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 37,
+                    "productId": 68,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "14.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 38,
+                    "productId": 68,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 72,
+                "name": "Maracuyá",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784313388/tinyafood/opghgxwjslqprducz2ao.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 45,
+                    "productId": 72,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "13.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 46,
+                    "productId": 72,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              },
+              {
+                "id": 73,
+                "name": "Marcu-piña",
+                "description": "",
+                "price": "0.00",
+                "categoryId": "ac9dc222-89a1-4ee8-b0a2-d5baa497ae7e",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784341948/tinyafood/cecmawqruady6leuk52e.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": [
+                  {
+                    "id": 47,
+                    "productId": 73,
+                    "quantity": "1.00",
+                    "unit": "jarra",
+                    "price": "14.00",
+                    "bonus": null,
+                    "isDefault": false
+                  },
+                  {
+                    "id": 48,
+                    "productId": 73,
+                    "quantity": "1.00",
+                    "unit": "1/2 jarra",
+                    "price": "8.00",
+                    "bonus": null,
+                    "isDefault": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "6f95bacc-c38a-427f-9a5d-ce7586ac5810",
+            "block_id": "block-7",
+            "name": "Bebidas Calientes",
+            "description": null,
+            "is_active": 1,
+            "products": [
+              {
+                "id": 82,
+                "name": "Anís",
+                "description": "",
+                "price": "3.00",
+                "categoryId": "6f95bacc-c38a-427f-9a5d-ce7586ac5810",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 86,
+                "name": "Café",
+                "description": "",
+                "price": "5.00",
+                "categoryId": "6f95bacc-c38a-427f-9a5d-ce7586ac5810",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 84,
+                "name": "Hierba Luisa",
+                "description": "",
+                "price": "3.00",
+                "categoryId": "6f95bacc-c38a-427f-9a5d-ce7586ac5810",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 83,
+                "name": "Manzanilla",
+                "description": "",
+                "price": "3.00",
+                "categoryId": "6f95bacc-c38a-427f-9a5d-ce7586ac5810",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 85,
+                "name": "Té de canela y clavo",
+                "description": "",
+                "price": "3.00",
+                "categoryId": "6f95bacc-c38a-427f-9a5d-ce7586ac5810",
+                "imageUrl": null,
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              }
+            ]
+          },
+          {
+            "id": "263f23e1-7753-42ec-a65b-8f667f1ea391",
+            "block_id": "block-7",
+            "name": "Gaseosas",
+            "description": null,
+            "is_active": 1,
+            "products": [
+              {
+                "id": 79,
+                "name": "Coca Cola 1.5 Lts.",
+                "description": "",
+                "price": "12.00",
+                "categoryId": "263f23e1-7753-42ec-a65b-8f667f1ea391",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784353876/tinyafood/ulhyzi230bwxjcap7pfn.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 76,
+                "name": "Coca Cola Personal",
+                "description": "Personal",
+                "price": "4.00",
+                "categoryId": "263f23e1-7753-42ec-a65b-8f667f1ea391",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784312436/tinyafood/s7uhriflprr7wwuzn4ml.png",
+                "isActive": true,
+                "isRecommended": true,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 77,
+                "name": "Inca Kola 1 Lt.",
+                "description": "",
+                "price": "8.00",
+                "categoryId": "263f23e1-7753-42ec-a65b-8f667f1ea391",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784342471/tinyafood/ldxasocroowx4nk1fwad.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 78,
+                "name": "Inca Kola 1.5 Lts.",
+                "description": "",
+                "price": "12.00",
+                "categoryId": "263f23e1-7753-42ec-a65b-8f667f1ea391",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784318462/tinyafood/afa37biwis000c7wueoc.png",
+                "isActive": true,
+                "isRecommended": false,
+                "prices": [],
+                "priceRanges": []
+              },
+              {
+                "id": 17,
+                "name": "Inca Kola Personal",
+                "description": "",
+                "price": "4.00",
+                "categoryId": "263f23e1-7753-42ec-a65b-8f667f1ea391",
+                "imageUrl": "https://res.cloudinary.com/dzdlyynhv/image/upload/v1784311806/tinyafood/xqfn4ji78l32gaatq7cg.png",
+                "isActive": true,
+                "isRecommended": true,
+                "prices": [],
+                "priceRanges": []
               }
             ]
           }
         ]
       }
     ]
-  }
+  },
+  "timestamp": "2026-07-20T22:01:41.722Z",
+  "statusCode": 200
 }

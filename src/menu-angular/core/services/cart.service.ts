@@ -19,7 +19,7 @@ export class Cart {
   // Delivery zone selection
   readonly selectedDeliveryZone = signal<DeliveryZone | null>(null);
 
-  // Computed signals
+  // Computed signalsœ
   readonly count = computed(() =>
     this.items().reduce((acc, item) => acc + item.quantity, 0),
   );

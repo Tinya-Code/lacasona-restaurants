@@ -19,10 +19,22 @@
   <div class="px-6 py-4 flex items-center justify-between border-b-2 border-secondary/50">
     <h2 class="font-display text-slate-800 text-xl overflow-hidden text-ellipsis whitespace-nowrap">{{ title() }}</h2>
     <button (click)="onClose()"
-      class="p-2 rounded-full text-secondary hover:bg-slate-100 hover:text-slate-800 transition-all">
+      class="p-2 rounded-full text-secondary hover:bg-slate-100 hover:text-slate-800 transition-all"
+      aria-label="Cerrar modal"
+      title="Cerrar modal">
       <svg lucideX class="w-6 h-6"></svg>
     </button>
   </div>
+  }
+
+  @if (variant() === 'banner') {
+  <!-- Banner Close Button -->
+  <button (click)="onClose()"
+    class="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/90 hover:text-white text-slate-800 hover:bg-slate-800 transition-all active:scale-95 active:bg-slate-800 active:text-white"
+    aria-label="Cerrar banner"
+    title="Cerrar banner">
+    <svg lucideX class="w-6 h-6"></svg>
+  </button>
   }
 
   <!-- Content Wrapper -->

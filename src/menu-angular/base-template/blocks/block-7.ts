@@ -36,6 +36,7 @@ import { TemplateSectionTitleComponent } from "../components/template-section-ti
               <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 @for (product of cat.products; track product.id) {
                   <app-template-card
+                    type="bebida"
                     [product]="product"
                     (productClick)="productClick.emit($event)"
                     (addToCart)="addToCart.emit($event)"

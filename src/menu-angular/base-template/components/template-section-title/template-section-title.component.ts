@@ -10,21 +10,18 @@ import { LucideWavesHorizontal } from "@lucide/angular";
       class="flex flex-col  items-center justify-center z-10 gap-2 md:gap-4 mb-8"
     >
       <div
-        class="flex  flex-col items-center justify-center mx-auto  text-center"
+        class="flex  flex-col items-center justify-center mx-auto  "
       >
         <h3
-          class="text-6xl md:text-7xl text-white flex gap-4 items-center font-display  bg-clip-text bg-primary uppercase tracking-tight"
+          class="text-6xl md:text-7xl text-accent text-center flex gap-6 items-center font-display  bg-clip-text bg-primary uppercase tracking-tight"
         >
-          <svg lucideWaves class="w-6 h-6 text-white shrink-0"></svg>
+          <svg lucideWaves class="w-6 h-6 text-accent shrink-0"></svg>
           {{ title() }}
-          <svg
-            lucideWaves
-            class="w-6 h-6 text-white shrink-0 rotate-180"
-          ></svg>
+          <svg lucideWaves class="w-6 h-6 text-accent shrink-0 rotate-180"></svg>
         </h3>
         <ng-content></ng-content>
         @if (description()) {
-          <p class="text-xl text-accent mt-1 font-display">
+          <p class="text-xl text-white mt-1 text-center font-display">
             {{ description() }}
           </p>
         }

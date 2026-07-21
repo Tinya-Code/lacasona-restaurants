@@ -29,6 +29,7 @@ import { PriceRangeCard } from "../price-range-card/price-range-card";
 })
 export class TemplateCardComponent {
   product = input.required<Product>();
+  type = input<'bebida' | 'comida'>('comida');
   productClick = output<Product>();
   addToCart = output<Product>();
 
@@ -37,6 +38,12 @@ export class TemplateCardComponent {
   readonly canOrder = computed(
     () => this.restaurantService.orderConfig()?.delivery_enabled ?? true,
   );
+
+  readonly pricePositionClass = computed(() => {
+    return this.type() === 'bebida' 
+      ? 'absolute -left-6 bottom-3 ' 
+      : 'absolute -right-7 top-4';
+  });
 
   /** True if the product has embedded price ranges from the API. */
   readonly hasPriceRange = computed(() => {

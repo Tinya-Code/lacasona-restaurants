@@ -16,7 +16,7 @@ import { PrecioPipe } from "../../../core/pipes/precio.pipe";
   template: `
     <div
       (click)="productClick.emit(product())"
-      class="group relative p-4 justify-between items-center transition-all duration-300 overflow-hidden cursor-pointer bg-primary text-white rounded-b-xl rounded-t-[120px] flex flex-col h-full"
+      class="group relative min-h-full p-4 justify-between items-center transition-all duration-300 overflow-hidden cursor-pointer bg-primary text-white rounded-b-xl rounded-t-[120px] flex flex-col"
     >
       <!-- Image (Side position) -->
       <div

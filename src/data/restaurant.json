@@ -19,7 +19,7 @@
     },
     "display_config": {},
     "order_config": {
-      "enabled": true,
+      "enabled": false,
       "max_order_quantity": 10,
       "delivery_fee": 5,
       "payment_methods": [
@@ -28,7 +28,7 @@
         "yape"
       ],
       "accepts_reservations": false,
-      "delivery_enabled": true,
+      "delivery_enabled": false,
       "pickup_enabled": false
     },
     "business_config": {

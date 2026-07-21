@@ -4,10 +4,14 @@
 
 <div
   (click)="productClick.emit(product())"
-  class="group relative flex @container min-h-65 md:min-h-55 max-h-100 h-full bg-tertiary transition-all duration-300 cursor-pointer rounded-3xl"
+  class="group relative flex @container justify-center min-h-65 md:min-h-55 max-h-100 h-full bg-tertiary transition-all duration-300 cursor-pointer   rounded-2xl"
 >
   <h3
-    class="text-[2rem] leading-7 w-[76%] md:text-3xl text-center flex absolute top-2 left-4 md:top-1 md:left-2 font-display text-primary-text tracking-tight group-hover:text-accent transition-colors"
+    class="text-[2rem] leading-7 mx-auto top-2  md:top-1 text-center md:text-3xl px-2 flex absolute  font-display text-primary-text tracking-tight group-hover:text-accent transition-colors"
+   [ngClass]="{
+        'w-auto ': type() === 'bebida',
+        'w-[76%] left-3 md:left-2 ': type() !== 'bebida'
+      }"
   >
     {{ product().name }} @if (product().isRecommended) {
     <svg
@@ -16,17 +20,19 @@
     ></svg>
     }
   </h3>
-  <div class="flex rounded-sm absolute -right-7 top-4 font-display text-white">
+  <!--parte que cambia segun el tipo bebida o comida -->
+  <div class="flex rounded-sm font-display text-white z-20" [ngClass]="pricePositionClass()">
     <p
       class="text-4xl font-display  w-4 text-tertiary absolute"
       [ngClass]="{
         'left-2 top-9 text-2xl': hasDecimal(startingPrice() || 0),
-        'left-4 top-8 text-4xl': !hasDecimal(startingPrice() || 0)
+        'left-2 top-7 text-4xl': !hasDecimal(startingPrice() || 0)
       }"
     >
       {{ startingPrice() | precio }}
     </p>
-    <svg class="h-27 w-27 rounded-full overflow-hidden" viewBox="0 0 1279 1261">
+    
+    <svg class="h-25 w-25 rounded-full overflow-hidden" viewBox="0 0 1279 1261">
       <g transform="matrix(1,0,0,1,-0.5,-0.205352)">
         <g transform="matrix(0.1,0,0,-0.1,0,1261)">
           <path
@@ -38,10 +44,10 @@
     </svg>
   </div>
   <!-- Contenido Derecho (Info) -->
-  <div class="flex relative w-full items-end h-full mt-auto">
+  <div class="flex relative w-full max-h-[80%] md:max-h-[80%] items-end h-full mt-auto">
     <img
       [src]="product().imageUrl"
-      class="w-auto object-contain max-h-[80%] md:max-h-[80%] h-full mx-auto z-10 px-8 pt-2 drop-shadow-xl drop-shadow-black"
+      class="w-auto object-contain  h-full mx-auto z-10 px-8 pt-2 drop-shadow-xl drop-shadow-black"
       alt="{{ product().name }}"
     />
 

@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
-import { inject, Injectable } from "@angular/core";
+import { inject, Injectable, signal } from "@angular/core";
 import type { Observable } from "rxjs";
-import { of } from "rxjs";
-import { catchError } from "rxjs/operators";
+import { of, throwError, timer } from "rxjs";
+import { catchError, map, shareReplay, retry, timeout, delay, scan } from "rxjs/operators";
 import {
   type GalleryResponse,
   type MenuResponse,
@@ -13,7 +13,7 @@ import {
   type BannersResponse,
 } from "../models/menu.model";
 import type { RestaurantInfo } from "../models/restaurant.model";
-import { map } from "rxjs/operators";
+import { RestaurantContextService } from "./restaurant-context.service";
 
 // Local data imports (used as fallback when HTTP is unavailable)
 import combosLocal from "../../../data/combos.json";
@@ -31,65 +31,168 @@ import bannersLocal from "../../../data/banners.json";
 export class MenuService {
   private useApi = true;
   private readonly apiUrl = "https://tinyacode.com";
-  private readonly restaurantId = "00000000-0000-0000-0000-000000000001";
+  private readonly requestTimeout = 10000; // 10 segundos de timeout
+  private readonly maxRetries = 2; // Máximo de reintentos
+  private readonly retryDelay = 2000; // 2 segundos entre reintentos
 
-  private readonly http: HttpClient | null;
+  // Caché para optimizar peticiones
+  private menuCache$: Observable<MenuResponse> | null = null;
+  private restaurantCache$: Observable<RestaurantInfo> | null = null;
+  private galleryCache$: Observable<GalleryResponse> | null = null;
+  private combosCache$: Observable<CombosResponse> | null = null;
+  private promotionsCache$: Observable<{ data: any[] }> | null = null;
+  private bannersCache$: Observable<BannersResponse> | null = null;
+
+  // Estado de conexión
+  private isOnline = signal(true);
+
+  private readonly http: HttpClient;
+  private readonly context: RestaurantContextService;
 
   constructor() {
-    this.http = inject(HttpClient, { optional: true }) as HttpClient | null;
-    if (!this.http) {
-      this.useApi = false;
-    }
+    this.http = inject(HttpClient);
+    this.context = inject(RestaurantContextService);
   }
 
   setUseApi(value: boolean): void {
     this.useApi = value;
+    // Limpiar caché al cambiar el modo
+    this.clearCache();
+  }
+
+  /**
+   * Manejo centralizado de errores con fallback
+   */
+  private handleError<T>(fallback: T, operation: string): (error: any) => Observable<T> {
+    return (error: any) => {
+      console.error(`API error en ${operation}:`, error);
+      this.isOnline.set(false);
+      return of(fallback);
+    };
+  }
+
+  /**
+   * Validación segura de datos numéricos
+   */
+  private toNumber(value: any): number {
+    const n = parseFloat(value);
+    return isNaN(n) ? 0 : n;
+  }
+
+  /**
+   * Validación de estructura de respuesta
+   */
+  private validateResponse<T>(response: any, requiredFields: string[]): T {
+    if (!response) {
+      throw new Error('Respuesta nula');
+    }
+    
+    for (const field of requiredFields) {
+      if (!(field in response)) {
+        throw new Error(`Campo requerido faltante: ${field}`);
+      }
+    }
+    
+    return response as T;
+  }
+
+  /**
+   * Retry con backoff exponencial
+   */
+  private retryWithBackoff<T>(maxAttempts: number, delayMs: number) {
+    return (errors: Observable<any>) => errors.pipe(
+      scan((acc, error) => {
+        if (acc >= maxAttempts) throw error;
+        return acc + 1;
+      }, 0),
+      delay(delayMs)
+    );
+  }
+
+  /**
+   * Limpiar toda la caché
+   */
+  clearCache(): void {
+    this.menuCache$ = null;
+    this.restaurantCache$ = null;
+    this.galleryCache$ = null;
+    this.combosCache$ = null;
+    this.promotionsCache$ = null;
+    this.bannersCache$ = null;
+  }
+
+  /**
+   * Obtener el ID del restaurante actual
+   */
+  private getRestaurantId(): string {
+    return this.context.getRestaurantId();
+  }
+
+  /**
+   * Verificar estado de conexión
+   */
+  getConnectionStatus(): boolean {
+    return this.isOnline();
   }
 
   /**
    * Get menu data (carta). Products include embedded priceRanges[].
    */
   getMenuData(): Observable<MenuResponse> {
-    if (this.useApi && this.http) {
-      return this.http
+    if (!this.menuCache$) {
+      this.menuCache$ = this.http
         .get<MenuResponse>(
-          `${this.apiUrl}/carta/restaurant/${this.restaurantId}`
+          `${this.apiUrl}/carta/restaurant/${this.getRestaurantId()}`
         )
-        .pipe(catchError(() => of(menuDataLocal as unknown as MenuResponse)));
+        .pipe(
+          timeout(this.requestTimeout),
+          retry(this.maxRetries),
+          map((res) => this.validateResponse<MenuResponse>(res, ['data'])),
+          shareReplay(1),
+          catchError(this.handleError(menuDataLocal as unknown as MenuResponse, 'getMenuData'))
+        );
     }
-    return of(menuDataLocal as unknown as MenuResponse);
+    return this.menuCache$;
   }
 
   /**
    * Get restaurant information and settings.
    */
   getRestaurantInfo(): Observable<RestaurantInfo> {
-    if (this.useApi && this.http) {
-      return this.http
+    if (!this.restaurantCache$) {
+      this.restaurantCache$ = this.http
         .get<RestaurantInfo>(
-          `${this.apiUrl}/restaurants/${this.restaurantId}/settings`
+          `${this.apiUrl}/restaurants/${this.getRestaurantId()}/settings`
         )
         .pipe(
-          catchError(() => of(restaurantLocal as unknown as RestaurantInfo))
+          timeout(this.requestTimeout),
+          retry(this.maxRetries),
+          map((res) => this.validateResponse<RestaurantInfo>(res, ['data'])),
+          shareReplay(1),
+          catchError(this.handleError(restaurantLocal as unknown as RestaurantInfo, 'getRestaurantInfo'))
         );
     }
-    return of(restaurantLocal as unknown as RestaurantInfo);
+    return this.restaurantCache$;
   }
 
   /**
    * Get gallery data.
    */
   getGalleryData(): Observable<GalleryResponse> {
-    if (this.useApi && this.http) {
-      return this.http
+    if (!this.galleryCache$) {
+      this.galleryCache$ = this.http
         .get<GalleryResponse>(
-          `${this.apiUrl}/restaurants/${this.restaurantId}/gallery`
+          `${this.apiUrl}/restaurants/${this.getRestaurantId()}/gallery`
         )
         .pipe(
-          catchError(() => of(galleryLocal as unknown as GalleryResponse))
+          timeout(this.requestTimeout),
+          retry(this.maxRetries),
+          map((res) => this.validateResponse<GalleryResponse>(res, ['data'])),
+          shareReplay(1),
+          catchError(this.handleError(galleryLocal as unknown as GalleryResponse, 'getGalleryData'))
         );
     }
-    return of(galleryLocal as unknown as GalleryResponse);
+    return this.galleryCache$;
   }
 
   /**
@@ -103,27 +206,36 @@ export class MenuService {
    * Get all combos.
    */
   getCombos(): Observable<CombosResponse> {
-    if (this.useApi && this.http) {
-      return this.http
+    if (!this.combosCache$) {
+      this.combosCache$ = this.http
         .get<CombosResponse>(
-          `${this.apiUrl}/restaurants/${this.restaurantId}/combos`
+          `${this.apiUrl}/restaurants/${this.getRestaurantId()}/combos`
         )
-        .pipe(catchError(() => of(combosLocal as unknown as CombosResponse)));
+        .pipe(
+          timeout(this.requestTimeout),
+          retry(this.maxRetries),
+          map((res) => this.validateResponse<CombosResponse>(res, ['data'])),
+          shareReplay(1),
+          catchError(this.handleError(combosLocal as unknown as CombosResponse, 'getCombos'))
+        );
     }
-    return of(combosLocal as unknown as CombosResponse);
+    return this.combosCache$;
   }
 
   /**
    * Get all promotions.
    */
   getPromotions(): Observable<{ data: any[] }> {
-    if (this.useApi && this.http) {
-      return this.http
+    if (!this.promotionsCache$) {
+      this.promotionsCache$ = this.http
         .get<PromotionsResponse>(
-          `${this.apiUrl}/restaurants/${this.restaurantId}/products/promotions`
+          `${this.apiUrl}/restaurants/${this.getRestaurantId()}/products/promotions`
         )
         .pipe(
+          timeout(this.requestTimeout),
+          retry(this.maxRetries),
           map((response) => {
+            this.validateResponse<PromotionsResponse>(response, ['data']);
             const mappedData = (response.data || []).map((apiPromo: ApiPromotion) => {
               const hasPrices = apiPromo.prices && apiPromo.prices.length > 0;
               const firstPriceEntry = hasPrices ? apiPromo.prices[0] : null;
@@ -134,19 +246,17 @@ export class MenuService {
               // 2. Description preference
               const description = firstPriceEntry?.description || apiPromo.description || "";
 
-              // 3. Price preference (original price)
+              // 3. Price preference (original price) - usando toNumber seguro
               const basePrice = apiPromo.price
-                ? Number(apiPromo.price)
+                ? this.toNumber(apiPromo.price)
                 : firstPriceEntry?.price
-                  ? Number(firstPriceEntry.price)
+                  ? this.toNumber(firstPriceEntry.price)
                   : 0;
 
-              // 4. Discounted price preference (promotional price)
+              // 4. Discounted price preference (promotional price) - usando toNumber seguro
               const discountedPrice = firstPriceEntry?.price
-                ? Number(firstPriceEntry.price)
+                ? this.toNumber(firstPriceEntry.price)
                 : basePrice;
-
-       
 
               return {
                 id: String(apiPromo.id),
@@ -167,35 +277,24 @@ export class MenuService {
             });
             return { ...response, data: mappedData };
           }),
-          catchError(() => {
-            // Map local promotions to match the structure if they don't have it
-            const mappedLocal = (promotionsLocal.data || []).map((p: any) => ({
+          shareReplay(1),
+          catchError(this.handleError({
+            success: true,
+            data: (promotionsLocal.data || []).map((p: any) => ({
               id: String(p.id),
               name: p.name,
               description: p.description,
-              price: Number(p.price),
-              discountedPrice: Number(p.discountedPrice),
+              price: this.toNumber(p.price),
+              discountedPrice: this.toNumber(p.discountedPrice),
               cloudinary_id: p.cloudinary_id || "",
               url: p.url || "/images/combos/combo-1.png",
               prices: [],
               priceRanges: []
-            }));
-            return of({ success: true, data: mappedLocal });
-          })
+            }))
+          }, 'getPromotions'))
         );
     }
-    const mappedLocal = (promotionsLocal.data || []).map((p: any) => ({
-      id: String(p.id),
-      name: p.name,
-      description: p.description,
-      price: Number(p.price),
-      discountedPrice: Number(p.discountedPrice),
-      cloudinary_id: p.cloudinary_id || "",
-      url: p.url || "/images/combos/combo-1.png",
-      prices: [],
-      priceRanges: []
-    }));
-    return of({ success: true, data: mappedLocal });
+    return this.promotionsCache$;
   }
 
   /**
@@ -209,21 +308,24 @@ export class MenuService {
    * Get active banners.
    */
   getBanners(): Observable<BannersResponse> {
-    if (this.useApi && this.http) {
-      return this.http
+    if (!this.bannersCache$) {
+      this.bannersCache$ = this.http
         .get<BannersResponse>(
-          `${this.apiUrl}/restaurants/${this.restaurantId}/banners`
+          `${this.apiUrl}/restaurants/${this.getRestaurantId()}/banners`
         )
         .pipe(
+          timeout(this.requestTimeout),
+          retry(this.maxRetries),
           map((res) => {
             if (!res || !res.data || res.data.length === 0) {
               return bannersLocal as unknown as BannersResponse;
             }
             return res;
           }),
-          catchError(() => of(bannersLocal as unknown as BannersResponse))
+          shareReplay(1),
+          catchError(this.handleError(bannersLocal as unknown as BannersResponse, 'getBanners'))
         );
     }
-    return of(bannersLocal as unknown as BannersResponse);
+    return this.bannersCache$;
   }
 }

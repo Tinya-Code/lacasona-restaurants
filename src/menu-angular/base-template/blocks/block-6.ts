@@ -16,7 +16,7 @@ import { TemplateSectionTitleComponent } from "../components/template-section-ti
   imports: [TemplateCardComponent, TemplateSectionTitleComponent],
   template: `
     @if (categories().length > 0) {
-      <section class="relative py-12">
+      <section class="relative py-12 px-8">
         @for (
           cat of categories();
           track cat.id;
@@ -30,9 +30,10 @@ import { TemplateSectionTitleComponent } from "../components/template-section-ti
             ></app-template-section-title>
 
             <div class="grid grid-cols-5 gap-8">
-              <div class="grid grid-cols-2 md:grid-cols-2 col-span-4">
+              <div class="grid grid-cols-3 md:grid-cols-4 gap-6 col-span-5 md:col-span-4">
                 @for (product of cat.products; track product.id) {
                   <app-template-card
+                    type="bebida"
                     [product]="product"
                     (productClick)="productClick.emit($event)"
                     (addToCart)="addToCart.emit($event)"

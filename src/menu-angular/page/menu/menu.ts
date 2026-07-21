@@ -14,6 +14,7 @@ import { BaseTemplate } from "../../base-template";
 import { WhatsAppButton } from "../../components/whatsapp-button/whatsapp-button.component";
 import { LoadingScreenComponent } from "../../components/loading-screen/loading-screen.component";
 import { forkJoin } from "rxjs";
+import { finalize } from "rxjs/operators";
 
 // Services
 import { Cart } from "../../core/services/cart.service";
@@ -44,6 +45,7 @@ export class Menu implements OnInit {
   // UI State
   readonly isLoading = signal(false);
   readonly selectedProduct = signal<any | null>(null);
+  readonly isOffline = signal(false);
 
   // Data signals
   readonly blocks = signal<Block[]>([]);
@@ -62,12 +64,20 @@ export class Menu implements OnInit {
   readonly businessHours = this._businessHours.rawHours;
 
   ngOnInit() {
+    this.isLoading.set(true);
+    this.isOffline.set(false);
+
     // We wait for the main data sources to be ready
     forkJoin({
       menu: this.menuService.getMenuData(),
       combos: this.menuService.getCombos(),
       promotions: this.menuService.getPromotions(),
-    }).subscribe(({ menu, combos, promotions }) => {
+    }).pipe(
+      finalize(() => {
+        this.isLoading.set(false);
+        this.isOffline.set(!this.menuService.getConnectionStatus());
+      })
+    ).subscribe(({ menu, combos, promotions }) => {
       // 1. Process Menu Data
       if (menu?.data?.blocks) {
         const normalizedBlocks = menu.data.blocks.map((block: any) => ({
